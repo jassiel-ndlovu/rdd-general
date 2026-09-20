@@ -125,19 +125,37 @@ run gh api -X PUT "repos/$REPO/actions/permissions/workflow" \
 # -----------------------------------------------------------------------------
 say "Rulesets"
 # -----------------------------------------------------------------------------
+# Read the "name" field without a JSON parser. `python` on Windows cannot open a
+# Git Bash path like /c/Users/..., and jq is not always installed -- sed is the
+# one tool guaranteed to be present wherever this script runs.
+ruleset_name() {
+  sed -n 's/^[[:space:]]*"name"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$1" | head -1
+}
+
+# gh on Windows is a native .exe: a Git Bash path such as /c/Users/... or /tmp/...
+# is meaningless to it, and `gh api --input` fails with "cannot find the path".
+# Same fix as infra/config.sh uses for the AWS CLI.
+nativepath() {
+  if command -v cygpath >/dev/null 2>&1; then cygpath -m "$1"; else printf '%s' "$1"; fi
+}
+
 apply_ruleset() {
   local file="$1" name
-  name=$(python -c "import json,sys;print(json.load(open(sys.argv[1]))['name'])" "$file")
+  name=$(ruleset_name "$file")
+  [ -n "$name" ] || { echo "error: no \"name\" field in $file" >&2; return 1; }
 
   local existing
   existing=$(gh api "repos/$REPO/rulesets" --jq \
       ".[] | select(.name == \"$name\") | .id" 2>/dev/null | head -1 || true)
 
+  local native
+  native=$(nativepath "$file")
+
   if [ -n "$existing" ]; then
-    run gh api -X PUT "repos/$REPO/rulesets/$existing" --input "$file" --silent
+    run gh api -X PUT "repos/$REPO/rulesets/$existing" --input "$native" --silent
     ok "updated ruleset '$name' (id $existing)"
   else
-    run gh api -X POST "repos/$REPO/rulesets" --input "$file" --silent
+    run gh api -X POST "repos/$REPO/rulesets" --input "$native" --silent
     ok "created ruleset '$name'"
   fi
 }
@@ -160,19 +178,13 @@ fi
 # -----------------------------------------------------------------------------
 if [ "$REQUIRE_CI" = "1" ]; then
 say "Required status check"
+  # Insert the status-check rule into the existing rules array, without a JSON
+  # parser: append it after the opening '"rules": [' line.
   TMP=$(mktemp)
-  python - "$HERE/rulesets/protect-main.json" > "$TMP" <<'PY'
-import json, sys
-rs = json.load(open(sys.argv[1]))
-rs["rules"].append({
-    "type": "required_status_checks",
-    "parameters": {
-        "strict_required_status_checks_policy": True,
-        "required_status_checks": [{"context": "check"}],
-    },
-})
-print(json.dumps(rs, indent=2))
-PY
+  sed 's/^\([[:space:]]*\)"rules": \[$/\1"rules": [\n\1  { "type": "required_status_checks", "parameters": { "strict_required_status_checks_policy": true, "required_status_checks": [ { "context": "check" } ] } },/' \
+      "$HERE/rulesets/protect-main.json" > "$TMP"
+  grep -q 'required_status_checks' "$TMP" \
+    || { echo "error: failed to inject the status-check rule" >&2; rm -f "$TMP"; exit 1; }
   apply_ruleset "$TMP"
   rm -f "$TMP"
   ok "CI 'check' job is now a required status check"

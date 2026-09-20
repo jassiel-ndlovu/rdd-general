@@ -148,3 +148,5 @@ that every pipeline module imports, the fixture smoke test, that the frozen clas
 unchanged, and that the augmentation constraints are still in place.
 
 **Before you launch a GPU instance, tell the team.** One instance at a time.
+
+<!-- codeowners verification, delete this branch afterwards -->
