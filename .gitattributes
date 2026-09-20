@@ -1,0 +1,32 @@
+# =============================================================================
+#  Line endings
+# =============================================================================
+#  Force LF in the repository AND in every working copy, on every platform.
+#
+#  Without this, a collaborator on Windows with the default core.autocrlf=true
+#  gets CRLF working copies. bash then fails on the infra scripts with the
+#  distinctly unhelpful:
+#
+#      set: pipefail: invalid option name
+#
+#  This has already cost this project an afternoon once. `eol=lf` overrides the
+#  collaborator's autocrlf setting, so nobody has to configure anything.
+# =============================================================================
+
+*               text=auto eol=lf
+
+*.sh            text eol=lf
+*.py            text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.json          text eol=lf
+*.md            text eol=lf
+*.txt           text eol=lf
+
+# Binary: never touch these.
+*.pt            binary
+*.onnx          binary
+*.png           binary
+*.jpg           binary
+*.pdf           binary
+*.zip           binary
