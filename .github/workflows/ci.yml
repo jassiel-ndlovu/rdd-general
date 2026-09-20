@@ -1,0 +1,119 @@
+# =============================================================================
+#  Continuous integration
+# =============================================================================
+#  Deliberately small and fast. It exists to catch the failure modes that have
+#  actually occurred on this project, not to be comprehensive:
+#
+#    * CRLF line endings, which make bash refuse the infra scripts outright
+#    * a pipeline module that imports but does not run
+#    * a change to the FROZEN class ids, which silently invalidates every
+#      checkpoint and every results table produced before it
+#
+#  Torch is NOT installed here. It is ~900 MB and nothing in CI trains, so the
+#  training dependency is stripped from the requirements before install.
+# =============================================================================
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      # -- shell hygiene ----------------------------------------------------
+      - name: Shell scripts must use LF line endings
+        run: |
+          if grep -rlU $'\r' infra/ --include='*.sh'; then
+            echo "::error::CRLF line endings found above. bash reports these as"
+            echo "::error::'set: pipefail: invalid option name'. Convert to LF."
+            exit 1
+          fi
+          echo "all infra/*.sh are LF"
+
+      - name: Shell scripts must parse
+        run: |
+          for f in infra/*.sh; do bash -n "$f" || exit 1; done
+          echo "all infra/*.sh parse"
+
+      # -- python -----------------------------------------------------------
+      - name: Install pipeline dependencies
+        run: |
+          grep -v '^ultralytics' requirements.txt > /tmp/requirements-ci.txt
+          pip install --quiet -r /tmp/requirements-ci.txt
+
+      - name: Every module imports
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          import importlib, pkgutil, sys
+          sys.path.insert(0, "src")
+          failed = []
+          for m in pkgutil.walk_packages(["src/rdd"], prefix="rdd."):
+              if ".train" in m.name or ".eval" in m.name:
+                  continue                      # these need torch
+              try:
+                  importlib.import_module(m.name)
+              except Exception as e:
+                  failed.append(f"{m.name}: {e}")
+          if failed:
+              sys.exit("import failures:\n  " + "\n  ".join(failed))
+          print("all pipeline modules import")
+          PY
+
+      - name: Pipeline smoke test on synthetic data
+        run: |
+          PYTHONPATH=src python -m rdd.data._make_fixture --root /tmp/fixture
+          PYTHONPATH=src python -m rdd.data.voc_to_coco --root /tmp/fixture \
+            --source rdd2022 --split train --out /tmp/fixture/out.json --no-strict
+          test -s /tmp/fixture/out.json
+          echo "converter produced non-empty output"
+
+      # -- project invariants ------------------------------------------------
+      - name: Class ids are frozen
+        run: |
+          python - <<'PY'
+          import sys, yaml
+          want = {0: "C1_longitudinal_crack", 1: "C2_transverse_crack",
+                  2: "C3_alligator_crack",   3: "C4_pothole",
+                  4: "C5_white_line_blur",   5: "C6_crosswalk_blur",
+                  6: "C7_rutting"}
+          got = {c["id"]: c["name"] for c in yaml.safe_load(
+                     open("configs/classmap.yaml"))["classes"]}
+          bad = {k: (v, got.get(k)) for k, v in want.items() if got.get(k) != v}
+          if bad:
+              print("FROZEN class ids changed. expected -> found:")
+              for k, (exp, fnd) in bad.items():
+                  print(f"  id {k}: {exp!r} -> {fnd!r}")
+              sys.exit("Renumbering invalidates every checkpoint and every "
+                       "results table produced before this change.")
+          print("class ids intact")
+          PY
+
+      - name: Augmentation constraints are intact
+        run: |
+          python - <<'PY'
+          import re, sys
+          src = open("src/rdd/train/train_yolo.py", encoding="utf-8").read()
+          for key in ("flipud", "degrees"):
+              m = re.search(rf"^\s*{key}\s*=\s*([0-9.]+)", src, re.M)
+              if not m:
+                  sys.exit(f"{key} is no longer set explicitly in train_yolo.py")
+              if float(m.group(1)) != 0.0:
+                  sys.exit(f"{key}={m.group(1)} -- must stay 0.0. Orientation is "
+                           f"definitional for C1 vs C2: rotating an image relabels it.")
+          print("flipud and degrees are both 0.0")
+          PY

@@ -1,0 +1,54 @@
+# =============================================================================
+#  Internal-only material -- NOT published
+# =============================================================================
+#  The public repository carries the code scaffolding only. Research findings,
+#  infrastructure specifics, cost figures and project planning stay private
+#  until the work is published.
+#
+#  Note that /docs is where the project's reasoning lives. If you are reading
+#  this in the public repository and a comment refers to a document you cannot
+#  find, that is why -- ask the project manager.
+/docs/
+/Deliverables/
+/notebooks/
+*.pdf
+
+# Data and artefacts live in S3, never in the repo.
+# LEADING SLASH IS LOAD-BEARING: an unanchored `data/` also matches
+# src/rdd/data/, which would silently exclude the entire data pipeline from the
+# repository and break CI on the first push.
+/data/
+/runs/
+/logs/
+*.pt
+*.onnx
+*.zip
+*.tar.gz
+*.jpg
+*.png
+!docs/**/*.png
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Local overrides -- may contain account-specific values
+infra/config.local.sh
+.env
+
+# Never commit credentials
+*.pem
+*.key
+credentials
+.aws/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs
+docs/

@@ -1,0 +1,39 @@
+# =============================================================================
+#  Code owners
+# =============================================================================
+#  Combined with the "Require review from Code Owners" rule on `main`, this file
+#  is what makes project-manager approval mandatory: no pull request can merge
+#  without a review from an owner listed here, however many teammates approve it.
+#
+#  CODEOWNERS is LAST-MATCH-WINS, not cumulative. A path matched by a later rule
+#  is owned ONLY by that rule. The catch-all below must therefore come FIRST, and
+#  every later rule must also name the project manager -- otherwise that path
+#  silently drops out of his review.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+#  Catch-all. DO NOT REMOVE THIS LINE.
+# -----------------------------------------------------------------------------
+#  Without it only the specific paths below require review, which leaves
+#  .github/ (including this file and the CI workflow), requirements.txt,
+#  src/rdd/verify/, src/rdd/eval/ and the README mergeable without the project
+#  manager. A teammate could then edit CODEOWNERS itself and remove the rest.
+*                       @jassiel-ndlovu
+
+# --- Especially sensitive paths ----------------------------------------------
+# These are already covered by the catch-all. They are listed separately so that
+# the REASON is recorded in the repository. Do not loosen them.
+
+# Class ids are frozen; renumbering invalidates every checkpoint and every
+# results table produced before the change.
+/configs/classmap.yaml  @jassiel-ndlovu
+
+# Provisions and destroys billable cloud resources.
+/infra/                 @jassiel-ndlovu
+
+# Determines what every reported number means.
+/src/rdd/data/          @jassiel-ndlovu
+/src/rdd/train/         @jassiel-ndlovu
+
+# Governance and CI. Changes here can disable every other control in the repo.
+/.github/               @jassiel-ndlovu

@@ -1,0 +1,155 @@
+# =============================================================================
+#  RDD project -- canonical class map  (objective O2)
+# =============================================================================
+#  The single source of truth for how every source dataset's label vocabulary
+#  maps onto the project taxonomy. Nothing in the pipeline is allowed to invent
+#  a class; if a source label is not listed here the converter fails loudly
+#  rather than silently dropping or guessing it.
+#
+#  Class ids are FROZEN. Renumbering them invalidates every trained checkpoint
+#  and every results table produced before the change.
+# =============================================================================
+
+version: 1
+frozen_on: 2026-09-19
+
+# --- Project taxonomy --------------------------------------------------------
+# Core tier: trained and benchmarked. Extended tier: reported separately.
+classes:
+  - id: 0
+    name: C1_longitudinal_crack
+    tier: core
+    task: detection
+    definition: >
+      Crack whose dominant axis lies within +/-30 degrees of the direction of
+      travel; not part of an interconnected cell pattern.
+    expected_instances: 26016          # RDD2022 D00 total
+
+  - id: 1
+    name: C2_transverse_crack
+    tier: core
+    task: detection
+    definition: >
+      Crack whose dominant axis lies within +/-30 degrees of perpendicular to
+      travel. Excludes fine full-width surfacing crazing and cracks within
+      300 mm of the pavement edge.
+    expected_instances: 11830          # RDD2022 D10 total
+
+  - id: 2
+    name: C3_alligator_crack
+    tier: core
+    task: detection
+    definition: >
+      Interconnected cracks forming closed cells, typically in a wheel path.
+      TMH 9 tie-break: when torn between this and dense longitudinal, label
+      alligator.
+    expected_instances: 10617          # RDD2022 D20 total
+
+  - id: 3
+    name: C4_pothole
+    tier: core
+    task: detection
+    definition: >
+      Bounded region of absent surfacing with a texturally distinct interior.
+      Absorbs surfacing failures and "blowouts"; severity is an attribute, not
+      a separate class.
+    expected_instances: 6544           # RDD2022 D40 total
+
+  - id: 4
+    name: C5_white_line_blur
+    tier: extended
+    task: detection
+    definition: >
+      Painted longitudinal line whose intact painted area is below roughly 70%
+      of its nominal extent over a run of at least 2 m.
+    expected_instances: 5057           # RDD2022 D44 total
+    status: ACTIVE
+
+  - id: 5
+    name: C6_crosswalk_blur
+    tier: extended
+    task: detection
+    definition: >
+      Crosswalk, stop line or road symbol with the same degree of wear as C5,
+      for markings with a two-dimensional footprint.
+    expected_instances: 793            # RDD2022 D43 total
+    status: ACTIVE
+
+  - id: 6
+    name: C7_rutting
+    tier: extended
+    task: segmentation
+    definition: >
+      Longitudinal depression confined to a wheel path, evidenced by a
+      continuous change in texture or specularity over at least 3 m.
+    expected_instances: null           # 949 images, instance count unpublished
+    status: PROVISIONAL                # marginal data volume; may be descoped
+
+# --- Source vocabulary -> project class --------------------------------------
+# RDD2020 merged D01 into D00 and D11 into D10. We reproduce that merge so that
+# RDD2018 and RDD2022 annotations become directly comparable.
+sources:
+
+  rdd2022:
+    format: pascal_voc
+    label_map:
+      D00: C1_longitudinal_crack
+      D01: C1_longitudinal_crack     # 179 inst -- the RDD2020 merge, applied here
+      D10: C2_transverse_crack
+      D11: C2_transverse_crack       # 45 inst  -- the RDD2020 merge, applied here
+      D20: C3_alligator_crack
+      D40: C4_pothole
+      D43: C6_crosswalk_blur         # 793 inst
+      D44: C5_white_line_blur        # 5,057 inst
+      D50: __IGNORE__                # 3,581 inst -- manhole / utility cover
+      Repair: __IGNORE__             # 1,046 inst -- patched road; ambiguous
+      "Block crack": __IGNORE__      # 3 inst     -- too few to learn
+      D0w0: __IGNORE__               # 1 inst     -- typo for D00; see note
+    notes: >
+      This map is derived from the label strings actually present in the
+      released XML annotations, enumerated by running the converter in strict
+      mode over the full training set. Do not replace it with the label map
+      shipped alongside the dataset: the two do not agree, and the difference
+      is not in your favour. The project's reasoning is recorded internally.
+
+      D50 (manhole) and Repair are excluded from the taxonomy but are NOT
+      noise -- both are candidates for explicit distractor classes, since
+      manholes are a documented false-positive trigger (Maeda et al. 2018).
+      Revisit once the core classes are working.
+
+      D0w0 is a single-instance typo for D00. It is dropped rather than
+      silently corrected, so that the annotation-noise rate stays measurable.
+
+  rdd2018:
+    format: pascal_voc
+    label_map:
+      D00: C1_longitudinal_crack     # longitudinal, wheel-mark part
+      D01: C1_longitudinal_crack     # longitudinal, construction-joint part
+      D10: C2_transverse_crack       # lateral, equal interval
+      D11: C2_transverse_crack       # lateral, construction-joint part
+      D20: C3_alligator_crack
+      D40: C4_pothole                # composite in the source: see note
+      D43: C6_crosswalk_blur
+      D44: C5_white_line_blur
+    notes: >
+      RDD2018's D40 is documented by its own authors as "rutting, bump, pothole,
+      separation" merged into one class because the four are hard to separate in
+      images, and it scores 2-3% recall in that paper. Mapping it wholesale to
+      C4_pothole therefore imports known label noise. Objective O1 calls for a
+      stratified re-label of a D40 sample before this mapping is trusted.
+
+  # Community re-annotations add classes the official releases never had.
+  # Listed so the converter can reject them explicitly rather than crash.
+  community_forks:
+    format: pascal_voc
+    label_map:
+      D50: __IGNORE__                # manhole / utility cover
+      Repair: __IGNORE__             # pending the annotation audit in O1
+    notes: >
+      Third-party re-annotations have no quality control. Excluded from
+      training until audited; see the datasets note in the proposal.
+
+# --- Ignore semantics --------------------------------------------------------
+# __IGNORE__ means: drop the annotation but KEEP the image, as background.
+# This differs from dropping the image, which would discard a valid negative.
+ignore_token: __IGNORE__
