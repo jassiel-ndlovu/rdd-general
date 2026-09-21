@@ -112,9 +112,17 @@ chmod +x /usr/local/bin/rdd-idle-check
 
 # Flush results to S3 before the instance goes down, so a shutdown is never
 # a data-loss event.
+# The per-country evaluation leaves a scratch tree of symlinked validation
+# images inside each run directory. Those images already live in S3 under the
+# dataset prefix, so syncing them re-uploads ~10,800 objects and ~1.7 GB PER RUN
+# for nothing. Keep these exclusions identical to the two other places that
+# sync this directory: src/rdd/train/train_yolo.py and infra/run-tierA.sh.
 cat > /usr/local/bin/rdd-sync-out <<SYNC
 #!/bin/bash
-aws s3 sync /opt/rdd/runs "s3://$RDD_BUCKET/runs/\$(hostname)/" --only-show-errors || true
+aws s3 sync /opt/rdd/runs "s3://$RDD_BUCKET/runs/\$(hostname)/" --only-show-errors \\
+  --exclude "_per_country/*" \\
+  --exclude "*/_per_country/*" \\
+  --exclude "*.cache" || true
 aws s3 sync /opt/rdd/logs "s3://$RDD_BUCKET/logs/\$(hostname)/" --only-show-errors || true
 SYNC
 chmod +x /usr/local/bin/rdd-sync-out

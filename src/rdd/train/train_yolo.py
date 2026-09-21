@@ -75,12 +75,19 @@ def s3_sync(local: Path, remote: str) -> None:
     country archives, so syncing them would re-upload tens of thousands of
     files per run for no benefit. Exclude the scratch tree and the dataset
     caches; keep weights, metrics, plots and the summary.
+
+    Both `_per_country/*` and `*/_per_country/*` are needed. The AWS CLI matches
+    these patterns against the path RELATIVE TO THE SYNC SOURCE, so which one
+    fires depends on whether the source is the run directory or its parent.
+    Getting this wrong is silent: the sync succeeds and simply uploads 1.7 GB of
+    duplicated images. It has happened once already -- see infra/run-tierA.sh.
     """
     if not remote:
         return
     subprocess.run(
         ["aws", "s3", "sync", str(local), remote, "--only-show-errors",
          "--exclude", "_per_country/*",
+         "--exclude", "*/_per_country/*",
          "--exclude", "*.cache"],
         check=False)
 

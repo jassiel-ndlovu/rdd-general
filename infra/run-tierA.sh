@@ -100,5 +100,19 @@ say "AGGREGATE"
 "$PY" -m rdd.eval.aggregate --runs "$HOME_DIR/runs" --out "$HOME_DIR/runs/tierA_summary.json" || \
   echo "  (aggregate step unavailable; per-run summary.json files are still written)"
 
-aws s3 sync "$HOME_DIR/runs" "$S3_RUNS" --only-show-errors
+# The per-country evaluation builds a scratch tree of symlinked validation
+# images inside each run directory. Those images already live in S3 under the
+# dataset prefix, so syncing them re-uploads ~10,800 objects and ~1.7 GB PER RUN
+# for no benefit. train_yolo.py excludes them; this sync and rdd-sync-out must
+# do the same, or the exclusion is pointless.
+#
+# Keep these three exclusion lists identical:
+#   src/rdd/train/train_yolo.py  ->  s3_sync()
+#   infra/run-tierA.sh           ->  here
+#   infra/userdata.sh            ->  rdd-sync-out
+aws s3 sync "$HOME_DIR/runs" "$S3_RUNS" --only-show-errors \
+  --exclude "_per_country/*" \
+  --exclude "*/_per_country/*" \
+  --exclude "*.cache"
+
 say "TIER A COMPLETE -- results at $S3_RUNS"
