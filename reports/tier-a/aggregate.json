@@ -1,0 +1,321 @@
+{
+  "split_sha256": {
+    "train": "449424f3df5f0d8220ad17c2be3db171466f11e4e677e8cc43dfcd4f6136fa3a",
+    "val": "e7309f5e11a755f5d968966e1bf231a40a5578acebcbb2d7368a40f3108ecab4"
+  },
+  "std_convention": "sample standard deviation across seeds (n-1); 0.0 where a config has a single seed",
+  "configs": {
+    "tierA_base6": {
+      "n_seeds": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "n_classes": 6,
+      "split_sha256": {
+        "train": "449424f3df5f0d8220ad17c2be3db171466f11e4e677e8cc43dfcd4f6136fa3a",
+        "val": "e7309f5e11a755f5d968966e1bf231a40a5578acebcbb2d7368a40f3108ecab4"
+      },
+      "pooled": {
+        "mAP50_mean": 0.6462333333333333,
+        "mAP50_std": 0.00037859388971997655,
+        "mAP50_95_mean": 0.3720333333333333,
+        "mAP50_95_std": 0.0007234178138070397
+      },
+      "per_class": {
+        "C1_longitudinal_crack": {
+          "AP50_mean": 0.5837333333333333,
+          "AP50_std": 0.0015176736583776304,
+          "AP50_95_mean": 0.33093333333333336,
+          "AP50_95_std": 0.001985782801147536,
+          "precision_mean": 0.6587000000000001,
+          "precision_std": 0.007901898506055334,
+          "recall_mean": 0.5335333333333333,
+          "recall_std": 0.007354817015625405
+        },
+        "C2_transverse_crack": {
+          "AP50_mean": 0.5441333333333334,
+          "AP50_std": 0.0029871948937646134,
+          "AP50_95_mean": 0.26966666666666667,
+          "AP50_95_std": 0.0020033305601755637,
+          "precision_mean": 0.6202,
+          "precision_std": 0.008834025130143098,
+          "recall_mean": 0.4954,
+          "recall_std": 0.01244708801286468
+        },
+        "C3_alligator_crack": {
+          "AP50_mean": 0.6849,
+          "AP50_std": 0.005311308689955827,
+          "AP50_95_mean": 0.3782,
+          "AP50_95_std": 0.0013076696830622173,
+          "precision_mean": 0.6910000000000001,
+          "precision_std": 0.01475635456337369,
+          "recall_mean": 0.6328666666666667,
+          "recall_std": 0.014184968570050915
+        },
+        "C4_pothole": {
+          "AP50_mean": 0.5145,
+          "AP50_std": 0.006331666447310708,
+          "AP50_95_mean": 0.23716666666666666,
+          "AP50_95_std": 0.000680685928555403,
+          "precision_mean": 0.6759666666666667,
+          "precision_std": 0.0032347076117221324,
+          "recall_mean": 0.43196666666666667,
+          "recall_std": 0.004950084174368496
+        },
+        "C5_white_line_blur": {
+          "AP50_mean": 0.7131333333333333,
+          "AP50_std": 0.006709942871093091,
+          "AP50_95_mean": 0.443,
+          "AP50_95_std": 0.0030049958402633453,
+          "precision_mean": 0.6250666666666667,
+          "precision_std": 0.016695009234299143,
+          "recall_mean": 0.7252000000000001,
+          "recall_std": 0.011264102272262986
+        },
+        "C6_crosswalk_blur": {
+          "AP50_mean": 0.8367666666666667,
+          "AP50_std": 0.006381483631047984,
+          "AP50_95_mean": 0.5734333333333334,
+          "AP50_95_std": 0.002768272626265916,
+          "precision_mean": 0.7872333333333333,
+          "precision_std": 0.016419906617680082,
+          "recall_mean": 0.7833,
+          "recall_std": 0.012330450113438715
+        }
+      },
+      "per_country_spread_mAP50": 0.6577333333333334,
+      "per_country": {
+        "China_MotorBike": {
+          "mAP50_mean": 0.9016666666666667,
+          "mAP50_std": 0.005301257712405012,
+          "f1_mean": 0.8553666666666667,
+          "f1_std": 0.0012423096769056063,
+          "n_val_images": 297
+        },
+        "Czech": {
+          "mAP50_mean": 0.4861,
+          "mAP50_std": 0.015358059773291688,
+          "f1_mean": 0.4936666666666667,
+          "f1_std": 0.020677604632387516,
+          "n_val_images": 424
+        },
+        "India": {
+          "mAP50_mean": 0.49443333333333334,
+          "mAP50_std": 0.0009451631252505115,
+          "f1_mean": 0.5220666666666667,
+          "f1_std": 0.023525588905133368,
+          "n_val_images": 1156
+        },
+        "Japan": {
+          "mAP50_mean": 0.6615,
+          "mAP50_std": 0.0019924858845171,
+          "f1_mean": 0.6407,
+          "f1_std": 0.002835489375751609,
+          "n_val_images": 1576
+        },
+        "Norway": {
+          "mAP50_mean": 0.24393333333333334,
+          "mAP50_std": 0.008205079727420907,
+          "f1_mean": 0.3231,
+          "f1_std": 0.00985038070330279,
+          "n_val_images": 1224
+        },
+        "United_States": {
+          "mAP50_mean": 0.6195999999999999,
+          "mAP50_std": 0.011910919359982225,
+          "f1_mean": 0.6227666666666667,
+          "f1_std": 0.010150041050820098,
+          "n_val_images": 721
+        }
+      }
+    },
+    "tierA_ctrl4": {
+      "n_seeds": 1,
+      "seeds": [
+        0
+      ],
+      "n_classes": 4,
+      "split_sha256": {
+        "train": "449424f3df5f0d8220ad17c2be3db171466f11e4e677e8cc43dfcd4f6136fa3a",
+        "val": "e7309f5e11a755f5d968966e1bf231a40a5578acebcbb2d7368a40f3108ecab4"
+      },
+      "pooled": {
+        "mAP50_mean": 0.5813,
+        "mAP50_std": 0.0,
+        "mAP50_95_mean": 0.3028,
+        "mAP50_95_std": 0.0
+      },
+      "per_class": {
+        "C1_longitudinal_crack": {
+          "AP50_mean": 0.586,
+          "AP50_std": 0.0,
+          "AP50_95_mean": 0.3301,
+          "AP50_95_std": 0.0,
+          "precision_mean": 0.6287,
+          "precision_std": 0.0,
+          "recall_mean": 0.5537,
+          "recall_std": 0.0
+        },
+        "C2_transverse_crack": {
+          "AP50_mean": 0.5414,
+          "AP50_std": 0.0,
+          "AP50_95_mean": 0.271,
+          "AP50_95_std": 0.0,
+          "precision_mean": 0.5897,
+          "precision_std": 0.0,
+          "recall_mean": 0.5176,
+          "recall_std": 0.0
+        },
+        "C3_alligator_crack": {
+          "AP50_mean": 0.6931,
+          "AP50_std": 0.0,
+          "AP50_95_mean": 0.3829,
+          "AP50_95_std": 0.0,
+          "precision_mean": 0.6669,
+          "precision_std": 0.0,
+          "recall_mean": 0.6539,
+          "recall_std": 0.0
+        },
+        "C4_pothole": {
+          "AP50_mean": 0.5048,
+          "AP50_std": 0.0,
+          "AP50_95_mean": 0.2271,
+          "AP50_95_std": 0.0,
+          "precision_mean": 0.6218,
+          "precision_std": 0.0,
+          "recall_mean": 0.4409,
+          "recall_std": 0.0
+        }
+      },
+      "per_country_spread_mAP50": 0.6499999999999999,
+      "per_country": {
+        "China_MotorBike": {
+          "mAP50_mean": 0.9015,
+          "mAP50_std": 0.0,
+          "f1_mean": 0.8501,
+          "f1_std": 0.0,
+          "n_val_images": 297
+        },
+        "Czech": {
+          "mAP50_mean": 0.4768,
+          "mAP50_std": 0.0,
+          "f1_mean": 0.4971,
+          "f1_std": 0.0,
+          "n_val_images": 424
+        },
+        "India": {
+          "mAP50_mean": 0.4674,
+          "mAP50_std": 0.0,
+          "f1_mean": 0.499,
+          "f1_std": 0.0,
+          "n_val_images": 1156
+        },
+        "Japan": {
+          "mAP50_mean": 0.5918,
+          "mAP50_std": 0.0,
+          "f1_mean": 0.5794,
+          "f1_std": 0.0,
+          "n_val_images": 1576
+        },
+        "Norway": {
+          "mAP50_mean": 0.2515,
+          "mAP50_std": 0.0,
+          "f1_mean": 0.319,
+          "f1_std": 0.0,
+          "n_val_images": 1224
+        },
+        "United_States": {
+          "mAP50_mean": 0.6143,
+          "mAP50_std": 0.0,
+          "f1_mean": 0.6118,
+          "f1_std": 0.0,
+          "n_val_images": 721
+        }
+      }
+    }
+  },
+  "h2_comparison": {
+    "baseline": "tierA_base6",
+    "control": "tierA_ctrl4",
+    "baseline_n_classes": 6,
+    "control_n_classes": 4,
+    "split_sha256": {
+      "train": "449424f3df5f0d8220ad17c2be3db171466f11e4e677e8cc43dfcd4f6136fa3a",
+      "val": "e7309f5e11a755f5d968966e1bf231a40a5578acebcbb2d7368a40f3108ecab4"
+    },
+    "sign_convention": "delta = control (4-class) minus baseline (6-class); a negative delta means the 4-class control scored lower",
+    "effect_size_definition": "delta divided by the baseline's seed-to-seed sample standard deviation (n-1) for the same class and metric. The control arm has a single seed, so the denominator comes from the baseline arm alone and cannot absorb control-seed variance.",
+    "metrics": {
+      "AP50": {
+        "per_class": {
+          "C1_longitudinal_crack": {
+            "baseline_mean": 0.5837333333333333,
+            "baseline_std": 0.0015176736583776304,
+            "control": 0.586,
+            "delta": 0.002266666666666639,
+            "delta_over_baseline_sd": 1.4935138751038683
+          },
+          "C2_transverse_crack": {
+            "baseline_mean": 0.5441333333333334,
+            "baseline_std": 0.0029871948937646134,
+            "control": 0.5414,
+            "delta": -0.0027333333333333654,
+            "delta_over_baseline_sd": -0.9150167399652592
+          },
+          "C3_alligator_crack": {
+            "baseline_mean": 0.6849,
+            "baseline_std": 0.005311308689955827,
+            "control": 0.6931,
+            "delta": 0.008200000000000096,
+            "delta_over_baseline_sd": 1.5438756206181445
+          },
+          "C4_pothole": {
+            "baseline_mean": 0.5145,
+            "baseline_std": 0.006331666447310708,
+            "control": 0.5048,
+            "delta": -0.009699999999999931,
+            "delta_over_baseline_sd": -1.531982153627167
+          }
+        },
+        "mean_delta": -0.0004916666666666403,
+        "max_abs_effect_size": 1.5438756206181445
+      },
+      "AP50_95": {
+        "per_class": {
+          "C1_longitudinal_crack": {
+            "baseline_mean": 0.33093333333333336,
+            "baseline_std": 0.001985782801147536,
+            "control": 0.3301,
+            "delta": -0.0008333333333333526,
+            "delta_over_baseline_sd": -0.4196497889153785
+          },
+          "C2_transverse_crack": {
+            "baseline_mean": 0.26966666666666667,
+            "baseline_std": 0.0020033305601755637,
+            "control": 0.271,
+            "delta": 0.001333333333333353,
+            "delta_over_baseline_sd": 0.6655583256397313
+          },
+          "C3_alligator_crack": {
+            "baseline_mean": 0.3782,
+            "baseline_std": 0.0013076696830622173,
+            "control": 0.3829,
+            "delta": 0.0047000000000000375,
+            "delta_over_baseline_sd": 3.594179830638788
+          },
+          "C4_pothole": {
+            "baseline_mean": 0.23716666666666666,
+            "baseline_std": 0.000680685928555403,
+            "control": 0.2271,
+            "delta": -0.010066666666666668,
+            "delta_over_baseline_sd": -14.789003627606668
+          }
+        },
+        "mean_delta": -0.0012166666666666576,
+        "max_abs_effect_size": 14.789003627606668
+      }
+    }
+  }
+}
