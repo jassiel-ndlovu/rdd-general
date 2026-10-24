@@ -138,20 +138,28 @@ find_instance() {
 # not work here, because aws.exe is a native binary and cannot see /dev/fd.
 remote() {
   local iid="$1" body="$2"
-  local bodyf paramsf cid
+  local bodyf paramsf cid winbody winparams
   bodyf="$(mktemp)"; paramsf="$(mktemp)"
   printf '%s' "$body" > "$bodyf"
+
+  # MSYS_NO_PATHCONV, set above so that remote paths survive the trip to
+  # aws.exe, also stops Git Bash converting /tmp/... for python.exe -- which is
+  # equally a native binary and cannot open a POSIX path. Convert explicitly
+  # for the native tools; the shell keeps using the POSIX form.
+  winbody="$(cygpath -m "$bodyf" 2>/dev/null || echo "$bodyf")"
+  winparams="$(cygpath -m "$paramsf" 2>/dev/null || echo "$paramsf")"
+
   python -c "
 import json, sys
 body = open(sys.argv[1], encoding='utf-8').read()
 open(sys.argv[2], 'w', encoding='utf-8').write(
     json.dumps({'commands': [body], 'executionTimeout': ['300']}))
-" "$bodyf" "$paramsf" 2>/dev/null \
+" "$winbody" "$winparams" \
     || { rm -f "$bodyf" "$paramsf"; err "could not build the request"; return 1; }
 
   cid=$(aws ssm send-command --region "$AWS_REGION" --instance-ids "$iid" \
         --document-name AWS-RunShellScript --timeout-seconds 300 \
-        --parameters "file://$(cygpath -m "$paramsf" 2>/dev/null || echo "$paramsf")" \
+        --parameters "file://$winparams" \
         --query 'Command.CommandId' --output text 2>/dev/null)
   rm -f "$bodyf" "$paramsf"
   [ -n "$cid" ] || { err "send-command failed (is SSM registered yet?)"; return 1; }
