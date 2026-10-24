@@ -7,6 +7,8 @@
 #      bash infra/track.sh --watch 60   # refresh every 60 seconds
 #      bash infra/track.sh --log        # + the last meaningful log lines
 #      bash infra/track.sh --cost       # + month-to-date spend
+#      bash infra/track.sh --history    # + the recorded trend, from the daemon
+#      bash infra/track.sh --history 30 # + the last 30 samples
 #
 #  Read-only. Starts nothing, stops nothing, changes nothing.
 #
@@ -33,13 +35,15 @@ export MSYS_NO_PATHCONV=1
 export PYTHONIOENCODING=utf-8
 export PYTHONUTF8=1
 
-WATCH=0; INTERVAL=300; SHOW_LOG=0; SHOW_COST=0
+WATCH=0; INTERVAL=300; SHOW_LOG=0; SHOW_COST=0; SHOW_HIST=0; HIST_N=12
 while [ $# -gt 0 ]; do
   case "$1" in
     --watch) WATCH=1; shift
              case "${1:-}" in ''|--*) ;; *) INTERVAL="$1"; shift ;; esac ;;
     --log)   SHOW_LOG=1; shift ;;
     --cost)  SHOW_COST=1; shift ;;
+    --history) SHOW_HIST=1; shift
+             case "${1:-}" in ''|--*) ;; *) HIST_N="$1"; shift ;; esac ;;
     -h|--help) sed -n '2,15p' "${BASH_SOURCE[0]}"; exit 0 ;;
     *) echo "unknown option: $1" >&2; exit 1 ;;
   esac
@@ -95,12 +99,32 @@ else
   echo "(no results.csv yet)"
 fi
 
+echo "### export"
+# The exporter prints "N source images -> M tiles"; the last line is progress.
+if pgrep -f "rdd.data.to_yolo_tiled" >/dev/null 2>&1; then
+  EL=$(ls -1t /opt/rdd/logs/tierb*.log 2>/dev/null | head -1)
+  if [ -n "$EL" ]; then
+    L=$(tr '
+' '
+' < "$EL" | grep -a "source images ->" | tail -1)
+    [ -n "$L" ] && echo "in progress: $L" || echo "in progress: starting"
+  fi
+else
+  echo "(not exporting)"
+fi
+
 echo "### housekeeping"
 df -h / | tail -1 | awk '{print "disk     : " $4 " free, " $5 " used"}'
 if [ -f /opt/rdd/KEEP_ALIVE ]; then
   echo "watchdog : HELD OFF (KEEP_ALIVE present)"
 else
   echo "watchdog : armed"
+fi
+P=/opt/rdd/logs/progress-daemon.pid
+if [ -f "$P" ] && kill -0 "$(cat "$P")" 2>/dev/null; then
+  echo "recorder : running (pid $(cat "$P")), $(wc -l < /opt/rdd/logs/progress.jsonl 2>/dev/null || echo 0) samples"
+else
+  echo "recorder : NOT RUNNING -- start it with infra/progress-daemon.sh"
 fi
 EOS
 
@@ -114,6 +138,35 @@ tr '\r' '\n' < "$L" \
   | grep -aE '^=== |^## |AP50=|^epochs |Traceback|[Ee]rror|^wrote |PASSED|FAILED' \
   | tr -cd '\11\12\15\40-\176' \
   | tail -20
+EOS
+
+read -r -d '' REMOTE_HIST <<'EOS'
+J=/opt/rdd/logs/progress.jsonl
+if [ ! -s "$J" ]; then echo "no samples recorded yet"; exit 0; fi
+python3 - "$J" __N__ <<'PY'
+import json, sys
+rows = []
+for line in open(sys.argv[1], encoding="utf-8"):
+    line = line.strip()
+    if line:
+        try: rows.append(json.loads(line))
+        except Exception: pass
+rows = rows[-int(sys.argv[2]):]
+if not rows:
+    print("no parsable samples"); raise SystemExit
+print(f"{'time (UTC)':17} {'phase':12} {'ep':>7} {'mAP50':>7} {'gpu':>4} {'mem':>6} {'disk':>5}")
+for r in rows:
+    ep = f"{r.get('epoch',0)}/{r.get('total',0)}" if r.get("total") else "-"
+    print(f"{r.get('t','')[5:16]:17} {r.get('phase',''):12} {ep:>7} "
+          f"{r.get('mAP50',0):7.4f} {r.get('gpu_util',0):3}% "
+          f"{r.get('gpu_mb',0)/1024:5.1f}G {r.get('disk_free_gb',0):4}G")
+last = rows[-1]
+if last.get("total") and last.get("eta_h"):
+    print(f"
+  {last['sec_per_epoch']:.0f}s/epoch, about {last['eta_h']:.1f} h remaining")
+if "s3_objects" in last:
+    print(f"  uploaded: {last['s3_objects']} objects, {last['s3_mb']} MB")
+PY
 EOS
 
 check_session() {
@@ -201,7 +254,13 @@ report() {
   hdr "GPU";          section "$out" gpu
   hdr "Running";      section "$out" procs
   hdr "Training";     section "$out" runs
+  hdr "Export";       section "$out" export
   hdr "Housekeeping"; section "$out" housekeeping
+
+  if [ "$SHOW_HIST" = "1" ]; then
+    hdr "Recorded trend (last $HIST_N samples)"
+    remote "$iid" "${REMOTE_HIST//__N__/$HIST_N}" | sed 's/^/  /'
+  fi
 
   if [ "$SHOW_LOG" = "1" ]; then
     hdr "Log"

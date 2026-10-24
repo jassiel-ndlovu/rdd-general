@@ -37,6 +37,11 @@ cd /opt/rdd/code
 export PYTHONPATH=src PYTHONUNBUFFERED=1
 
 touch "$KEEP"
+
+# Record progress for the whole run. The daemon is idempotent (one pidfile) and
+# outlives this script on purpose, so the tail of a run and its upload are
+# recorded too. It holds no KEEP_ALIVE, so it cannot keep the instance awake.
+bash infra/progress-daemon.sh >/dev/null 2>&1 &
 trap 'rm -f "$KEEP"; echo "idle watchdog re-armed at $(date -Is)"' EXIT
 
 echo "=== 1/3 balanced tiled export  $(date -Is) ==="

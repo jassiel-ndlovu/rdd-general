@@ -35,6 +35,11 @@ export PYTHONPATH=src PYTHONUNBUFFERED=1
 # below is partly CPU-bound, which looks idle to the watchdog. Re-asserting it
 # on every poll is simpler than coordinating with the other script's trap.
 touch "$KEEP"
+
+# Record progress for the whole run. The daemon is idempotent (one pidfile) and
+# outlives this script on purpose, so the tail of a run and its upload are
+# recorded too. It holds no KEEP_ALIVE, so it cannot keep the instance awake.
+bash infra/progress-daemon.sh >/dev/null 2>&1 &
 trap 'rm -f "$KEEP"; echo "idle watchdog re-armed at $(date -Is)"' EXIT
 
 echo "=== waiting for training to finish  $(date -Is) ==="
