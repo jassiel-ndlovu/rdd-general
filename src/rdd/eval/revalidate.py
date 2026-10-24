@@ -221,8 +221,13 @@ def stage_false_negatives(model, names: dict[int, str], args, report: dict) -> N
     n = 0
     for start in range(0, len(images), CHUNK):
         batch = [str(p) for p in images[start:start + CHUNK]]
+        # batch=1 is not the default here: given a list of paths, Ultralytics
+        # sizes the predictor's batch from the source and tries to push the
+        # whole chunk through one forward pass. At 250 images that asked for
+        # 3 GiB in a single conv and died with 11.5 GiB already resident on a
+        # 14.6 GiB card. stream=True does not change it; the batch size does.
         for res in model.predict(batch, imgsz=args.imgsz, conf=CONF_FLOOR,
-                                 stream=True, verbose=False):
+                                 stream=True, verbose=False, batch=1):
             n += 1
             _accumulate(res, want, val_lbl_dir, fns, tally)
         if getattr(model, "predictor", None) is not None:
