@@ -211,56 +211,24 @@ def stage_false_negatives(model, names: dict[int, str], args, report: dict) -> N
     fns: list[dict] = []
     tally: dict[str, dict] = defaultdict(lambda: {"gt": 0, "fn_report": 0, "fn_floor": 0})
 
-    for n, res in enumerate(model.predict(
-        [str(p) for p in images], imgsz=args.imgsz, conf=CONF_FLOOR,
-        stream=True, verbose=False,
-    ), start=1):
-        stem = Path(res.path).stem
-        h, w = res.orig_shape
-        gts = load_labels(val_lbl_dir / f"{stem}.txt", w, h)
-        if not any(g[0] == want for g in gts):
-            continue                      # nothing of this class to miss
-        preds = [
-            (int(c), *(float(v) for v in xyxy), float(cf))
-            for c, xyxy, cf in zip(
-                res.boxes.cls.tolist(),
-                res.boxes.xyxy.tolist(),
-                res.boxes.conf.tolist(),
-            )
-        ]
-        at_report, _ = match(gts, preds, REPORT_CONF)
-        at_floor, _ = match(gts, preds, CONF_FLOOR)
-        country = country_of(stem)
-
-        for gi, g in enumerate(gts):
-            if g[0] != want:
-                continue
-            tally[country]["gt"] += 1
-            missed_report = gi not in at_report
-            missed_floor = gi not in at_floor
-            if missed_report:
-                tally[country]["fn_report"] += 1
-            if missed_floor:
-                tally[country]["fn_floor"] += 1
-            if missed_report:
-                bw, bh = g[3] - g[1], g[4] - g[2]
-                fns.append({
-                    "image": stem,
-                    "country": country,
-                    "box_xyxy": [round(v, 1) for v in g[1:5]],
-                    "box_w": round(bw, 1),
-                    "box_h": round(bh, 1),
-                    "box_area_px": round(bw * bh, 1),
-                    "box_area_frac": round(bw * bh / (w * h), 6),
-                    "image_w": w,
-                    "image_h": h,
-                    # The distinction that matters: a box the detector found
-                    # but under-scored is a different problem from one it never
-                    # produced at all.
-                    "detected_at_floor": not missed_floor,
-                })
-        if n % 1000 == 0:
-            print(f"  {n}/{len(images)} images")
+    # Chunked, not one call over all 5,398 paths. Ultralytics builds its
+    # dataset and predictor from the whole source list before yielding
+    # anything, and on a 15 GB box that was enough to be OOM-killed during
+    # setup -- exit 137, about thirty seconds in, with nothing written. Chunks
+    # keep the per-call footprint flat, and releasing the predictor between
+    # them stops it accumulating across the pass.
+    CHUNK = 250
+    n = 0
+    for start in range(0, len(images), CHUNK):
+        batch = [str(p) for p in images[start:start + CHUNK]]
+        for res in model.predict(batch, imgsz=args.imgsz, conf=CONF_FLOOR,
+                                 stream=True, verbose=False):
+            n += 1
+            _accumulate(res, want, val_lbl_dir, fns, tally)
+        if getattr(model, "predictor", None) is not None:
+            model.predictor = None
+        gc.collect()
+        print(f"  {min(start + CHUNK, len(images))}/{len(images)} images")
 
     report["false_negatives"] = {
         "class": args.fn_class,
@@ -282,6 +250,60 @@ def stage_false_negatives(model, names: dict[int, str], args, report: dict) -> N
         print(f"  never detected at any confidence  {total_ff}"
               f"  ({total_ff / total_gt:.1%})")
         print(f"  under-scored rather than absent   {total_fr - total_ff}")
+
+
+def _accumulate(res, want: int, val_lbl_dir: Path,
+                fns: list[dict], tally: dict) -> None:
+    """Record one image's misses for the wanted class.
+
+    Pulled out of the prediction loop so that loop can be chunked without
+    duplicating the body.
+    """
+    stem = Path(res.path).stem
+    h, w = res.orig_shape
+    gts = load_labels(val_lbl_dir / f"{stem}.txt", w, h)
+    if not any(g[0] == want for g in gts):
+        return                            # nothing of this class to miss
+
+    preds = [
+        (int(c), *(float(v) for v in xyxy), float(cf))
+        for c, xyxy, cf in zip(
+            res.boxes.cls.tolist(),
+            res.boxes.xyxy.tolist(),
+            res.boxes.conf.tolist(),
+        )
+    ]
+    at_report, _ = match(gts, preds, REPORT_CONF)
+    at_floor, _ = match(gts, preds, CONF_FLOOR)
+    country = country_of(stem)
+
+    for gi, g in enumerate(gts):
+        if g[0] != want:
+            continue
+        tally[country]["gt"] += 1
+        missed_report = gi not in at_report
+        missed_floor = gi not in at_floor
+        if missed_report:
+            tally[country]["fn_report"] += 1
+        if missed_floor:
+            tally[country]["fn_floor"] += 1
+        if not missed_report:
+            continue
+        bw, bh = g[3] - g[1], g[4] - g[2]
+        fns.append({
+            "image": stem,
+            "country": country,
+            "box_xyxy": [round(v, 1) for v in g[1:5]],
+            "box_w": round(bw, 1),
+            "box_h": round(bh, 1),
+            "box_area_px": round(bw * bh, 1),
+            "box_area_frac": round(bw * bh / (w * h), 6),
+            "image_w": w,
+            "image_h": h,
+            # The distinction that matters: a box the detector found but
+            # under-scored is a different problem from one it never produced.
+            "detected_at_floor": not missed_floor,
+        })
 
 
 def main(argv=None) -> int:
