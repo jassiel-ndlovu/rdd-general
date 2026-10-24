@@ -152,7 +152,16 @@ def main(argv=None) -> int:
                 # crc32, not hash(): Python randomises string hashing per
                 # process, so hash() would select a different subset on every
                 # run and the export would stop being reproducible.
-                if not p.kept and args.drop_empty_fraction > 0:
+                #
+                # Only tiles CUT from an image are eligible. A pass-through
+                # image is byte-for-byte what the untiled export had, so its
+                # negatives are the baseline's own and dropping them would
+                # change the training distribution in a second, unrelated way.
+                # Every artificial negative comes from a grid, and those are
+                # the ones that need thinning: at tile 1280 Norway yields
+                # 49,784 empty tiles against 5,712 carrying a label, and that
+                # one subset then accounts for 63% of the whole training set.
+                if not p.kept and not whole and args.drop_empty_fraction > 0:
                     key = zlib.crc32(f"{stem}-t{t.index}".encode()) % 1000
                     if key / 1000.0 < args.drop_empty_fraction:
                         stats["negative_tiles_dropped"] += 1
