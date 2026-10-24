@@ -82,6 +82,13 @@ jobs:
           test -s /tmp/fixture/out.json
           echo "converter produced non-empty output"
 
+      # The tiling front end is pure geometry, so the fixture exercises all of
+      # it: grid, clipping and the cross-tile merge, plus the Norway-scale
+      # cases the fixture itself is too small to contain.
+      - name: Tiling front end, end to end on the fixture
+        run: |
+          PYTHONPATH=src python -m rdd.verify.tile_roundtrip --root /tmp/fixture
+
       # -- project invariants ------------------------------------------------
       - name: Class ids are frozen
         run: |
