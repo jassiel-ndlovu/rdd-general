@@ -138,8 +138,14 @@ def main(argv=None) -> int:
         whole = len(plans) == 1 and plans[0].tile.width == im["width"] \
             and plans[0].tile.height == im["height"]
 
-        with Image.open(src) as img:
-            img = img.convert("RGB")
+        # Only decode the pixels when something actually needs cropping. A
+        # pass-through image is linked, so opening it would be wasted work on
+        # roughly 28,000 of the 36,000 source images.
+        img = None
+        try:
+            if not whole:
+                img = Image.open(src)
+                img = img.convert("RGB")
             for p in plans:
                 t = p.tile
                 # Deterministic negative dropping, keyed on the tile name.
@@ -156,9 +162,21 @@ def main(argv=None) -> int:
                 dst_img = args.out / "images" / half / f"{name}.jpg"
                 dst_lbl = args.out / "labels" / half / f"{name}.txt"
 
-                if not dst_img.exists():
-                    crop = img if whole else img.crop((t.x0, t.y0, t.x1, t.y1))
-                    crop.save(dst_img, "JPEG", quality=JPEG_QUALITY)
+                if not (dst_img.exists() or dst_img.is_symlink()):
+                    if whole:
+                        # Nothing was cropped, so the pixels are the source's.
+                        # Re-encoding ~28,000 pass-through images would cost an
+                        # hour and add a generation of JPEG loss to a
+                        # resolution experiment, for no gain. Link instead, as
+                        # to_yolo.py does.
+                        try:
+                            dst_img.symlink_to(src.resolve())
+                        except OSError:
+                            import shutil
+                            shutil.copy2(src, dst_img)
+                    else:
+                        img.crop((t.x0, t.y0, t.x1, t.y1)).save(
+                            dst_img, "JPEG", quality=JPEG_QUALITY)
 
                 lines = []
                 for b in p.kept:
@@ -181,6 +199,9 @@ def main(argv=None) -> int:
                 stats["boxes_dropped_as_fragments"] += len(p.dropped)
                 if p.dropped and not p.kept:
                     stats["tiles_with_unlabelled_damage"] += 1
+        finally:
+            if img is not None:
+                img.close()
 
         done += 1
         if done % 2000 == 0:
