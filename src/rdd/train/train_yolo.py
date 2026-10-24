@@ -37,6 +37,7 @@ Usage
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 import os
 import random
@@ -92,11 +93,18 @@ def s3_sync(local: Path, remote: str) -> None:
         check=False)
 
 
-def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int) -> dict:
+def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int,
+                     names: dict[int, str] | None = None) -> dict:
     """Re-evaluate the trained model on each country's validation images.
 
     Builds a temporary data.yaml per country whose val/ contains only that
     country's images, then runs validation. Inference-only, so cheap.
+
+    Pass `names` to also record the per-class breakdown within each country.
+    That block is what US13 task 13.5 needs, and it is captured here rather
+    than by re-validating afterwards because each validation pass retains a
+    few hundred megabytes: a second pass over six countries is what pushed a
+    16 GB instance into the OOM killer.
     """
     import yaml as _yaml
     cfg = _yaml.safe_load(data_yaml.read_text(encoding="utf-8"))
@@ -148,7 +156,7 @@ def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int) -> dict:
         try:
             m = model.val(data=str(cyaml), imgsz=imgsz, split="val",
                           verbose=False, plots=False)
-            results[country] = {
+            entry = {
                 "n_images": len(paths),
                 "mAP50": round(float(m.box.map50), 4),
                 "mAP50_95": round(float(m.box.map), 4),
@@ -157,6 +165,30 @@ def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int) -> dict:
                 "f1": round(float(2 * m.box.mp * m.box.mr / (m.box.mp + m.box.mr))
                             if (m.box.mp + m.box.mr) else 0.0, 4),
             }
+            if names is not None:
+                # ap_class_index matters: a class with no instances in this
+                # country is omitted from the arrays rather than reported as
+                # zero, so the index is the only safe attribution.
+                per_class = {}
+                for i, _ in enumerate(m.box.ap50):
+                    ci = int(m.box.ap_class_index[i])
+                    per_class[names.get(ci, str(ci))] = {
+                        "AP50": round(float(m.box.ap50[i]), 4),
+                        "AP50_95": round(float(m.box.ap[i]), 4),
+                        "precision": round(float(m.box.p[i]), 4),
+                        "recall": round(float(m.box.r[i]), 4),
+                    }
+                entry["per_class"] = per_class
+            results[country] = entry
+            # Each pass holds on to its own validator state. Release it before
+            # the next country rather than at the end of the loop.
+            del m
+            gc.collect()
+            try:
+                import torch
+                torch.cuda.empty_cache()
+            except Exception:                        # noqa: BLE001
+                pass
         except Exception as e:                       # noqa: BLE001
             results[country] = {"n_images": len(paths), "error": str(e)[:200]}
     return results
