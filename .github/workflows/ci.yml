@@ -89,6 +89,17 @@ jobs:
         run: |
           PYTHONPATH=src python -m rdd.verify.tile_roundtrip --root /tmp/fixture
 
+      # The tiled evaluation path scores detections this project produced
+      # itself, so its average precision is a port of Ultralytics' own rather
+      # than a call into it (rdd.eval.apmetrics says why). Here that port is
+      # checked against hand-computable cases, against pycocotools, and end to
+      # end over the fixture with a stub detector in place of a checkpoint.
+      # The two checks that compare it against Ultralytics directly report
+      # themselves as skipped: torch is not installed in CI.
+      - name: Tiled evaluation path, on the fixture
+        run: |
+          PYTHONPATH=src python -m rdd.verify.tiled_eval --root /tmp/fixture
+
       # -- project invariants ------------------------------------------------
       - name: Class ids are frozen
         run: |
