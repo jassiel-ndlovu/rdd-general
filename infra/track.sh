@@ -162,8 +162,8 @@ for r in rows:
           f"{r.get('gpu_mb',0)/1024:5.1f}G {r.get('disk_free_gb',0):4}G")
 last = rows[-1]
 if last.get("total") and last.get("eta_h"):
-    print(f"
-  {last['sec_per_epoch']:.0f}s/epoch, about {last['eta_h']:.1f} h remaining")
+    print()
+    print(f"  {last['sec_per_epoch']:.0f}s/epoch, about {last['eta_h']:.1f} h remaining")
 if "s3_objects" in last:
     print(f"  uploaded: {last['s3_objects']} objects, {last['s3_mb']} MB")
 PY
