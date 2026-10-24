@@ -217,23 +217,27 @@ def stage_false_negatives(model, names: dict[int, str], args, report: dict) -> N
     # setup -- exit 137, about thirty seconds in, with nothing written. Chunks
     # keep the per-call footprint flat, and releasing the predictor between
     # them stops it accumulating across the pass.
-    CHUNK = 250
-    n = 0
-    for start in range(0, len(images), CHUNK):
-        batch = [str(p) for p in images[start:start + CHUNK]]
-        # batch=1 is not the default here: given a list of paths, Ultralytics
-        # sizes the predictor's batch from the source and tries to push the
-        # whole chunk through one forward pass. At 250 images that asked for
-        # 3 GiB in a single conv and died with 11.5 GiB already resident on a
-        # 14.6 GiB card. stream=True does not change it; the batch size does.
-        for res in model.predict(batch, imgsz=args.imgsz, conf=CONF_FLOOR,
-                                 stream=True, verbose=False, batch=1):
-            n += 1
+    # One path per call, not a list.
+    #
+    # Ultralytics sizes the predictor's batch from the source: for a list,
+    # load_inference_source sets bs = len(source) and ignores the `batch`
+    # argument entirely. Measured on this build, a list of 250 gives bs=250
+    # and a single path gives bs=1. So a chunked list still pushed 250 images
+    # through one forward pass -- 1.2 GB of input, about 6 GB at the first
+    # stride-2 convolution -- and died asking for 3 GiB with 11.5 GiB already
+    # resident on a 14.6 GiB card. Passing `batch=1` did not help, because it
+    # is not consulted. stream=True does not help either; it governs how
+    # results are yielded, not how inputs are grouped.
+    for n, p in enumerate(images, start=1):
+        for res in model.predict(str(p), imgsz=args.imgsz, conf=CONF_FLOOR,
+                                 stream=True, verbose=False):
             _accumulate(res, want, val_lbl_dir, fns, tally)
-        if getattr(model, "predictor", None) is not None:
+        if n % 500 == 0:
+            # The predictor is rebuilt per call; dropping the reference keeps
+            # it from accumulating across a pass of several thousand images.
             model.predictor = None
-        gc.collect()
-        print(f"  {min(start + CHUNK, len(images))}/{len(images)} images")
+            gc.collect()
+            print(f"  {n}/{len(images)} images")
 
     report["false_negatives"] = {
         "class": args.fn_class,
