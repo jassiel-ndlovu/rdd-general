@@ -28,6 +28,16 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$HERE/config.sh"
 
+# infra/config.sh carries settings and two path helpers, not output helpers --
+# those live in the cluster's config, which is a different file.
+say()  { printf '
+== %s
+' "$*"; }
+ok()   { printf '  ok    %s
+' "$*"; }
+die()  { printf '  error %s
+' "$*" >&2; exit 1; }
+
 AMI="${1:-}"; VARIANT="${2:-}"; shift 2 || true
 SPOT=0; DRY=0
 for a in "$@"; do
