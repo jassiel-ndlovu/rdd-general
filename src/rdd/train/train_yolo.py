@@ -245,7 +245,13 @@ def main(argv=None) -> int:
     print(f"  s3         {args.s3 or '(none -- checkpoints are local only)'}")
     print("=" * 66)
 
+    # Custom US17 modules must be resolvable before a YAML is parsed or a
+    # checkpoint containing them is unpickled.
+    from rdd.models import register as register_custom_modules
+    register_custom_modules()
+
     model = YOLO(args.model)
+    model_transfer = {}
     if args.transfer_from:
         # Transfers every layer whose shape matches and leaves the rest at
         # their initialised values, which for an added detection head is the
@@ -255,8 +261,15 @@ def main(argv=None) -> int:
             print(f"  [warn] --transfer-from with a non-yaml model "
                   f"({args.model}); weights would be overwritten, ignoring")
         else:
-            model = model.load(args.transfer_from)
-            print(f"  transferred matching weights from {args.transfer_from}")
+            # Not model.load(): it matches state-dict keys verbatim, and keys
+            # carry the layer index, so inserting a module renumbers every
+            # layer after it and roughly 40% of the pretrained weights are
+            # silently dropped. See rdd.models.transfer_weights.
+            from rdd.models import transfer_weights
+            n, tot = transfer_weights(model, args.transfer_from)
+            model_transfer = {"from": str(args.transfer_from),
+                              "tensors": n, "of": tot}
+            print(f"  source: {args.transfer_from}")
 
     # Parameters and FLOPs, which US17 asks for per variant.
     # Not model_info(): it early-returns None unless verbose=True, despite a
@@ -345,6 +358,7 @@ def main(argv=None) -> int:
         "model": args.model,
         "transfer_from": args.transfer_from,
         "model_stats": model_stats,
+        "weight_transfer": model_transfer,
         "seed": args.seed,
         "epochs": args.epochs,
         "imgsz": args.imgsz,

@@ -331,6 +331,10 @@ def main(argv=None) -> int:
 
     from ultralytics import YOLO
 
+    # A checkpoint holding a custom module cannot be loaded without this.
+    from rdd.models import register as register_custom_modules
+    register_custom_modules()
+
     args.out.mkdir(parents=True, exist_ok=True)
     out_json = args.out / "revalidation.json"
 

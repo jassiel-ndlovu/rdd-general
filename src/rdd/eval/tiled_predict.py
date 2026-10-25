@@ -211,6 +211,12 @@ class ValEquivalentPredictor:
         from ultralytics.nn.autobackend import AutoBackend
         from ultralytics.utils.torch_utils import select_device
 
+        # AutoBackend unpickles the checkpoint, so a custom module in
+        # it must be registered before the load or it fails on an
+        # unknown class.
+        from rdd.models import register as register_custom_modules
+        register_custom_modules()
+
         self.torch = torch
         self.device = select_device(device or "cpu", verbose=False)
         self.net = AutoBackend(str(weights), device=self.device, dnn=False,
