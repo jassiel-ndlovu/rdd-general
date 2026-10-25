@@ -72,7 +72,16 @@ done
 [ "$FOUND" = "0" ] && echo "(nothing running)"
 
 echo "### runs"
-R=$(ls -1t "$RUNS"/*/results.csv 2>/dev/null | head -1)
+# Prefer the run the trainer is actually working on. Newest results.csv is a
+# poor proxy: a run that has not finished its first epoch has no results.csv
+# at all, so a freshly started run reports a previous, finished one instead.
+ACTIVE=$(pgrep -af "rdd.train.train_yolo" 2>/dev/null          | grep -oE -- "--name[ =][^ ]+" | head -1 | sed -E "s/--name[ =]//")
+if [ -n "$ACTIVE" ] && [ -d "$RUNS/$ACTIVE" ]; then
+  R="$RUNS/$ACTIVE/results.csv"
+  [ -f "$R" ] || { echo "run      : $ACTIVE"; echo "epochs   : 0 / ? (first epoch in progress)"; R=""; }
+else
+  R=$(ls -1t "$RUNS"/*/results.csv 2>/dev/null | head -1)
+fi
 if [ -n "$R" ]; then
   D=$(dirname "$R")
   NAME=$(basename "$D")
@@ -178,12 +187,15 @@ check_session() {
   fi
 }
 
-find_instance() {
+find_instances() {
+  # Every project instance, not just the first: US17 runs its variants on
+  # several at once, and a tracker that silently reported one of them would
+  # be worse than no tracker.
   aws ec2 describe-instances --region "$AWS_REGION" \
     --filters "Name=tag:Project,Values=$PROJECT_TAG" \
               "Name=instance-state-name,Values=running,pending,stopping,stopped" \
-    --query 'Reservations[].Instances[].[InstanceId,State.Name,InstanceType]' \
-    --output text 2>/dev/null | head -1
+    --query 'Reservations[].Instances[].[InstanceId,State.Name,InstanceType,Tags[?Key==`Job`]|[0].Value]' \
+    --output text 2>/dev/null
 }
 
 # Send a script to the instance and print its stdout.
@@ -229,57 +241,53 @@ open(sys.argv[2], 'w', encoding='utf-8').write(
 section() { echo "$1" | sed -n "/^### $2\$/,/^###/p" | grep -v '^###' | sed 's/^/  /'; }
 
 report() {
-  printf '\033[1m%s\033[0m\n' "$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+  printf '[1m%s[0m
+' "$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
-  hdr "Instance"
-  local info iid state itype out payload
-  info="$(find_instance)"
-  if [ -z "$info" ]; then
-    warn "no instance tagged Project=$PROJECT_TAG"
-    return 0
-  fi
-  iid=$(echo "$info" | cut -f1)
-  state=$(echo "$info" | cut -f2)
-  itype=$(echo "$info" | cut -f3)
-  echo "  $iid   $itype   $state"
-  if [ "$state" != "running" ]; then
-    warn "not running -- nothing to track"
-    [ "$state" = "stopped" ] && echo "  note: the EBS volume bills while stopped"
-    return 0
+  local all n=0
+  all="$(find_instances)"
+  if [ -z "$all" ]; then
+    hdr "Instances"; warn "none tagged Project=$PROJECT_TAG"; return 0
   fi
 
-  payload="${REMOTE_MAIN//__RUNS__/$REMOTE_RUNS}"
-  out="$(remote "$iid" "$payload")" || return 1
+  while IFS=$'	' read -r iid state itype job; do
+    [ -n "$iid" ] || continue
+    n=$((n + 1))
+    hdr "$iid   $itype   $state${job:+   job=$job}"
+    if [ "$state" != "running" ]; then
+      warn "not running"
+      [ "$state" = "stopped" ] && echo "  note: the EBS volume bills while stopped"
+      continue
+    fi
 
-  hdr "GPU";          section "$out" gpu
-  hdr "Running";      section "$out" procs
-  hdr "Training";     section "$out" runs
-  hdr "Export";       section "$out" export
-  hdr "Housekeeping"; section "$out" housekeeping
+    local out payload
+    payload="${REMOTE_MAIN//__RUNS__/$REMOTE_RUNS}"
+    out="$(remote "$iid" "$payload")" || continue
 
-  if [ "$SHOW_HIST" = "1" ]; then
-    hdr "Recorded trend (last $HIST_N samples)"
-    remote "$iid" "${REMOTE_HIST//__N__/$HIST_N}" | sed 's/^/  /'
-  fi
+    section "$out" gpu
+    section "$out" procs
+    section "$out" runs
+    section "$out" export
+    section "$out" housekeeping
 
-  if [ "$SHOW_LOG" = "1" ]; then
-    hdr "Log"
-    remote "$iid" "${REMOTE_LOG//__LOGS__/$REMOTE_LOGS}" | sed 's/^/  /'
-  fi
+    if [ "$SHOW_LOG" = "1" ]; then
+      echo "  --- log ---"
+      remote "$iid" "${REMOTE_LOG//__LOGS__/$REMOTE_LOGS}" | sed 's/^/  /'
+    fi
+    if [ "$SHOW_HIST" = "1" ]; then
+      echo "  --- recorded trend ---"
+      remote "$iid" "${REMOTE_HIST//__N__/$HIST_N}" | sed 's/^/  /'
+    fi
+  done <<< "$all"
+
+  echo
+  printf '  [0;36m%s instance(s)[0m
+' "$n"
 
   if [ "$SHOW_COST" = "1" ]; then
     hdr "Spend, month to date (before credit)"
-    local today
-    today="$(date -u +%Y-%m-%d)"
-    aws ce get-cost-and-usage \
-      --time-period "Start=$(date -u +%Y-%m-01),End=$today" \
-      --granularity MONTHLY --metrics UnblendedCost \
-      --filter '{"Not":{"Dimensions":{"Key":"RECORD_TYPE","Values":["Credit"]}}}' \
-      --group-by Type=DIMENSION,Key=SERVICE \
-      --query 'ResultsByTime[].Groups[].[Keys[0],Metrics.UnblendedCost.Amount]' \
-      --output text 2>/dev/null \
-      | awk '$2+0 > 0 { printf "  %-42s $%.2f\n", $1, $2 }' \
-      || warn "Cost Explorer unavailable"
+    aws ce get-cost-and-usage       --time-period "Start=$(date -u +%Y-%m-01),End=$(date -u +%Y-%m-%d)"       --granularity MONTHLY --metrics UnblendedCost       --filter '{"Not":{"Dimensions":{"Key":"RECORD_TYPE","Values":["Credit"]}}}'       --group-by Type=DIMENSION,Key=SERVICE       --query 'ResultsByTime[].Groups[].[Keys[0],Metrics.UnblendedCost.Amount]'       --output text 2>/dev/null       | awk '$2+0 > 0 { printf "  %-42s $%.2f
+", $1, $2 }'       || warn "Cost Explorer unavailable"
   fi
 }
 
