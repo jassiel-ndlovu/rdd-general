@@ -198,6 +198,12 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Tier A YOLO baseline.")
     ap.add_argument("--data", required=True, type=Path, help="data.yaml")
     ap.add_argument("--model", default="yolo11s.pt")
+    ap.add_argument("--transfer-from", default=None,
+                    help="checkpoint to transfer matching weights from when "
+                         "--model is an architecture .yaml. Without this a "
+                         ".yaml builds random weights, and comparing that "
+                         "against a COCO-pretrained baseline would confound "
+                         "architecture with initialisation")
     ap.add_argument("--epochs", type=int, default=100)
     ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--batch", type=int, default=16)
@@ -240,6 +246,33 @@ def main(argv=None) -> int:
     print("=" * 66)
 
     model = YOLO(args.model)
+    if args.transfer_from:
+        # Transfers every layer whose shape matches and leaves the rest at
+        # their initialised values, which for an added detection head is the
+        # head itself. This is what keeps an architecture variant comparable
+        # with a baseline that started from the same pretrained weights.
+        if not str(args.model).endswith((".yaml", ".yml")):
+            print(f"  [warn] --transfer-from with a non-yaml model "
+                  f"({args.model}); weights would be overwritten, ignoring")
+        else:
+            model = model.load(args.transfer_from)
+            print(f"  transferred matching weights from {args.transfer_from}")
+
+    # Parameters and FLOPs, which US17 asks for per variant.
+    # Not model_info(): it early-returns None unless verbose=True, despite a
+    # docstring promising a tuple. The primitives below actually return values.
+    model_stats = {}
+    try:
+        from ultralytics.utils.torch_utils import get_flops, get_num_params
+        n_p = get_num_params(model.model)
+        flops = get_flops(model.model, imgsz=args.imgsz)
+        n_l = sum(1 for m in model.model.modules() if not list(m.children()))
+        model_stats = {"layers": n_l, "parameters": int(n_p),
+                       "gflops": round(float(flops), 2)}
+        print(f"  layers {n_l}, parameters {n_p:,}, GFLOPs {flops:.1f}")
+    except Exception as e:                            # noqa: BLE001
+        print(f"  [warn] could not read model info: {e}")
+
     out_dir = args.project / run_name
     remote = f"{args.s3.rstrip('/')}/{run_name}" if args.s3 else ""
 
@@ -310,6 +343,8 @@ def main(argv=None) -> int:
     summary = {
         "run": run_name,
         "model": args.model,
+        "transfer_from": args.transfer_from,
+        "model_stats": model_stats,
         "seed": args.seed,
         "epochs": args.epochs,
         "imgsz": args.imgsz,
