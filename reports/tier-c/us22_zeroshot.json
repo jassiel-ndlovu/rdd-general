@@ -1,0 +1,128 @@
+{
+  "dataset": "stellenbosch_potholes",
+  "source": "Nienaber, Kroon & Booysen 2018, Stellenbosch University, CC0, via Dataset Ninja",
+  "note": "C4 is the only annotated class; predictions for other classes are observations, not errors",
+  "imgsz": 640,
+  "variants": {
+    "baseline": {
+      "weights": "/opt/rdd/runs/tierA_base6_s0/weights/best.pt",
+      "C4": {
+        "AP50": 0.0231,
+        "AP50_95": 0.0051,
+        "precision": 0.1766,
+        "recall": 0.0404
+      },
+      "negatives": {
+        "images": 8552,
+        "conf": 0.25,
+        "predictions_per_class": {
+          "C1_longitudinal_crack": 256,
+          "C2_transverse_crack": 0,
+          "C3_alligator_crack": 12,
+          "C4_pothole": 1,
+          "C5_white_line_blur": 0,
+          "C6_crosswalk_blur": 0
+        },
+        "images_with_a_pothole_prediction": 1,
+        "false_positive_rate_per_image": 0.0001,
+        "images_with_a_pothole_prediction_frac": 0.0001
+      }
+    },
+    "us17a": {
+      "weights": "/opt/rdd/runs/us17a_p2head_s0/weights/best.pt",
+      "C4": {
+        "AP50": 0.0415,
+        "AP50_95": 0.0106,
+        "precision": 0.3128,
+        "recall": 0.0548
+      },
+      "negatives": {
+        "images": 8552,
+        "conf": 0.25,
+        "predictions_per_class": {
+          "C1_longitudinal_crack": 221,
+          "C2_transverse_crack": 0,
+          "C3_alligator_crack": 9,
+          "C4_pothole": 1,
+          "C5_white_line_blur": 0,
+          "C6_crosswalk_blur": 0
+        },
+        "images_with_a_pothole_prediction": 1,
+        "false_positive_rate_per_image": 0.0001,
+        "images_with_a_pothole_prediction_frac": 0.0001
+      }
+    },
+    "us17b": {
+      "weights": "/opt/rdd/runs/us17b_strip_s0/weights/best.pt",
+      "C4": {
+        "AP50": 0.0412,
+        "AP50_95": 0.0104,
+        "precision": 0.2162,
+        "recall": 0.0652
+      },
+      "negatives": {
+        "images": 8552,
+        "conf": 0.25,
+        "predictions_per_class": {
+          "C1_longitudinal_crack": 518,
+          "C2_transverse_crack": 13,
+          "C3_alligator_crack": 16,
+          "C4_pothole": 1,
+          "C5_white_line_blur": 0,
+          "C6_crosswalk_blur": 0
+        },
+        "images_with_a_pothole_prediction": 1,
+        "false_positive_rate_per_image": 0.0001,
+        "images_with_a_pothole_prediction_frac": 0.0001
+      }
+    },
+    "us17c": {
+      "weights": "/opt/rdd/runs/us17c_dysample_s0/weights/best.pt",
+      "C4": {
+        "AP50": 0.0398,
+        "AP50_95": 0.0101,
+        "precision": 0.2501,
+        "recall": 0.0603
+      },
+      "negatives": {
+        "images": 8552,
+        "conf": 0.25,
+        "predictions_per_class": {
+          "C1_longitudinal_crack": 206,
+          "C2_transverse_crack": 1,
+          "C3_alligator_crack": 8,
+          "C4_pothole": 2,
+          "C5_white_line_blur": 0,
+          "C6_crosswalk_blur": 0
+        },
+        "images_with_a_pothole_prediction": 2,
+        "false_positive_rate_per_image": 0.0002,
+        "images_with_a_pothole_prediction_frac": 0.0002
+      }
+    },
+    "us17d": {
+      "weights": "/opt/rdd/runs/us17d_combined_s0/weights/best.pt",
+      "C4": {
+        "AP50": 0.0353,
+        "AP50_95": 0.008,
+        "precision": 0.2468,
+        "recall": 0.0537
+      },
+      "negatives": {
+        "images": 8552,
+        "conf": 0.25,
+        "predictions_per_class": {
+          "C1_longitudinal_crack": 188,
+          "C2_transverse_crack": 4,
+          "C3_alligator_crack": 7,
+          "C4_pothole": 2,
+          "C5_white_line_blur": 1,
+          "C6_crosswalk_blur": 0
+        },
+        "images_with_a_pothole_prediction": 2,
+        "false_positive_rate_per_image": 0.0002,
+        "images_with_a_pothole_prediction_frac": 0.0002
+      }
+    }
+  }
+}

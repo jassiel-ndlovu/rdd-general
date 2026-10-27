@@ -1,0 +1,25 @@
+{
+  "task": "detect",
+  "weights_from": "yolo11s.pt",
+  "data": "/opt/rdd/data/yolo/rutting/detect/data.yaml",
+  "epochs": 100,
+  "imgsz": 640,
+  "batch": 16,
+  "seed": 0,
+  "model_stats": {
+    "parameters": 9458752,
+    "gflops": 21.84
+  },
+  "C7_box": {
+    "AP50": 0.2327,
+    "AP50_95": 0.0725,
+    "precision": 0.3516,
+    "recall": 0.2479
+  },
+  "source": "Saha, Arya, Kumar, Maeda & Sekimoto 2022, RoadRuttingDatasetSekilab, Mendeley Data, CC BY 4.0",
+  "reference_points": {
+    "YOLOX-s mAP@0.5 (Saha et al. 2022)": 0.616,
+    "PSPNet-ResNet50 IoU (Saha et al. 2022)": 0.5469,
+    "note": "their train/test split is unpublished, so these are indicative of the same task, not a head-to-head"
+  }
+}
