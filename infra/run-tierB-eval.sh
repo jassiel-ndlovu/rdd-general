@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-#  Tier B -- evaluate, once training finishes
+#  Tier B: evaluate, once training finishes
 # =============================================================================
 #  Run on the instance:
 #      nohup bash infra/run-tierB-eval.sh > /opt/rdd/logs/tierb_eval.log 2>&1 &
@@ -52,7 +52,7 @@ echo "training process has exited  $(date -Is)"
 
 BEST="$RUNS/$TIER_B/weights/best.pt"
 if [ ! -f "$BEST" ]; then
-    echo "no checkpoint at $BEST -- training did not produce one. Stopping."
+    echo "no checkpoint at $BEST, training did not produce one. Stopping."
     exit 1
 fi
 echo "checkpoint: $BEST  ($(du -h "$BEST" | cut -f1))"

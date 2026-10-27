@@ -3,7 +3,7 @@ Exercise the tiling front end end to end on the synthetic fixture (US15).
 
 Why this is a verifier and not a handful of unit cases
 -----------------------------------------------------
-The three pieces of ``rdd.data.tiling`` -- grid, clip, merge -- are each easy to
+The three pieces of ``rdd.data.tiling``, grid, clip, merge, are each easy to
 get right in isolation and easy to get wrong together. The interesting failures
 are compositional: a grid whose last tile is shifted inward changes which boxes
 straddle a seam, which changes which fragments the area threshold drops, which
@@ -211,7 +211,7 @@ def check_clipping(ch: Checks, coco: dict) -> None:
                         dropped_below = False
 
             # Any box that fits inside a tile must be kept whole by at least one
-            # tile -- that is what the overlap is for.
+            # tile, that is what the overlap is for.
             for i, (_, box) in enumerate(boxes):
                 bw, bh = box[2] - box[0], box[3] - box[1]
                 if bw <= 0 or bh <= 0:
@@ -467,7 +467,7 @@ def check_norway(ch: Checks) -> None:
     fused = merge_detections(dets, tiles, W, H)
     ch.note("E5 two distinct cracks abutting at a seam fuse into one",
             f"{len(fused)} box spanning y "
-            f"{fused[0].y0:.0f}-{fused[0].y1:.0f} -- the known limitation, "
+            f"{fused[0].y0:.0f}-{fused[0].y1:.0f}, the known limitation, "
             "measurable only on real images (US16)")
 
 

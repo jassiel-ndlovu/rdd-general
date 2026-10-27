@@ -1,58 +1,47 @@
 """Average precision over detection lists this project produced itself.
 
-Why this module exists
-----------------------
 Tier B's resolution front end (US15) runs the detector on overlapping tiles and
-merges the per-tile detections back to full-image coordinates with
-``rdd.data.tiling.merge_detections``. Those merged detections do not come out of
-Ultralytics' dataloader, so ``model.val()`` cannot score them: it only ever
-scores what its own validator produced. The score therefore has to be computed
+merges the per-tile detections back to full-image coordinates. Those detections
+do not come from Ultralytics' dataloader, so model.val() cannot score them: it
+only scores what its own validator produced. The score is therefore computed
 here, from a detection list and a ground-truth list.
 
-That raises the question this module is really about: **which** average
-precision. Tier A's recorded numbers (``tierA_base6_s0`` per-class AP50 0.5851,
-0.5431, 0.6845, 0.5073, 0.7181, 0.8406) were produced by Ultralytics
-8.4.131's own estimator. pycocotools would compute a *different* number from the
-very same detections -- different matching, different interpolation, a 100
-detection-per-image cap -- typically a few points apart. A Tier B figure
-computed by a different estimator than Tier A's is not comparable with it, and
-comparability is the entire purpose of the tiled evaluation path. So the
+Which average precision matters. Tier A's recorded numbers were produced by
+Ultralytics 8.4.131's own estimator, and pycocotools would compute a different
+number from the same detections: different matching, different interpolation
+and a 100 detection-per-image cap, typically a few points apart. A Tier B
+figure from a different estimator is not comparable with Tier A, and
+comparability is the whole purpose of the tiled evaluation path. So the
 reported estimator is a faithful port of Ultralytics' own, and pycocotools is
 offered beside it as an independent cross-check, never as the headline number.
 
-The port is exact, not approximate. It reproduces, from
-``ultralytics==8.4.131``:
+The port reproduces, from ultralytics==8.4.131:
 
-* ``utils/metrics.box_iou``          -- including the ``+1e-7`` in the
-  denominator, which moves IoU in the last decimal places and therefore can
-  move a match across the 0.5 threshold;
-* ``engine/validator.match_predictions`` (``use_scipy=False``, the default) --
-  wrong-class pairs zeroed first, then an assignment that is *not* the greedy
-  one it looks like. The pairs are sorted by descending IoU, but the
-  ``np.unique`` that de-duplicates detections re-sorts them into detection
-  order, so only the first de-duplication is decided by IoU (which label a
-  detection is credited against) while the second -- which of two detections
-  keeps a contested label -- falls to position in the detection list. That list
-  arrives sorted by descending confidence, from NMS and from
-  ``merge_detections`` alike, so a contested label goes to the more confident
-  detection even when the other fits better. Run once per IoU threshold;
-* ``utils/metrics.compute_ap``       -- sentinel points, the precision envelope,
-  and 101-point interpolation integrated with the trapezoid rule. Note this is
-  *not* the mean of 101 interpolated points that COCO's own definition uses;
-  the trapezoid of the same 101 points differs slightly, and matching Tier A
-  means matching what Tier A ran;
-* ``utils/metrics.ap_per_class``     -- 1000-point precision/recall curves, the
-  operating point taken at the maximum of a box-filtered mean F1 curve, and
-  ``unique_classes`` from the *ground truth*, so a class with no annotations in
-  the subset under evaluation is omitted rather than reported as zero (the
-  ``ap_class_index`` behaviour ``rdd.eval.revalidate.per_class_from`` documents).
+* box_iou, including the +1e-7 in the denominator, which moves IoU in the last
+  decimal places and can therefore move a match across the 0.5 threshold.
+* match_predictions with use_scipy=False. Wrong-class pairs are zeroed, then
+  the assignment is not the greedy one it appears to be: pairs are sorted by
+  descending IoU, but the np.unique that de-duplicates detections re-sorts them
+  into detection order, so only the first de-duplication is decided by IoU.
+  Which of two detections keeps a contested label falls to position in the
+  detection list, and that list arrives sorted by descending confidence, so a
+  contested label goes to the more confident detection even when the other fits
+  better. Run once per IoU threshold.
+* compute_ap: sentinel points, the precision envelope, and 101-point
+  interpolation integrated with the trapezoid rule. This is not the mean of 101
+  interpolated points that COCO's own definition uses, and matching Tier A
+  means matching what Tier A ran.
+* ap_per_class: 1000-point precision and recall curves, the operating point
+  taken at the maximum of a box-filtered mean F1 curve, and unique_classes
+  taken from the ground truth, so a class with no annotations in the subset
+  under evaluation is omitted rather than reported as zero.
 
-``rdd.verify.tiled_eval`` asserts the equivalence numerically against the
-installed Ultralytics where there is one, and against hand-computable cases
-where there is not.
+rdd.verify.tiled_eval asserts the equivalence numerically against the installed
+Ultralytics where there is one, and against hand-computable cases where there
+is not.
 
-Everything here is pure numpy over small arrays. No torch, no GPU, no images,
-so it runs on a laptop and in CI.
+Pure numpy over small arrays. No torch, no GPU and no images, so it runs on a
+laptop and in CI.
 """
 
 from __future__ import annotations
@@ -83,7 +72,7 @@ def box_iou(a: np.ndarray, b: np.ndarray) -> np.ndarray:
       the comment "Need .float() to get accurate iou values", so the whole
       computation runs in single precision. Computing it in float64 instead
       shifts IoU by ~2e-7, which is enough to move a box sitting exactly on an
-      IoU threshold across it -- and boxes on exact thresholds are not
+      IoU threshold across it, and boxes on exact thresholds are not
       hypothetical when annotations are whole pixels.
     """
     a = np.asarray(a, dtype=np.float32).reshape(-1, 4)
@@ -106,10 +95,10 @@ def match_predictions(pred_cls: np.ndarray, true_cls: np.ndarray,
     The assignment reads as "greedy by IoU" and is not quite that, which is the
     main reason this is a port rather than a reimplementation. Pairs above the
     threshold are sorted by descending IoU, and the first ``np.unique`` keeps
-    one pair per detection -- so each detection does take its best-IoU label.
+    one pair per detection, so each detection does take its best-IoU label.
     But that ``np.unique`` returns indices in sorted *detection* order, which
-    destroys the IoU ordering, so the second ``np.unique`` -- one pair per
-    label -- keeps whichever detection comes first in the list. The list is in
+    destroys the IoU ordering, so the second ``np.unique``, one pair per
+    label, keeps whichever detection comes first in the list. The list is in
     descending confidence, so a contested label goes to the more confident
     detection, not the better-fitting one.
 
@@ -158,7 +147,7 @@ def compute_ap(recall: np.ndarray, precision: np.ndarray) -> float:
 
     The sentinels matter. ``recall`` is extended with its own last value and
     then 1.0, and ``precision`` with 0.0 twice, so the envelope falls to zero
-    past the last detection instead of being extrapolated flat -- the difference
+    past the last detection instead of being extrapolated flat, the difference
     between a conservative AP and an optimistic one for a class whose recall
     curve stops well short of 1.
     """
@@ -347,7 +336,7 @@ def score_by_country(stats: list[ImageStats], names: dict[int, str]) -> tuple[di
 def score_pycocotools(stats: list[ImageStats], names: dict[int, str]) -> dict:
     """The same detections scored by pycocotools, as a cross-check.
 
-    This is deliberately NOT the reported number -- see the module docstring.
+    This is deliberately NOT the reported number, see the module docstring.
     COCOeval differs from Ultralytics in at least three ways that each move AP
     by a fraction of a point: matching is greedy by descending score rather than
     by descending IoU, AP is the mean of 101 interpolated precisions rather than

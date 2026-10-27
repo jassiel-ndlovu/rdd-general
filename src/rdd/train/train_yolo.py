@@ -5,7 +5,7 @@ Follows the proposal's protocol:
   * one-stage CNN (YOLO family, small variant), COCO-initialised
   * 640 px, 100-150 epochs
   * three seeds, mean +/- std reported
-  * SINGLE MODEL -- no ensembling, no test-time augmentation
+  * SINGLE MODEL, no ensembling, no test-time augmentation
   * per-class AND per-country metrics, never one pooled number
 
 Two things this script does that a stock `yolo train` call does not
@@ -22,7 +22,7 @@ Augmentation constraints (enforced here, not left to defaults)
 --------------------------------------------------------------
 Vertical flip and large rotation are DISABLED. "Longitudinal" and "transverse"
 are defined by orientation relative to the direction of travel, so a 90-degree
-rotation turns a C1 into a C2 while leaving the label untouched — it teaches the
+rotation turns a C1 into a C2 while leaving the label untouched, it teaches the
 model the opposite of the truth. Horizontal flip and colour jitter are safe and
 are kept.
 
@@ -81,7 +81,7 @@ def s3_sync(local: Path, remote: str) -> None:
     these patterns against the path RELATIVE TO THE SYNC SOURCE, so which one
     fires depends on whether the source is the run directory or its parent.
     Getting this wrong is silent: the sync succeeds and simply uploads 1.7 GB of
-    duplicated images. It has happened once already -- see infra/run-tierA.sh.
+    duplicated images. It has happened once already, see infra/run-tierA.sh.
     """
     if not remote:
         return
@@ -204,6 +204,14 @@ def main(argv=None) -> int:
                          ".yaml builds random weights, and comparing that "
                          "against a COCO-pretrained baseline would confound "
                          "architecture with initialisation")
+    ap.add_argument("--transfer-max-shift", type=int, default=6,
+                    help="how far back transfer_weights may look for a "
+                         "renumbered layer. Each inserted module shifts every "
+                         "later layer by one, so a config combining several "
+                         "modifications needs a larger value than the default "
+                         "-- the combined US17 variant shifts Detect by 10. "
+                         "Too small and the deepest layers silently fall back "
+                         "to random initialisation")
     ap.add_argument("--epochs", type=int, default=100)
     ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--batch", type=int, default=16)
@@ -219,13 +227,13 @@ def main(argv=None) -> int:
     ap.add_argument("--fraction", type=float, default=1.0,
                     help="train on this fraction of the data. Use a small value "
                          "(e.g. 0.05) for a smoke test that exercises the whole "
-                         "path -- callbacks, S3 sync, per-country eval, summary "
+                         "path, callbacks, S3 sync, per-country eval, summary "
                          "-- in minutes rather than hours. NEVER use <1.0 for a "
                          "reported result.")
     args = ap.parse_args(argv)
 
     if args.fraction < 1.0:
-        print(f"\n  *** SMOKE TEST: fraction={args.fraction} -- "
+        print(f"\n  *** SMOKE TEST: fraction={args.fraction}, "
               f"results are NOT valid for reporting ***\n")
 
     run_name = args.name or f"{Path(args.model).stem}_s{args.seed}"
@@ -242,7 +250,7 @@ def main(argv=None) -> int:
     print(f"  device     {args.device}  cuda={torch.cuda.is_available()}"
           f" {torch.cuda.get_device_name(0) if torch.cuda.is_available() else ''}")
     print(f"  run        {args.project / run_name}")
-    print(f"  s3         {args.s3 or '(none -- checkpoints are local only)'}")
+    print(f"  s3         {args.s3 or '(none, checkpoints are local only)'}")
     print("=" * 66)
 
     # Custom US17 modules must be resolvable before a YAML is parsed or a
@@ -266,10 +274,28 @@ def main(argv=None) -> int:
             # layer after it and roughly 40% of the pretrained weights are
             # silently dropped. See rdd.models.transfer_weights.
             from rdd.models import transfer_weights
-            n, tot = transfer_weights(model, args.transfer_from)
+            n, tot = transfer_weights(model, args.transfer_from,
+                                      max_shift=args.transfer_max_shift)
             model_transfer = {"from": str(args.transfer_from),
-                              "tensors": n, "of": tot}
+                              "tensors": n, "of": tot,
+                              "max_shift": args.transfer_max_shift}
             print(f"  source: {args.transfer_from}")
+
+            # The transfer has to survive into the trainer, and by default it
+            # does not. Model.train() reuses the module it is already holding
+            # only when self.ckpt is set, which happens for a .pt and not for
+            # a .yaml; otherwise the trainer falls back to the YAML path in
+            # overrides, rebuilds from scratch, and every transferred tensor
+            # is discarded. Measured on ultralytics 8.4.131: without the line
+            # below the trainer's first conv does not match the pretrained
+            # one, so the variant trains from random initialisation while the
+            # Tier A baseline: launched from yolo11s.pt, did not. That is
+            # the same confound transfer_weights exists to remove, one layer
+            # further out. Setting ckpt puts a YAML-built model on the same
+            # path a checkpoint-loaded one already takes; ultralytics then
+            # reports its own "Transferred N/M items" line, which is the
+            # number to trust.
+            model.ckpt = {"model": model.model}
 
     # Parameters and FLOPs, which US17 asks for per variant.
     # Not model_info(): it early-returns None unless verbose=True, despite a

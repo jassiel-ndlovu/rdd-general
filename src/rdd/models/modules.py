@@ -1,23 +1,13 @@
-"""Custom detector modules for US17.
+"""Custom detector modules for US17, aimed at the elongated crack classes.
 
-Two modifications aimed at the project's two weakest classes, the elongated
-cracks C1 and C2:
+StripAttention applies orientation-aware attention built from asymmetric
+kernels. DySample replaces nearest-neighbour upsampling in the neck with a
+content-aware variant. Both preserve channel count.
 
-  * ``StripAttention``  -- orientation-aware attention built from asymmetric
-    kernels, for long thin structures.
-  * ``DySample``        -- content-aware upsampling in the neck, in place of
-    fixed nearest-neighbour interpolation.
-
-Both preserve channel count, which matters for how Ultralytics parses them —
-see ``rdd.models.register``.
-
-A note on why the channel count is an explicit argument and is asserted.
-Ultralytics' ``parse_model`` width-scales the first argument only for modules
-it knows about. A module injected from outside that set receives its arguments
-verbatim, so a YAML written for the 's' scale must carry the already-scaled
-channel count. That is easy to get wrong and would otherwise fail deep inside a
-convolution with an unhelpful shape error, so each module checks its input on
-the first forward pass and says exactly what it expected.
+Ultralytics width-scales the first argument only for modules it knows about, so
+a YAML written for the 's' scale must carry the already-scaled channel count.
+Each module checks this on the first forward pass rather than failing later
+inside a convolution. See rdd.models.register.
 """
 from __future__ import annotations
 
@@ -29,26 +19,20 @@ from torch import nn
 class StripAttention(nn.Module):
     """Attention over long thin structures, using 1xk and kx1 kernels.
 
-    Standard attention has an isotropic receptive field. A longitudinal crack
-    runs along the road and a transverse crack runs across it, and in this
-    project those are *different classes* — which is also why rotation and
-    vertical flip are banned from augmentation. An isotropic operator blurs
-    precisely the distinction the taxonomy depends on.
-
-    So the two orientations get their own depthwise branches: a 1xk kernel that
-    integrates horizontally and a kx1 kernel that integrates vertically. Their
+    Orientation is definitional in this taxonomy: a longitudinal crack and a
+    transverse crack are different classes, so an isotropic operator blurs the
+    distinction. Each orientation gets its own depthwise branch, and the
     concatenation is projected back to C channels and used as a multiplicative
-    gate, which keeps the block residual-friendly — at initialisation the gate
-    sits near 0.5 and the block attenuates rather than destroys the signal.
+    gate. At initialisation the gate sits near 0.5, so the block attenuates
+    rather than destroys the signal.
 
-    Cheap by construction: two depthwise strip convolutions and one pointwise,
-    so roughly 2*k*C + 2*C^2 parameters rather than the k^2*C^2 a dense kernel
-    of the same reach would need.
+    Costs roughly 2*k*C + 2*C^2 parameters against k^2*C^2 for a dense kernel
+    of the same reach.
 
     Args:
         c:  input and output channels. Must match the incoming tensor.
         k:  strip length. 7 covers 7 cells, which at stride 8 is 56 input
-            pixels — about the length of crack fragment the dataset labels.
+            pixels, about the length of crack fragment the dataset labels.
     """
 
     def __init__(self, c: int, k: int = 7):
@@ -68,9 +52,8 @@ class StripAttention(nn.Module):
         if x.shape[1] != self.c:
             raise RuntimeError(
                 f"StripAttention was built for {self.c} channels but received "
-                f"{x.shape[1]}. Ultralytics does not width-scale arguments for "
-                f"modules outside its own set, so the channel count in the "
-                f"model YAML must already be the scaled one."
+                f"{x.shape[1]}. The channel count in the model YAML must "
+                f"already be the scaled one."
             )
         a = torch.cat((self.horizontal(x), self.vertical(x)), dim=1)
         return x * self.gate(self.norm(self.project(a)))
@@ -79,20 +62,15 @@ class StripAttention(nn.Module):
 class DySample(nn.Module):
     """Content-aware upsampling, in place of nearest-neighbour.
 
-    The stock neck upsamples with ``nn.Upsample(scale_factor=2, 'nearest')``,
-    which copies each cell into a 2x2 block regardless of what is in it. On a
-    feature map carrying a one-cell-wide crack, that turns a thin response into
-    a blocky one and the following convolution has to clean it up.
+    Nearest-neighbour copies each cell into a 2x2 block regardless of content,
+    which turns a one-cell-wide crack response into a blocky one. This predicts
+    a sampling offset per output position with a 1x1 convolution and gathers by
+    bilinear interpolation instead. Follows DySample (Liu et al., ICCV 2023) in
+    its single-group form.
 
-    This learns where to sample from instead: a 1x1 convolution predicts a
-    sampling offset per output position, and the output is gathered from the
-    input by bilinear interpolation at those offsets. The idea is DySample
-    (Liu et al., ICCV 2023), in its simplest single-group form.
-
-    The offset convolution is zero-initialised on purpose. At step zero the
-    offsets are zero, the sampling grid is the plain bilinear grid, and the
-    block behaves as ordinary bilinear upsampling — so a checkpoint transferred
-    into this architecture starts somewhere sensible rather than scrambled.
+    The offset convolution is zero-initialised, so at step zero the block is
+    ordinary bilinear upsampling and a transferred checkpoint starts from
+    something sensible.
     """
 
     def __init__(self, c: int, scale: int = 2):
@@ -107,8 +85,8 @@ class DySample(nn.Module):
         if x.shape[1] != self.c:
             raise RuntimeError(
                 f"DySample was built for {self.c} channels but received "
-                f"{x.shape[1]}. See StripAttention for why the YAML must carry "
-                f"the already-scaled channel count."
+                f"{x.shape[1]}. The model YAML must carry the already-scaled "
+                f"channel count."
             )
         b, _, h, w = x.shape
         s = self.scale

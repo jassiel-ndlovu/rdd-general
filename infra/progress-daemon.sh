@@ -16,7 +16,7 @@
 #  watches all of it. This records the whole thing, so a stall at 03:00 is
 #  visible afterwards instead of being inferred from a gap. Pushing to S3 also
 #  means progress stays readable when SSM is slow or the local AWS session has
-#  lapsed -- which it has, repeatedly.
+#  lapsed, which it has, repeatedly.
 #
 #  Deliberately cheap: one nvidia-smi, one df, a line count and a tail per
 #  sample. The S3 listing is the only costly call and it runs once every

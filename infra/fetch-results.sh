@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- pull experiment results out of S3 onto this machine
+#  RDD project: pull experiment results out of S3 onto this machine
 # =============================================================================
 #  Group members have no AWS access. This script assembles a self-contained
-#  folder they can be handed directly -- weights, metrics, plots and the split
-#  manifests -- with no cloud dependency.
+#  folder they can be handed directly, weights, metrics, plots and the split
+#  manifests, with no cloud dependency.
 #
 #  RUN FROM YOUR LAPTOP:
 #      bash infra/fetch-results.sh                      # default destination
@@ -106,4 +106,4 @@ say "Done"
 echo "  destination : $DEST"
 echo "  total size  : $(du -sh "$DEST" 2>/dev/null | cut -f1)"
 echo
-echo "  This folder is self-contained. Share it directly -- it needs no AWS access."
+echo "  This folder is self-contained. Share it directly, it needs no AWS access."

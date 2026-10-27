@@ -1,4 +1,4 @@
-# Tier A — generated report tables
+# Tier A, generated report tables
 
 Everything in this directory is **generated**. Do not edit it by hand; regenerate it.
 
@@ -19,7 +19,7 @@ PYTHONPATH=src python -m rdd.eval.aggregate \
 
 The same four generated files are written into the results bundle at
 `Tier-A-Results/metrics/` (JSON) and `Tier-A-Results/metrics/tex/` (tables); the copies here
-are the version-controlled ones, because the bundle is not in git. They are byte-identical —
+are the version-controlled ones, because the bundle is not in git. They are byte-identical,
 the aggregator is deterministic over the same run summaries.
 
 Two conventions the tables and the JSON both state, and the narrative must not contradict:

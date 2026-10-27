@@ -1,149 +1,64 @@
 """
-Overlapping-tile resolution front end -- geometry and merging (US15, Tier B).
+Overlapping-tile resolution front end: geometry and merging (US15, Tier B).
 
-Why this exists
----------------
 RDD2022 mixes 512x512 frames with Norway's 3650x2044 frames and training
-resizes everything to 640 px. A Norwegian hairline crack three pixels wide
-arrives at the network as half a pixel: the evidence is destroyed before the
-model ever sees it. Norway scores mAP50 0.244 against 0.902 for the best
-subset, and ``US14a-pothole-recall.md`` found the C4 failure to be missed
-detections rather than confusions, with the worst strict-IoU localisation of the
-six classes -- the signature of a scale problem, not a class-separation problem.
-Both point at resolution handling as the first Tier B intervention.
+resizes everything to 640 px, so a Norwegian hairline crack three pixels wide
+arrives at the network as half a pixel. Norway scores mAP50 0.244 against 0.902
+for the best subset, and US14a found the C4 failure to be missed detections
+rather than confusions, which points at resolution handling.
 
-This module is the *geometry* half of that front end: the tile grid, the box
+This module is the geometry half of that front end: the tile grid, the box
 clipping, and the merge of per-tile detections back to full-image coordinates.
 It works from image dimensions and box coordinates only, so it runs against the
-canonical COCO store with no images, no GPU and no training. Cropping pixels and
-writing a tiled YOLO tree are deliberately NOT here -- that step needs the image
-set, which is not available yet.
+canonical COCO store with no images, no GPU and no training. Cropping pixels is
+in rdd.data.to_yolo_tiled. The CLI also measures k, the ratio of tiled to
+untiled samples, which the Tier B plan uses for budgeting.
 
-A useful side effect: the CLI measures **k**, the ratio of tiled samples to
-untiled samples, which ``docs/13-tier-b-plan.md`` section 5 calls the highest
-value action in the Tier B plan and the figure the budget turns on.
+Three design decisions.
 
---------------------------------------------------------------------------
-Decision 1: the edges shift inward; nothing is padded
---------------------------------------------------------------------------
-A grid of fixed-size tiles does not divide an arbitrary image exactly, so the
-right column and the bottom row have to be handled. Three options were weighed.
+1. Edge tiles shift inward rather than being padded or emitted at a smaller
+   size. Padding introduces a training artefact that does not occur at
+   inference, and mixed tile sizes are letterboxed back to square by the
+   trainer, reintroducing the resizing this exists to avoid. The price is that
+   the last row and column overlap by more than requested, which inflates k
+   slightly and is harmless to the merge. Images smaller than one tile pass
+   through whole at native size, and tile_above sets the threshold above which
+   an image is gridded at all.
 
-* **Pad the short tile out to full size** (zeros, or replicate). Rejected. The
-  model would then see a synthetic border during training that does not occur at
-  inference unless the identical padding is applied there, and zero padding
-  lowers the effective resolution of exactly the edge tiles we are tiling to
-  protect. It introduces a new artefact to solve a bookkeeping problem.
-* **Emit a smaller final tile.** Rejected. Tiles of mixed size are letterboxed
-  back to a square by the trainer anyway, which reintroduces resizing -- the
-  thing this whole front end exists to avoid.
-* **Shift the last tile inward so it ends on the image boundary.** Chosen. Every
-  tile is the same size, every tile is full of real pixels, and no padding or
-  rescaling is involved anywhere.
+2. Clipped boxes keeping less than min_fraction of their original area are
+   dropped rather than kept as fragments. This matters most for C1 and C2,
+   which are long and thin and straddle boundaries constantly: a grid that
+   shreds a 900 px crack into five stubs teaches the model that C1 is a stub.
+   The cost is that a dropped fragment leaves visible damage with no label, so
+   the tile becomes a partial negative. tile_image reports dropped fragments
+   per tile so a dataset builder can skip those tiles. The right value needs
+   the US16 ablation on real images.
 
-The price of shifting inward is that the last column and row overlap their
-neighbour by more than the requested fraction, so damage in that band is seen in
-more tiles than the nominal overlap implies. That slightly inflates k and is
-harmless for the merge, which de-duplicates across tiles regardless of how much
-they overlap. Paying in redundancy rather than in synthetic pixels is the right
-way round.
+3. The merge joins boxes rather than only suppressing them. Plain NMS is not
+   sufficient: an elongated crack cut by a seam produces two boxes that are
+   each roughly half the object, abutting, with low mutual IoU, so NMS keeps
+   both and the output has two half-cracks where the truth has one. The merge
+   recognises three relations, class-wise and only across tiles. Duplicate,
+   where mutual IoU >= iou_thr. Truncated view, where one box is cut off at an
+   interior edge and covered by the other to contain_thr of its own area,
+   measured as intersection over the smaller area rather than over union. And
+   seam continuation, where both boxes run against facing interior edges,
+   abut within gap_tol, and line up on the perpendicular axis within
+   align_thr. Relations are transitive, each group becomes the bounding box of
+   its members, and the group score is the maximum rather than the mean, since
+   averaging would penalise an object for having been cut. Detections from the
+   same tile are never joined. mode="nms" gives plain NMS instead, so US16 can
+   ablate the stitch against the obvious baseline.
 
-**Images smaller than one tile are passed through whole**, at native size: one
-tile equal to the image, no upscaling and no padding. This is also the
-configuration hook ``docs/13-tier-b-plan.md`` asks for under "tile only what
-needs tiling" -- ``tile_above`` raises the threshold above which an image is
-gridded at all, which is what caps k to the high-resolution subsets where the
-hypothesis actually lives.
-
---------------------------------------------------------------------------
-Decision 2: clipped boxes below an area fraction are dropped
---------------------------------------------------------------------------
-A ground-truth box that straddles a tile boundary is clipped to the tile. If the
-clipped box keeps less than ``min_fraction`` of its original area it is dropped
-rather than kept as a fragment.
-
-This matters most for C1 and C2, the two classes the project most wants to
-improve. They are long thin boxes, so on a 640 px grid they straddle boundaries
-constantly. A grid that shreds a 900 px longitudinal crack into five short stubs
-teaches the model that C1 is a short stub, which corrupts the training signal
-for the class rather than improving it.
-
-The honest cost, recorded here rather than buried: a dropped fragment leaves
-*visible damage with no label* in that tile, so the tile becomes a partial
-negative and trains the model to suppress what it shows. The overlap is what
-makes that acceptable -- the fragment dropped at the edge of one tile is a
-well-formed box nearer the middle of its neighbour -- but the trade is real and
-``min_fraction`` is a tuning knob, not a constant of nature. ``tile_image``
-therefore reports the dropped fragments per tile, so a dataset builder can skip
-tiles that contain unlabelled damage instead of presenting them as negatives.
-Which value is right cannot be settled from geometry; it needs the US16 ablation
-on real images.
-
---------------------------------------------------------------------------
-Decision 3: the merge joins, it does not only suppress
---------------------------------------------------------------------------
-Overlapping tiles double-report damage, so detections have to be merged after
-being mapped back to full-image coordinates. Plain NMS is the obvious choice and
-it is **not sufficient here**, for a reason specific to this dataset.
-
-NMS keeps the highest-scoring box of a group whose mutual IoU exceeds a
-threshold. That is correct for a compact object seen twice. An elongated crack
-cut by a tile seam produces something different: two boxes that are each roughly
-half the object, abutting at the seam, with *low* mutual IoU. NMS keeps both, and
-the full-image output then has two half-cracks where the ground truth has one
-crack -- a localisation error on exactly the classes the front end is meant to
-fix, plus a spurious extra detection.
-
-So the merge recognises three relations, class-wise, and only ever across
-different tiles:
-
-1. **duplicate** -- mutual IoU >= ``iou_thr``: the same object seen twice.
-2. **truncated view** -- one box is cut off at an interior edge of its own tile
-   and is covered by the other to at least ``contain_thr`` of its own area
-   (intersection over *smaller* area, not over union): a partial view of an
-   object that the neighbouring tile sees whole. IoU is the wrong measure here
-   by construction -- a 40 px stub of a 100 px object scores 0.4 against it, so
-   NMS leaves both -- while intersection-over-minimum scores 1.0.
-3. **seam continuation** -- both boxes run up against the facing interior edges
-   of their own tiles, they abut or overlap across that seam
-   (gap <= ``gap_tol``), and they line up on the perpendicular axis
-   (overlap / min extent >= ``align_thr``): one object too long for either tile,
-   cut in two. This is the relation the crack classes need, and the one plain
-   NMS cannot express at any threshold.
-
-Any of the three joins two boxes; the relation is transitive (union-find), and
-each resulting group becomes the bounding box of its members. The score is the
-**maximum** over the group, not the mean: a crack cut by a seam is only partly
-visible in each tile, and the better-placed tile's score is the less degraded
-estimate of the object. Averaging would penalise an object for having been cut.
-
-Detections from the *same* tile are never joined. The detector's own NMS already
-ruled on those and this module knows nothing it did not.
-
-``mode="nms"`` gives plain class-wise greedy NMS instead, so US16 can ablate the
-stitch against the obvious baseline rather than assume it helps.
-
-Limitations, which are limitations and not oversights:
-
-* Two genuinely distinct collinear cracks that meet at a seam will be fused into
-  one box. The rule cannot tell that case from one crack cut in two, because in
-  tile-local coordinates the two look identical. Whether this costs more than
-  the shredding it prevents is an empirical question about real images; it is
-  measurable as soon as the dataset lands (US16) and is not settleable here.
-* Relation 2 will also fuse a small same-class box genuinely nested inside a
-  larger one when the small one happens to touch a tile edge -- a C3 patch
-  inside a bigger C3 box, say. Plain NMS would discard one of those as well, so
-  this is not a regression, but it is a fusion the geometry cannot rule out.
-* An object crossing a tile *corner* appears in up to four tiles. Pairs that are
-  only diagonal neighbours are joined transitively through their horizontal and
-  vertical neighbours; if those intermediate detections are missing, the merge
-  leaves two boxes.
-* The union of a curved crack's fragments over-covers it, as any axis-aligned
-  box must. That is a property of the box representation, not of the merge.
-* No part of the merge has been tuned against real detections. ``iou_thr``,
-  ``contain_thr``, ``align_thr``, ``gap_tol`` and ``edge_tol`` are defaults
-  chosen from the geometry and exercised
-  on synthetic geometry (``rdd.verify.tile_roundtrip``), nothing more.
+Known limitations. Two genuinely distinct collinear cracks meeting at a seam
+fuse into one box, and in tile-local coordinates the geometry cannot tell that
+from one crack cut in two. Relation 2 can fuse a small same-class box nested
+inside a larger one when the small one touches a tile edge. An object crossing
+a tile corner appears in up to four tiles and relies on the intermediate
+detections to join transitively. The union of a curved crack's fragments
+over-covers it, as any axis-aligned box must. No threshold here has been tuned
+against real detections, only exercised on synthetic geometry in
+rdd.verify.tile_roundtrip.
 
 Usage
 -----
@@ -200,7 +115,7 @@ def _axis_starts(length: int, tile: int, stride: int) -> list[int]:
     """Tile start offsets along one axis.
 
     The last start is pulled back to ``length - tile`` so the final tile ends
-    exactly on the image boundary -- see decision 1 in the module docstring. It
+    exactly on the image boundary, see decision 1 in the module docstring. It
     is appended only when the regular stride has not already covered the axis,
     so a grid that divides exactly gains no redundant tile.
     """
@@ -481,7 +396,7 @@ def merge_detections(dets: list[TileDetection], tiles: list[Tile],
     """Map per-tile detections to full-image coordinates and de-duplicate.
 
     ``mode="stitch"`` (default) joins duplicates AND seam continuations into one
-    box per group -- the behaviour the elongated crack classes need.
+    box per group, the behaviour the elongated crack classes need.
     ``mode="nms"`` is plain class-wise greedy NMS over the mapped boxes, kept so
     the US16 ablation has a baseline. Both are class-wise: a C1 box is never
     merged with a C2 box, because orientation is definitional between those two.
@@ -592,7 +507,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
         description="Plan an overlapping-tile front end over the canonical COCO "
                     "store and measure the sample multiplier k. Reads geometry "
-                    "only -- no image is opened.")
+                    "only, no image is opened.")
     ap.add_argument("--coco", required=True, type=Path,
                     help="canonical COCO store, e.g. rdd2022_train.json")
     ap.add_argument("--out", required=True, type=Path, help="plan JSON to write")
@@ -606,7 +521,7 @@ def main(argv: list[str] | None = None) -> int:
                     help="only grid images whose larger side exceeds this many "
                          "pixels; smaller ones pass through whole. Defaults to "
                          "--tile. Raising it caps k to the high-resolution "
-                         "subsets -- see docs/13-tier-b-plan.md section 5.")
+                         "subsets, see docs/13-tier-b-plan.md section 5.")
     ap.add_argument("--summary-only", action="store_true",
                     help="write the per-country summary without the per-image "
                          "tile detail (the detail is what the crop step will "

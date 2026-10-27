@@ -7,9 +7,9 @@ Two parts of the pipeline assume that `<Country>_<NNNNNN>` numbering follows
 capture order, so that images with adjacent numbers are the same stretch of road
 seconds apart:
 
-  * ``rdd.data.dedup``  -- only merges near-duplicates within ``--max-seq-gap``
+  * ``rdd.data.dedup``, only merges near-duplicates within ``--max-seq-gap``
     frames, on the grounds that genuine duplicates are temporally adjacent.
-  * ``rdd.data.splits`` -- groups images into "segments" by ``sequence // block``
+  * ``rdd.data.splits``, groups images into "segments" by ``sequence // block``
     and assigns whole segments to a split, to stop near-identical frames leaking
     across the train/val boundary.
 

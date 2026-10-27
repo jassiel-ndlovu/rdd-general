@@ -2,7 +2,7 @@
 Inspect a de-duplication report before trusting it.
 
 Perceptual hashing has a well-known failure mode: **low-information images**.
-A near-uniform frame — blank asphalt, an overexposed or very dark shot — carries
+A near-uniform frame, blank asphalt, an overexposed or very dark shot, carries
 almost no structure, so its pHash collapses toward a common value and it
 collides with other unrelated flat frames. Those are false duplicates, and
 dropping them silently discards real training data.
@@ -89,7 +89,7 @@ def main(argv=None) -> int:
     print("LIKELY HASH COLLISIONS (large groups, non-consecutive frames)")
     print("=" * 66)
     if not suspects:
-        print("  none -- every large group looks like a genuine consecutive run")
+        print("  none, every large group looks like a genuine consecutive run")
     else:
         for size, med, keep, sample in sorted(suspects, reverse=True)[:10]:
             print(f"  size {size:>3}  median seq gap {med:>7.0f}  e.g. {sample[:3]}")

@@ -4,7 +4,7 @@ Produces the two things Tier A's run summaries never recorded:
 
   1. Per-class metrics *within each country*. The summaries hold per-class
      figures and per-country figures but never the two crossed, which is the
-     single most useful missing number in the project -- it is what separates
+     single most useful missing number in the project, it is what separates
      "potholes are hard" from "potholes are hard in Norway".
      (US13 task 13.5.)
 
@@ -34,7 +34,7 @@ them apart costs nothing but a second model load.
 **Why predictions are matched here** rather than read off `model.val()`:
 Ultralytics reports aggregate metrics, not which ground-truth box went
 unmatched, and the false-negative question needs the latter. The matching is
-deliberately simple -- greedy, by descending confidence, within a class -- so
+deliberately simple, greedy, by descending confidence, within a class, so
 that the numbers it produces can be reasoned about. It is not a replacement for
 the mAP computation, which still comes from `model.val()`.
 """
@@ -159,7 +159,7 @@ def val_dirs(data_yaml: Path) -> tuple[Path, Path]:
 
 
 # ---------------------------------------------------------------------------
-# Stage 1 -- metrics
+# Stage 1: metrics
 # ---------------------------------------------------------------------------
 def stage_metrics(model, names: dict[int, str], args, report: dict) -> None:
     from rdd.train.train_yolo import per_country_eval
@@ -196,7 +196,7 @@ def stage_metrics(model, names: dict[int, str], args, report: dict) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Stage 2 -- false negatives
+# Stage 2: false negatives
 # ---------------------------------------------------------------------------
 def stage_false_negatives(model, names: dict[int, str], args, report: dict) -> None:
     want = {v: k for k, v in names.items()}.get(args.fn_class)
@@ -214,7 +214,7 @@ def stage_false_negatives(model, names: dict[int, str], args, report: dict) -> N
     # Chunked, not one call over all 5,398 paths. Ultralytics builds its
     # dataset and predictor from the whole source list before yielding
     # anything, and on a 15 GB box that was enough to be OOM-killed during
-    # setup -- exit 137, about thirty seconds in, with nothing written. Chunks
+    # setup, exit 137, about thirty seconds in, with nothing written. Chunks
     # keep the per-call footprint flat, and releasing the predictor between
     # them stops it accumulating across the pass.
     # One path per call, not a list.
@@ -223,8 +223,8 @@ def stage_false_negatives(model, names: dict[int, str], args, report: dict) -> N
     # load_inference_source sets bs = len(source) and ignores the `batch`
     # argument entirely. Measured on this build, a list of 250 gives bs=250
     # and a single path gives bs=1. So a chunked list still pushed 250 images
-    # through one forward pass -- 1.2 GB of input, about 6 GB at the first
-    # stride-2 convolution -- and died asking for 3 GiB with 11.5 GiB already
+    # through one forward pass, 1.2 GB of input, about 6 GB at the first
+    # stride-2 convolution, and died asking for 3 GiB with 11.5 GiB already
     # resident on a 14.6 GiB card. Passing `batch=1` did not help, because it
     # is not consulted. stream=True does not help either; it governs how
     # results are yielded, not how inputs are grouped.

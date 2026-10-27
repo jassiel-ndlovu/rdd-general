@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- what is running, and what is it costing?
+#  RDD project: what is running, and what is it costing?
 # =============================================================================
 #  Read-only. Run this before you walk away, and again when you come back.
 # =============================================================================
@@ -25,7 +25,7 @@ aws ec2 describe-instances --region "$AWS_REGION" \
   --query 'Reservations[].Instances[?starts_with(InstanceType,`g`)||starts_with(InstanceType,`p`)].{Id:InstanceId,Project:Tags[?Key==`Project`]|[0].Value,Type:InstanceType,State:State.Name}' \
   --output table
 
-hdr "EBS volumes (all projects -- these bill even when instances are stopped)"
+hdr "EBS volumes (all projects, these bill even when instances are stopped)"
 aws ec2 describe-volumes --region "$AWS_REGION" \
   --query 'Volumes[].{Id:VolumeId,GB:Size,Type:VolumeType,State:State,Project:Tags[?Key==`Project`]|[0].Value}' \
   --output table

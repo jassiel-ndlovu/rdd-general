@@ -1,4 +1,4 @@
-# US17 variant A -- stride-4 detection head
+# US17 variant A: stride-4 detection head
 #
 # YOLO11s with a fourth detection head at P2/4, alongside the stock P3/8,
 # P4/16 and P5/32. Everything else is the stock architecture.
@@ -30,7 +30,7 @@ scales: # the 's' scale is selected from this file's name
   l: [1.00, 1.00, 512]
   x: [1.00, 1.50, 512]
 
-# Backbone -- unchanged from yolo11.yaml
+# Backbone: unchanged from yolo11.yaml
 backbone:
   # [from, repeats, module, args]
   - [-1, 1, Conv, [64, 3, 2]] # 0-P1/2
@@ -45,7 +45,7 @@ backbone:
   - [-1, 1, SPPF, [1024, 5]] # 9
   - [-1, 2, C2PSA, [1024]] # 10
 
-# Head -- the stock top-down path extended one level down to P2, then a
+# Head: the stock top-down path extended one level down to P2, then a
 # bottom-up path back to P5. Mirrors the structure of ultralytics' own
 # yolov8-p2.yaml, which is the reference implementation of this change.
 head:

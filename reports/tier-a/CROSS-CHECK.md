@@ -1,4 +1,4 @@
-# US13 task 13.6 — hand cross-check of one aggregated figure
+# US13 task 13.6, hand cross-check of one aggregated figure
 
 One figure from `aggregate.json`, recomputed by hand from the raw run outputs, with the
 arithmetic written out. Checked 19 October 2026 against the regenerated
@@ -6,7 +6,7 @@ arithmetic written out. Checked 19 October 2026 against the regenerated
 
 ## The figure
 
-`configs.tierA_base6.per_class.C4_pothole.AP50_95_mean` and `..._std` — the six-class
+`configs.tierA_base6.per_class.C4_pothole.AP50_95_mean` and `..._std`, the six-class
 baseline's pothole AP50-95, mean and standard deviation over the three seeds.
 
 This one was chosen deliberately: its standard deviation is the denominator of the headline

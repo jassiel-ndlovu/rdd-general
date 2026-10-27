@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- terminate training instance(s)   [DESTRUCTIVE]
+#  RDD project: terminate training instance(s)   [DESTRUCTIVE]
 # =============================================================================
 #  Deletes the instance AND its root EBS volume. Anything not synced to S3 is
 #  lost permanently. Requires typing the instance id to confirm.

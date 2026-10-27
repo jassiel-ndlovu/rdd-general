@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- stop training instance(s)
+#  RDD project: stop training instance(s)
 # =============================================================================
 #  Stops compute billing but KEEPS the EBS volume, so the filesystem, the
 #  conda environment and any in-progress work survive. The volume continues to

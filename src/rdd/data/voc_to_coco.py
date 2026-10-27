@@ -237,12 +237,12 @@ def convert(root: Path, source: str, split: str, out: Path,
 
     coco = {
         "info": {
-            "description": f"RDD project canonical store -- {source}/{split}",
+            "description": f"RDD project canonical store, {source}/{split}",
             "version": "1",
             "date_created": datetime.now(timezone.utc).isoformat(),
             "classmap_version": yaml.safe_load(config.read_text(encoding="utf-8"))["version"],
         },
-        "licenses": [{"id": 1, "name": "CC BY-SA 4.0 / CC BY 4.0 -- see source dataset"}],
+        "licenses": [{"id": 1, "name": "CC BY-SA 4.0 / CC BY 4.0, see source dataset"}],
         "categories": [
             {"id": c["id"], "name": c["name"], "supercategory": c["tier"]}
             for c in class_records
@@ -261,7 +261,7 @@ def convert(root: Path, source: str, split: str, out: Path,
 
     labelled = {a["image_id"] for a in annotations}
     print(f"  unlabelled   {len(images) - len(labelled):>8}  "
-          f"({100 * (len(images) - len(labelled)) / max(len(images), 1):.1f}% -- kept as negatives)")
+          f"({100 * (len(images) - len(labelled)) / max(len(images), 1):.1f}%, kept as negatives)")
     if missing_images:
         print(f"  MISSING imgs {missing_images:>8}  (annotation had no matching image file)")
     if degenerate:

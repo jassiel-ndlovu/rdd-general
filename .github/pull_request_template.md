@@ -24,7 +24,7 @@ For a pipeline change, the fixture run is usually enough:
 
 <!-- Delete this section if it does not apply. -->
 
-- [ ] I observed the safeguard's effect change — not just the code
+- [ ] I observed the safeguard's effect change, not just the code
 - [ ] The number it controls actually moved, and I have said what it moved from and to
 
 > A fix whose effect you have not observed is not a fix. This rule was written after a
@@ -35,7 +35,7 @@ For a pipeline change, the fixture run is usually enough:
 ## If this reports results
 
 - [ ] Class count, seed and split SHA-256 stated
-- [ ] Run was full, i.e. `valid_for_reporting: true` — not a fraction
+- [ ] Run was full, i.e. `valid_for_reporting: true`, not a fraction
 - [ ] Per-class **and** per-country numbers, not a single pooled figure
 - [ ] No comparison drawn against a published hidden-test score
 
@@ -44,6 +44,6 @@ For a pipeline change, the fixture run is usually enough:
 - [ ] No data, weights, images or credentials committed
 - [ ] Shell scripts are LF, not CRLF
 - [ ] Frozen class ids in `configs/classmap.yaml` untouched
-- [ ] Augmentation constraints untouched — no vertical flip, no rotation
+- [ ] Augmentation constraints untouched, no vertical flip, no rotation
 - [ ] Generated YOLO label files not hand-edited; the COCO store was changed and re-exported
 - [ ] If this launched a GPU instance, the team was told and `infra/status.sh` shows it stopped

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- fetch source datasets into S3
+#  RDD project: fetch source datasets into S3
 # =============================================================================
 #  RUN THIS ON THE EC2 INSTANCE, not on your laptop.
 #
@@ -44,7 +44,7 @@ RDD2022_ZIP="$WORK/RDD2022.zip"
 say() { printf '\n\033[1;36m==> %s\033[0m\n' "$*"; }
 
 fetch_rdd2022() {
-  say "RDD2022 -- 13.3 GB from figshare"
+  say "RDD2022: 13.3 GB from figshare"
 
   if [ -f "$RDD2022_ZIP" ] && [ "$(stat -c %s "$RDD2022_ZIP")" = "$RDD2022_BYTES" ]; then
     echo "    already on this disk at the correct size; not re-fetching"
@@ -98,7 +98,7 @@ fetch_rdd2022() {
   echo "    images : $IMGS   (expected 47420)"
   echo "    xmls   : $XMLS   (expected 38385)"
   if [ "$IMGS" != "47420" ] || [ "$XMLS" != "38385" ]; then
-    echo "    COUNT MISMATCH -- do not train on this until it is explained" >&2
+    echo "    COUNT MISMATCH: do not train on this until it is explained" >&2
   else
     echo "    counts reconcile with Arya et al. (2024)"
   fi
@@ -118,7 +118,7 @@ fetch_rdd2022() {
 }
 
 fetch_metadata() {
-  say "RDD2022 metadata (tiny -- safe to fetch anywhere)"
+  say "RDD2022 metadata (tiny, safe to fetch anywhere)"
   mkdir -p "$WORK/meta"
   curl -sL -o "$WORK/meta/label_map.pbtxt"          "https://ndownloader.figshare.com/files/38030820"
   curl -sL -o "$WORK/meta/File_List.txt"            "https://ndownloader.figshare.com/files/38030826"
@@ -139,7 +139,7 @@ Usage: bash fetch-datasets.sh <target>
 
 Note: RDD2022 alone supplies every class the project currently trains.
 Earlier versions of this script warned that a second dataset was required
-for the marking classes. That is no longer true -- see configs/classmap.yaml
+for the marking classes. That is no longer true, see configs/classmap.yaml
 for the label map actually in use, and do not substitute the one shipped
 with the dataset.
 USAGE

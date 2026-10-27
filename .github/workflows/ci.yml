@@ -35,7 +35,7 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      # -- shell hygiene ----------------------------------------------------
+      #, shell hygiene ----------------------------------------------------
       - name: Shell scripts must use LF line endings
         run: |
           if grep -rlU $'\r' infra/ --include='*.sh'; then
@@ -50,7 +50,7 @@ jobs:
           for f in infra/*.sh; do bash -n "$f" || exit 1; done
           echo "all infra/*.sh parse"
 
-      # -- python -----------------------------------------------------------
+      #, python -----------------------------------------------------------
       - name: Install pipeline dependencies
         run: |
           grep -v '^ultralytics' requirements.txt > /tmp/requirements-ci.txt
@@ -63,7 +63,7 @@ jobs:
           sys.path.insert(0, "src")
           failed = []
           for m in pkgutil.walk_packages(["src/rdd"], prefix="rdd."):
-              if ".train" in m.name or ".eval" in m.name:
+              if any(s in m.name for s in (".train", ".eval", ".models")):
                   continue                      # these need torch
               try:
                   importlib.import_module(m.name)
@@ -100,7 +100,7 @@ jobs:
         run: |
           PYTHONPATH=src python -m rdd.verify.tiled_eval --root /tmp/fixture
 
-      # -- project invariants ------------------------------------------------
+      #, project invariants ------------------------------------------------
       - name: Class ids are frozen
         run: |
           python - <<'PY'
@@ -131,7 +131,7 @@ jobs:
               if not m:
                   sys.exit(f"{key} is no longer set explicitly in train_yolo.py")
               if float(m.group(1)) != 0.0:
-                  sys.exit(f"{key}={m.group(1)} -- must stay 0.0. Orientation is "
+                  sys.exit(f"{key}={m.group(1)}, must stay 0.0. Orientation is "
                            f"definitional for C1 vs C2: rotating an image relabels it.")
           print("flipud and degrees are both 0.0")
           PY

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- GitHub repository governance setup
+#  RDD project: GitHub repository governance setup
 # =============================================================================
 #  Applies every control described in the project's governance document:
 #  rulesets on main, release and version tags; merge settings; security
@@ -13,8 +13,8 @@
 #  -----
 #      bash .github/setup-repo.sh --repo OWNER/NAME                 # apply
 #      bash .github/setup-repo.sh --repo OWNER/NAME --dry-run       # show only
-#      bash .github/setup-repo.sh --repo OWNER/NAME --with-release  # + release branch
-#      bash .github/setup-repo.sh --repo OWNER/NAME --require-ci    # + CI gate
+#      bash .github/setup-repo.sh --repo OWNER/NAME --with-release  # adds a release branch
+#      bash .github/setup-repo.sh --repo OWNER/NAME --require-ci    # adds a CI gate
 #
 #  --require-ci adds the CI workflow as a required status check. Run it ONLY
 #  after the workflow has completed on at least one pull request; adding a
@@ -70,7 +70,7 @@ if [ "$VISIBILITY" != "PUBLIC" ]; then
   warn "repository is $VISIBILITY. Rulesets require a paid plan on private repos."
   warn "If ruleset creation fails below, that is why."
 else
-  ok "repository is public -- rulesets are available at no cost"
+  ok "repository is public, rulesets are available at no cost"
 fi
 
 # CODEOWNERS sanity. An entry naming a user who cannot be assigned as a reviewer
@@ -79,14 +79,14 @@ if [ -f "$HERE/CODEOWNERS" ]; then
   if grep -qE '^\*[[:space:]]+@' "$HERE/CODEOWNERS"; then
     ok "CODEOWNERS has a catch-all rule"
   else
-    warn "CODEOWNERS has NO catch-all '*' rule -- paths not listed will not need review"
+    warn "CODEOWNERS has NO catch-all '*' rule, paths not listed will not need review"
   fi
   if grep -q '@CHANGE-ME' "$HERE/CODEOWNERS"; then
     echo "error: CODEOWNERS still contains the @CHANGE-ME placeholder" >&2
     exit 1
   fi
 else
-  warn "no .github/CODEOWNERS found -- code-owner review will have no effect"
+  warn "no .github/CODEOWNERS found, code-owner review will have no effect"
 fi
 
 # -----------------------------------------------------------------------------
@@ -108,7 +108,7 @@ run gh api -X PATCH "repos/$REPO" \
   -f 'security_and_analysis[secret_scanning][status]=enabled' \
   -f 'security_and_analysis[secret_scanning_push_protection][status]=enabled' \
   --silent 2>/dev/null \
-  && ok "secret scanning + push protection enabled" \
+  && ok "secret scanning and push protection enabled" \
   || warn "could not enable secret scanning (private repo, or already set)"
 
 run gh api -X PUT "repos/$REPO/vulnerability-alerts" --silent 2>/dev/null \
@@ -126,7 +126,7 @@ run gh api -X PUT "repos/$REPO/actions/permissions/workflow" \
 say "Rulesets"
 # -----------------------------------------------------------------------------
 # Read the "name" field without a JSON parser. `python` on Windows cannot open a
-# Git Bash path like /c/Users/..., and jq is not always installed -- sed is the
+# Git Bash path like /c/Users/..., and jq is not always installed, sed is the
 # one tool guaranteed to be present wherever this script runs.
 ruleset_name() {
   sed -n 's/^[[:space:]]*"name"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$1" | head -1
@@ -187,7 +187,7 @@ say "Required status check"
   rm -f "$TMP"
   ok "CI 'check' job is now a required status check"
 else
-  skip "required status check -- re-run with --require-ci after CI has run once"
+  skip "required status check, re-run with --require-ci after CI has run once"
 fi
 
 # -----------------------------------------------------------------------------
@@ -197,14 +197,14 @@ say "Collaborators"
     run gh api -X PUT "repos/$REPO/collaborators/$u" -f permission=push --silent
     ok "invited $u with Write access"
   done
-  warn "Write only. Never grant Maintain or Admin -- both can edit rulesets."
+  warn "Write only. Never grant Maintain or Admin, both can edit rulesets."
 fi
 
 # -----------------------------------------------------------------------------
 say "Result"
 # -----------------------------------------------------------------------------
 if [ "$DRY" = "1" ]; then
-  echo "  dry run -- nothing was changed"
+  echo "  dry run, nothing was changed"
   exit 0
 fi
 
@@ -212,7 +212,7 @@ gh api "repos/$REPO/rulesets" --jq '.[] | "  \(.name)  [\(.target)]  \(.enforcem
 
 cat <<'NEXT'
 
-  Verify the controls actually fire -- an untested control is an assumed control:
+  Verify the controls actually fire, an untested control is an assumed control:
 
       git switch main
       git commit --allow-empty -m "protection test"

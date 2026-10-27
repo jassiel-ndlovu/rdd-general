@@ -5,10 +5,10 @@
 #      bash infra/track.sh              # one report
 #      bash infra/track.sh --watch      # refresh every 5 minutes
 #      bash infra/track.sh --watch 60   # refresh every 60 seconds
-#      bash infra/track.sh --log        # + the last meaningful log lines
-#      bash infra/track.sh --cost       # + month-to-date spend
-#      bash infra/track.sh --history    # + the recorded trend, from the daemon
-#      bash infra/track.sh --history 30 # + the last 30 samples
+#      bash infra/track.sh --log        # also the last meaningful log lines
+#      bash infra/track.sh --cost       # also month-to-date spend
+#      bash infra/track.sh --history    # also the recorded trend, from the daemon
+#      bash infra/track.sh --history 30 # also the last 30 samples
 #
 #  Read-only. Starts nothing, stops nothing, changes nothing.
 #
@@ -75,7 +75,7 @@ echo "### runs"
 # Prefer the run the trainer is actually working on. Newest results.csv is a
 # poor proxy: a run that has not finished its first epoch has no results.csv
 # at all, so a freshly started run reports a previous, finished one instead.
-ACTIVE=$(pgrep -af "rdd.train.train_yolo" 2>/dev/null          | grep -oE -- "--name[ =][^ ]+" | head -1 | sed -E "s/--name[ =]//")
+ACTIVE=$(pgrep -af "rdd.train.train_yolo" 2>/dev/null          | grep -oE, "--name[ =][^ ]+" | head -1 | sed -E "s/--name[ =]//")
 if [ -n "$ACTIVE" ] && [ -d "$RUNS/$ACTIVE" ]; then
   R="$RUNS/$ACTIVE/results.csv"
   [ -f "$R" ] || { echo "run      : $ACTIVE"; echo "epochs   : 0 / ? (first epoch in progress)"; R=""; }
@@ -133,7 +133,7 @@ P=/opt/rdd/logs/progress-daemon.pid
 if [ -f "$P" ] && kill -0 "$(cat "$P")" 2>/dev/null; then
   echo "recorder : running (pid $(cat "$P")), $(wc -l < /opt/rdd/logs/progress.jsonl 2>/dev/null || echo 0) samples"
 else
-  echo "recorder : NOT RUNNING -- start it with infra/progress-daemon.sh"
+  echo "recorder : NOT RUNNING, start it with infra/progress-daemon.sh"
 fi
 EOS
 
@@ -208,7 +208,7 @@ remote() {
   printf '%s' "$body" > "$bodyf"
 
   # MSYS_NO_PATHCONV, set above so that remote paths survive the trip to
-  # aws.exe, also stops Git Bash converting /tmp/... for python.exe -- which is
+  # aws.exe, also stops Git Bash converting /tmp/... for python.exe, which is
   # equally a native binary and cannot open a POSIX path. Convert explicitly
   # for the native tools; the shell keeps using the POSIX form.
   winbody="$(cygpath -m "$bodyf" 2>/dev/null || echo "$bodyf")"
@@ -294,7 +294,7 @@ report() {
 check_session
 
 if [ "$WATCH" = "1" ]; then
-  echo "tracking every ${INTERVAL}s -- Ctrl-C to stop"
+  echo "tracking every ${INTERVAL}s, Ctrl-C to stop"
   while true; do
     clear 2>/dev/null || true
     report

@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-#  Tier B, second attempt -- balanced tiled export, then a longer run
+#  Tier B, second attempt, balanced tiled export, then a longer run
 # =============================================================================
 #  Run on the instance:
 #      nohup bash infra/run-tierB-v2.sh > /opt/rdd/logs/tierb_v2.log 2>&1 &
@@ -68,7 +68,7 @@ done
 echo "  (Tier A for comparison: Norway 22.7%, Japan 29.2%, India 21.4%,"
 echo "   United_States 13.4%, Czech 7.9%, China_MotorBike 5.5%)"
 
-# 100 epochs over this set is about 1.15x Tier A's gradient budget -- near
+# 100 epochs over this set is about 1.15x Tier A's gradient budget, near
 # enough to step parity to report both ways, and far enough past the first
 # attempt's 39 epochs to actually converge. The first attempt's best epoch was
 # its last, so it was still climbing when the budget ran out.

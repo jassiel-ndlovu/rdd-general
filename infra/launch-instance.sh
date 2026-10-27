@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- launch a training instance
+#  RDD project: launch a training instance
 # =============================================================================
 #  Launches ONE GPU instance, tagged Project=RDD-General, with:
 #    * the pinned Deep Learning AMI
@@ -145,6 +145,6 @@ cat <<DONE
   Check readiness once inside:
       cat /opt/rdd/READY
 
-  Stop it when you are done -- compute billing continues until you do:
+  Stop it when you are done, compute billing continues until you do:
       bash infra/stop-instance.sh --job $JOB_NAME
 DONE

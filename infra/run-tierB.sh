@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-#  Tier B -- tiled resolution front end, one seed
+#  Tier B: tiled resolution front end, one seed
 # =============================================================================
 #  Run on the instance:
 #      tmux new -s tierB
@@ -9,25 +9,22 @@
 #  Exports the tiled view of the canonical store, then trains on it with the
 #  epoch count step-matched to Tier A. About 15 hours unattended.
 #
-#  The configuration is argued in docs/13-tier-b-plan.md section 5: tile 1280
-#  with 20% overlap, applied only to images whose larger side exceeds 1200 px.
-#  Tiling at 640 would make 83% of tiles empty, and flooding a detector with
-#  background is the last thing to do about a class that already loses 55% of
-#  its instances to background.
+#  Configuration is argued in docs/13-tier-b-plan.md section 5: tile 1280 with
+#  20% overlap, applied only to images whose larger side exceeds 1200 px.
+#  Tiling at 640 would leave 83% of tiles empty.
 #
-#  The watchdog is held off for the whole run because the export phase is
-#  CPU-only and would otherwise look idle. The trap re-arms it. A SIGKILL would
-#  skip the trap and leave the instance running, so check infra/status.sh after
-#  an abnormal exit.
+#  The watchdog is held off for the whole run because the export phase is CPU
+#  only and would otherwise look idle. The trap re-arms it. A SIGKILL skips the
+#  trap and leaves the instance running, so check infra/status.sh after an
+#  abnormal exit.
 # =============================================================================
 set -euo pipefail
 
 KEEP=/opt/rdd/KEEP_ALIVE
 touch "$KEEP"
 
-# Record progress for the whole run. The daemon is idempotent (one pidfile) and
-# outlives this script on purpose, so the tail of a run and its upload are
-# recorded too. It holds no KEEP_ALIVE, so it cannot keep the instance awake.
+# The progress daemon is idempotent and outlives this script, so the tail of a
+# run and its upload are recorded. It holds no KEEP_ALIVE.
 bash infra/progress-daemon.sh >/dev/null 2>&1 &
 trap 'rm -f "$KEEP"; echo "idle watchdog re-armed at $(date -Is)"' EXIT
 

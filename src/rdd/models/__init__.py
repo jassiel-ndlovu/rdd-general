@@ -1,20 +1,12 @@
 """Make this project's custom modules visible to Ultralytics.
 
-``ultralytics.nn.tasks.parse_model`` turns a module name from a model YAML into
-a class with ``globals()[name]`` — its own module globals. A class defined
-anywhere else is simply not found, and the YAML fails with a ``KeyError`` that
-names the module and nothing else.
+parse_model resolves a module name from a model YAML through its own globals,
+so a class defined elsewhere is not found. register() injects our classes into
+that namespace and adds them to torch.serialization's allow-list, without which
+a checkpoint containing one cannot be unpickled.
 
-So ``register()`` injects our classes into that namespace. It also registers
-them with ``torch.serialization`` where that is available, because a checkpoint
-containing a custom module cannot be unpickled under PyTorch's restricted load
-unless the class is on the allow-list.
-
-Call it before building *or loading* a model. Loading matters as much as
-building: a trained ``.pt`` holding a ``StripAttention`` is unreadable without
-this, so every evaluation path needs it too, not only the trainer.
-
-Idempotent, so calling it from several entry points costs nothing.
+Call it before building or loading a model. Every evaluation path needs it, not
+only the trainer. Idempotent.
 """
 from __future__ import annotations
 
@@ -52,27 +44,19 @@ def register() -> None:
 
 
 def transfer_weights(model, checkpoint: str, max_shift: int = 6) -> tuple[int, int]:
-    """Transfer pretrained weights into a modified architecture, by name and
-    then by position.
+    """Transfer pretrained weights into a modified architecture.
 
-    Ultralytics' own ``.load()`` matches state-dict keys verbatim. Keys carry
-    the layer's index — ``model.19.cv1.conv.weight`` — so inserting a module
-    renumbers every layer after it and none of them match any more. Measured on
-    this project's variants: the stride-4 head transferred 297 of a possible
-    499 tensors and strip attention 288, meaning roughly 40% of the pretrained
-    weights were silently discarded and those layers started random.
+    Ultralytics' .load() matches state-dict keys verbatim, and keys carry the
+    layer index, so inserting a module renumbers every later layer and their
+    weights are dropped without warning. Measured here at roughly 40% of the
+    model for two variants. A variant initialised from 60% of the pretrained
+    weights is not comparable with a fully pretrained baseline.
 
-    That is a confound, not a detail. The baseline this is compared against was
-    fully pretrained, so a variant that scores worse could be losing on
-    initialisation rather than on architecture.
+    A key that does not match by name is retried at a lower index, accepting
+    only an exact shape match within max_shift. Insertions move layers later,
+    so candidates are searched downwards and the nearest index wins.
 
-    This recovers the shifted layers: a key that does not match by name is
-    retried against the same suffix at a lower index, accepting only an exact
-    shape match and only a shift within ``max_shift``. Insertions move layers
-    later, never earlier, so candidates are searched downwards; the nearest
-    index wins, which is the correct one when a single block has been inserted.
-
-    Returns (transferred, total) counted over the destination state dict.
+    Returns (transferred, total) over the destination state dict.
     """
     import re
     import torch

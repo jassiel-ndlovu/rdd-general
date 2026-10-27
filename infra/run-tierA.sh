@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- Tier A experiment set
+#  Tier A experiment set
 # =============================================================================
 #  Answers RQ1, RQ2, RQ3 and RQ5 and tests H1 and H2.
 #
 #    Baseline : 6-class detector (C1-C6), 3 seeds       ~30 GPU-h
-#    Control  : 4-class detector (C1-C4), 1 seed        ~10 GPU-h   <- tests H2
-#    Eval     : per-class and per-country for all runs   included
+#    Control  : 4-class detector (C1-C4), 1 seed        ~10 GPU-h
+#    Eval     : per class and per country for all runs
 #
-#  The control uses the SAME images and the SAME split manifest as the
+#  The control uses the same images and the same split manifest as the
 #  baseline. Only the label set differs, so any accuracy change on the shared
-#  classes is attributable to broadening the taxonomy and to nothing else.
-#  That is the whole point of H2.
+#  classes is attributable to broadening the taxonomy.
 #
-#  RUN ON THE INSTANCE, inside tmux:
+#  Run on the instance, inside tmux:
 #      tmux new -s tierA
 #      bash infra/run-tierA.sh
 #      # detach with Ctrl-b d
@@ -66,7 +65,7 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-say "BASELINE -- 6 classes, seeds: $SEEDS"
+say "BASELINE: 6 classes, seeds: $SEEDS"
 # ---------------------------------------------------------------------------
 for s in $SEEDS; do
   NAME="tierA_base6_s${s}"
@@ -82,7 +81,7 @@ for s in $SEEDS; do
 done
 
 # ---------------------------------------------------------------------------
-say "CONTROL -- 4 classes, seed 0 (tests H2)"
+say "CONTROL: 4 classes, seed 0 (tests H2)"
 # ---------------------------------------------------------------------------
 NAME="tierA_ctrl4_s0"
 if [ -f "$HOME_DIR/runs/$NAME/summary.json" ]; then
@@ -115,4 +114,4 @@ aws s3 sync "$HOME_DIR/runs" "$S3_RUNS" --only-show-errors \
   --exclude "*/_per_country/*" \
   --exclude "*.cache"
 
-say "TIER A COMPLETE -- results at $S3_RUNS"
+say "TIER A COMPLETE: results at $S3_RUNS"

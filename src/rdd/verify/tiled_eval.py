@@ -7,8 +7,8 @@ What this has to establish
 for a tile-trained checkpoint over whole validation images, set beside Tier A's.
 Two independent things have to be right for that number to mean anything.
 
-**The average precision.** It cannot come from ``model.val()`` -- the detections
-are ours, not its dataloader's -- so ``rdd.eval.apmetrics`` computes it, as a
+**The average precision.** It cannot come from ``model.val()``, the detections
+are ours, not its dataloader's, so ``rdd.eval.apmetrics`` computes it, as a
 port of Ultralytics' own estimator (that module's docstring says why it is a
 port and not pycocotools). Sections A and B check the port: against hand
 computable cases, against the installed Ultralytics where there is one, and
@@ -19,7 +19,7 @@ truth. Section C runs the real CLI over a renderable copy of the synthetic
 fixture with a stub detector in place of a model, and section D covers the
 degenerate cases ``rdd.verify.tile_roundtrip`` already covers geometrically --
 an image with no boxes, a box cut by a seam, an image below the tiling
-threshold -- this time through the scoring path rather than the geometry.
+threshold, this time through the scoring path rather than the geometry.
 
 Section E pins one rule that is neither of those and broke the path once: the
 shape of the canvas validation feeds the network. It is not ``imgsz x imgsz``,
@@ -69,7 +69,7 @@ def _imread(path: Path) -> np.ndarray:
     """BGR array, the convention rdd.eval.tiled_predict works in.
 
     Uses Ultralytics' reader when it is installed, so the verifier exercises
-    the same decode the gate does, and PIL otherwise -- no check here depends
+    the same decode the gate does, and PIL otherwise, no check here depends
     on the pixels, only on their shape.
     """
     try:
@@ -93,7 +93,7 @@ class ScriptedPredictor:
 
     ``begin(tiles, boxes)`` arms it for one image; each call then consumes the
     next tiles in grid order and returns detections in tile-local coordinates.
-    Relying on call order is deliberate -- check C0 asserts that contract, so if
+    Relying on call order is deliberate, check C0 asserts that contract, so if
     ``predict_image`` ever stops calling the model once per tile in order, these
     checks fail loudly rather than quietly scoring the wrong tiles.
     """
@@ -165,7 +165,7 @@ def check_ap(ch: Checks) -> None:
                         names)
     ch.check(abs(r["per_class"]["C1"]["AP50"] - 0.995) < TOL,
              "A1 a perfect detection scores exactly 0.995",
-             f"got {r['per_class']['C1']['AP50']} -- Ultralytics' ceiling; "
+             f"got {r['per_class']['C1']['AP50']}, Ultralytics' ceiling; "
              f"mean-of-101 would give 0.9901")
 
     # A2 a detection too far off to match at IoU 0.5 (IoU here is 100/300).
@@ -182,7 +182,7 @@ def check_ap(ch: Checks) -> None:
                         names)
     ch.check(abs(r["per_class"]["C1"]["AP50"] - 0.495) < TOL,
              "A3 one of two instances found scores exactly 0.495",
-             f"got {r['per_class']['C1']['AP50']} -- half of 0.995, which is "
+             f"got {r['per_class']['C1']['AP50']}, half of 0.995, which is "
              f"what a recall curve ending at 0.5 integrates to")
 
     # A3b rank matters: the same two detections cost more when the false
@@ -205,7 +205,7 @@ def check_ap(ch: Checks) -> None:
              and r["per_class"]["C2"]["n_instances"] == 1,
              "A4 a class with labels and no detections scores 0.0, not absent")
 
-    # A5 a class predicted but never annotated is omitted entirely -- the
+    # A5 a class predicted but never annotated is omitted entirely, the
     # ap_class_index rule rdd.eval.revalidate.per_class_from documents.
     r = apmetrics.score([_stats([(1, 0.9, 20, 20, 30, 30)], [(0, 0, 0, 10, 10)])],
                         names)
@@ -234,7 +234,7 @@ def check_matching(ch: Checks) -> None:
     # the obvious reading of Ultralytics' code ("sort the pairs by descending
     # IoU, then take them greedily") is wrong: the np.unique that de-duplicates
     # detections re-sorts the pairs into detection order, so the second
-    # de-duplication -- the one over ground truths -- resolves ties by position
+    # de-duplication, the one over ground truths, resolves ties by position
     # in the detection list, not by IoU. The list arrives sorted by descending
     # confidence (NMS emits it that way, and so does
     # rdd.data.tiling.merge_detections), so in practice the ground truth goes
@@ -246,7 +246,7 @@ def check_matching(ch: Checks) -> None:
     ch.check(bool(a[0, 0]) and not bool(a[1, 0])
              and bool(b[0, 0]) and not bool(b[1, 0]),
              "B1 two detections for one label: the first in the list takes it",
-             "IoU 0.81 before 1.00 still wins -- confidence order decides, not fit")
+             "IoU 0.81 before 1.00 still wins, confidence order decides, not fit")
 
     # B1b the IoU ordering does still decide which *label* a detection is
     # credited with when it overlaps two of them: each detection keeps its
@@ -269,7 +269,7 @@ def check_matching(ch: Checks) -> None:
              "B3 a ground truth is matched at most once")
 
     # B4 the IoU vector is 0.5:0.05:0.95 and a borderline box falls out of the
-    # strict columns -- the behaviour AP50_95 depends on.
+    # strict columns, the behaviour AP50_95 depends on.
     pred = np.array([[0.0, 0.0, 10.0, 7.0]])            # IoU 0.7
     tp = match_predictions(np.array([0]), np.array([0]), box_iou(gt, pred))
     ch.check(bool(tp[0, 0]) and bool(tp[0, 3]) and not bool(tp[0, 5]),
@@ -279,7 +279,7 @@ def check_matching(ch: Checks) -> None:
     # B5 box_iou runs in single precision, because Ultralytics' does. Where
     # A8 cannot run (no Ultralytics installed) this is what guards the choice:
     # the same boxes in double precision give a different number, so the dtype
-    # is not cosmetic -- it decides a box sitting exactly on a threshold.
+    # is not cosmetic, it decides a box sitting exactly on a threshold.
     a = np.array([[600.0, 400.0, 1600.0, 460.0]])        # Norway-scale crack
     b = np.array([[600.0, 400.0, 1341.0, 460.0]])
     f32 = box_iou(a, b)
@@ -300,7 +300,7 @@ def check_against_ultralytics(ch: Checks) -> None:
         from ultralytics.utils.metrics import box_iou as ul_box_iou
     except Exception as e:                                  # noqa: BLE001
         ch.note("A8 equivalence with ultralytics",
-                f"skipped: {type(e).__name__} -- not installed here. Run this "
+                f"skipped: {type(e).__name__}, not installed here. Run this "
                 f"verifier on the instance or in CI, where it is pinned.")
         return
 
@@ -348,7 +348,7 @@ def check_against_pycocotools(ch: Checks) -> None:
         import pycocotools                                  # noqa: F401
     except Exception as e:                                  # noqa: BLE001
         ch.note("A10 pycocotools cross-check",
-                f"skipped: {type(e).__name__} -- not installed here. It is "
+                f"skipped: {type(e).__name__}, not installed here. It is "
                 f"pinned in requirements.txt, so it runs on the instance.")
         return
 
@@ -492,7 +492,7 @@ def check_end_to_end(ch: Checks, coco: dict, tmp: Path) -> None:
 
     # C0 the contract the stub depends on, and that the batching must keep:
     # every tile predicted exactly once, in grid order, whatever the batch
-    # size. The second half matters for the scoring, not the inference -- B1
+    # size. The second half matters for the scoring, not the inference, B1
     # showed that contention between two detections for one label is resolved
     # by list order, so merged detections must leave this path sorted by
     # descending confidence.
@@ -521,7 +521,7 @@ def check_end_to_end(ch: Checks, coco: dict, tmp: Path) -> None:
     ch.check(same, "C2 --tile-batch changes no detection and no number",
              "1 vs 8 tiles per forward pass")
 
-    # C3 images with no labels -- the fixture's genuine negative, plus the two
+    # C3 images with no labels, the fixture's genuine negative, plus the two
     # whose boxes voc_to_coco drops upstream (a zero-width box and an unknown
     # label). Each is still tiled, and the oracle finds nothing on it, so it
     # contributes neither a false positive nor a missed box.
@@ -540,7 +540,7 @@ def check_end_to_end(ch: Checks, coco: dict, tmp: Path) -> None:
              "600x600 against tile_above 1200: one tile each, same 0.995")
 
     # C5 a detector that finds nothing scores zero everywhere, and every class
-    # with labels is still listed -- a silent empty report is the failure mode
+    # with labels is still listed, a silent empty report is the failure mode
     # that would look like a working run.
     empty = EmptyPredictor()
     r_empty, _ = runner.run(empty, tile=256, overlap=0.25)
@@ -634,7 +634,7 @@ def check_seam(ch: Checks) -> None:
                 r_nms["per_class"]["C1"]["AP50_95"])
     ch.check(abs(s50 - 0.995) < TOL and abs(s95 - 0.995) < TOL,
              "D3 the stitched detection is a true positive at every IoU",
-             f"AP50 {s50:.4f}, AP50_95 {s95:.4f} -- the box is exact, so the "
+             f"AP50 {s50:.4f}, AP50_95 {s95:.4f}, the box is exact, so the "
              f"strict columns hold too")
     # At IoU 0.5 the better half alone still clears the threshold, so AP50
     # cannot tell the two modes apart; the cost of NMS here is localisation,
@@ -684,7 +684,7 @@ def check_canvas(ch: Checks) -> None:
                                             1080, 1280)}
     ch.check(squares == {(672, 672)},
              "E1 a square image goes in on 672x672, not 640x640",
-             f"{sorted(squares)} -- pad=0.5 of a 32 stride, each side")
+             f"{sorted(squares)}, pad=0.5 of a 32 stride, each side")
 
     # Norway's three frame sizes, which are the only non-square ones.
     norway = {(2035, 4040): (352, 672), (2041, 3643): (384, 672),
@@ -758,8 +758,8 @@ def main(argv=None) -> int:
     print(f"all {n_checks} checks passed")
     print("No checkpoint was loaded: the detector is a stub, so every number "
           "here is this code's doing.")
-    print("The remaining gate -- reproducing tierA_base6_s0's recorded "
-          "per-class AP50 -- needs the validation images; see "
+    print("The remaining gate: reproducing tierA_base6_s0's recorded "
+          "per-class AP50, needs the validation images; see "
           "rdd.eval.tiled_predict --untiled --expect-from.")
     return 0
 

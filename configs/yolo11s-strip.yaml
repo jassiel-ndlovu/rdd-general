@@ -1,10 +1,10 @@
-# US17 variant B -- strip attention on the detection features
+# US17 variant B: strip attention on the detection features
 #
 # Stock YOLO11s with a StripAttention block on each of the three features that
 # feed Detect. Nothing else changes.
 #
 # Why: C1 and C2 are the project's two weakest classes, and they are the two
-# whose definition is an orientation -- a longitudinal crack runs along the
+# whose definition is an orientation, a longitudinal crack runs along the
 # road, a transverse one across it. That is why rotation and vertical flip are
 # banned from this project's augmentation. An isotropic operator blurs the very
 # distinction the taxonomy rests on, so the block integrates along each axis
@@ -27,7 +27,7 @@ scales: # the 's' scale is selected from this file's name
   l: [1.00, 1.00, 512]
   x: [1.00, 1.50, 512]
 
-# Backbone -- unchanged from yolo11.yaml
+# Backbone: unchanged from yolo11.yaml
 backbone:
   # [from, repeats, module, args]
   - [-1, 1, Conv, [64, 3, 2]] # 0-P1/2
@@ -42,7 +42,7 @@ backbone:
   - [-1, 1, SPPF, [1024, 5]] # 9
   - [-1, 2, C2PSA, [1024]] # 10
 
-# Head -- stock yolo11 with StripAttention before each Detect input
+# Head: stock yolo11 with StripAttention before each Detect input
 head:
   - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
   - [[-1, 6], 1, Concat, [1]] # cat backbone P4

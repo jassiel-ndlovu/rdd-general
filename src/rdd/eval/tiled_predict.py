@@ -21,7 +21,7 @@ Three things make that harder than it sounds, and each one is a decision here.
 **1. Ultralytics cannot score this.** ``model.val()`` scores what its own
 dataloader and its own post-processing produced. Our detections come out of
 ``rdd.data.tiling.merge_detections``, so the average precision has to be
-computed from a detection list. It is, in ``rdd.eval.apmetrics`` -- as an exact
+computed from a detection list. It is, in ``rdd.eval.apmetrics``, as an exact
 port of Ultralytics' own estimator rather than a fresh one or pycocotools,
 because a Tier B number computed by a different estimator than Tier A's is not
 comparable with it. That module's docstring makes the argument in full, and
@@ -36,10 +36,10 @@ are recorded in the report.
 
 **3. ``model.predict()`` is not ``model.val()``.** This was the expensive
 surprise. Scoring prediction output reproduced none of Tier A's recorded
-per-class AP50 figures, missing C1 by 0.046 -- and the fault was not in the
+per-class AP50 figures, missing C1 by 0.046, and the fault was not in the
 average precision, which matches Ultralytics' own bit for bit, but in the
 detections. Validation runs NMS with ``multi_label=True``, never clips boxes
-before matching, and -- the part worth almost all of the 0.046 -- feeds the
+before matching, and, the part worth almost all of the 0.046, feeds the
 network a **rectangular, stride-padded canvas**: a square image at imgsz 640
 goes in on 672x672 with a 16 px grey border, not on 640x640. ``canvas_shape``
 and ``ValEquivalentPredictor`` reproduce all three, so this path differs from
@@ -50,7 +50,7 @@ each at 1280/0.2 and there are 1,224 of them in the validation split, so the
 pass is some 20,000 forward passes rather than 5,398. This streams: one source
 image at a time, its tiles predicted in batches of ``--tile-batch``, crops
 dropped as soon as the batch returns, and only the merged boxes kept. Nothing
-accumulates but a few hundred bytes of arrays per image -- which matters,
+accumulates but a few hundred bytes of arrays per image, which matters,
 because holding a whole evaluation in memory is what OOM-killed the g4dn during
 US13.
 
@@ -61,7 +61,7 @@ merge mode, a cross-check engine) never re-runs the model.
 
 Validating the path before trusting it
 --------------------------------------
-``--untiled`` passes every image through whole -- one tile equal to the image --
+``--untiled`` passes every image through whole, one tile equal to the image --
 which turns this module into exactly Tier A's evaluation with Tier A's weights,
 routed through our own scoring. With ``--expect-from`` pointing at a recorded
 ``revalidation.json`` it then asserts the recorded per-class AP50 and exits
@@ -121,7 +121,7 @@ NMS_IOU = 0.7
 MAX_DET = 300
 
 # Per-image detection cap, applied after merging. Ultralytics caps at 300 per
-# image; here MAX_DET is a cap per *tile*, which is the right analogue -- a
+# image; here MAX_DET is a cap per *tile*, which is the right analogue, a
 # Norway frame has 8 tiles and so up to 2,400 raw detections, and the merge
 # removes the duplicates among them rather than the genuine extras.
 IOU_MATCH = 0.5          # recorded for provenance; apmetrics uses 0.5:0.05:0.95
@@ -143,7 +143,7 @@ def canvas_shape(h0: int, w0: int, imgsz: int = 640, stride: int = 32,
     ``ceil(ratio * imgsz / stride + 0.5) * stride``: a **square** image at imgsz
     640 goes in on a **672x672** canvas with a 16 px grey border on every side,
     and a 4040x2035 frame on 352x672. The boxes come back in the right places
-    either way -- the cost is that every confidence is different, because the
+    either way, the cost is that every confidence is different, because the
     network sees a different canvas, and confidences are what average precision
     integrates over.
 
@@ -179,8 +179,8 @@ class ValEquivalentPredictor:
     1. **The canvas.** Validation runs ``rect=True, pad=0.5``, so a square
        image at imgsz 640 enters the network on a 672x672 canvas with a 16 px
        grey border a side; prediction letterboxes with ``auto=True`` to a plain
-       stride multiple. Both put the boxes back in the right places -- the
-       16 px measured out of the returned coordinates exactly -- but the
+       stride multiple. Both put the boxes back in the right places, the
+       16 px measured out of the returned coordinates exactly, but the
        network sees different pixels and returns different confidences, and
        average precision is an integral over confidence. Worth almost all of
        the 0.046. See ``canvas_shape``.
@@ -189,8 +189,8 @@ class ValEquivalentPredictor:
        orientation alone and are this project's confusable pair, so this lands
        on exactly the classes that matter, worth about 0.005 on C2.
     3. **Clipping.** ``ops.scale_boxes`` clips to the frame. The validator
-       never clips -- it matches in letterboxed model space against equally
-       unclipped ground truth -- so a detection running off the edge keeps its
+       never clips, it matches in letterboxed model space against equally
+       unclipped ground truth, so a detection running off the edge keeps its
        full area in the IoU. Small on 512 px frames; not necessarily small on
        Norway's, where a crack at the frame edge is the common case.
 
@@ -198,8 +198,8 @@ class ValEquivalentPredictor:
     the validator's order with the validator's arguments, over an
     ``AutoBackend`` built the way the validator builds it, and maps boxes back
     with ``scale_boxes``' arithmetic minus its clip. Crops arrive as **BGR
-    numpy views** -- the convention ``imread`` returns and the dataloader works
-    in -- so no pixel is copied until the resize.
+    numpy views**, the convention ``imread`` returns and the dataloader works
+    in, so no pixel is copied until the resize.
     """
 
     def __init__(self, weights: Path, imgsz: int = 640, conf: float = CONF_FLOOR,
@@ -240,7 +240,7 @@ class ValEquivalentPredictor:
         """The shape the validator would actually feed the network."""
         return canvas_shape(h0, w0, self.imgsz, self.stride, self.rect)
 
-    # -- the validator's dataloader, for one crop ---------------------------
+    #, the validator's dataloader, for one crop ---------------------------
     def _prepare(self, crop):
         import cv2
 
@@ -302,7 +302,7 @@ class ValEquivalentPredictor:
             # letterboxed model space and matches them there, against ground
             # truth that is equally unclipped, so a detection running off the
             # frame keeps its full area in the IoU. Clipping it here would
-            # shrink that area and lose matches at the frame edge -- which is
+            # shrink that area and lose matches at the frame edge, which is
             # where longitudinal cracks live, and was worth 0.04 AP50 on C1.
             (gain_y, gain_x), (pad_x, pad_y) = ratio_pad
             boxes = det[:, :4].clone()
@@ -375,7 +375,7 @@ def predict_image(img, width: int, height: int, predictor, *,
 
 
 # ---------------------------------------------------------------------------
-# Stage 1 -- predict
+# Stage 1: predict
 # ---------------------------------------------------------------------------
 def stage_predict(args, predictor) -> tuple[list[ImageStats], dict]:
     """Stream the validation images, dump merged detections, keep the stats."""
@@ -489,7 +489,7 @@ def load_dump(path: Path, limit: int = 0) -> list[ImageStats]:
 
 
 # ---------------------------------------------------------------------------
-# Stage 2 -- score
+# Stage 2: score
 # ---------------------------------------------------------------------------
 def stage_score(stats: list[ImageStats], names: dict[int, str],
                 ap_engine: str) -> dict:
@@ -553,7 +553,7 @@ def check_expected(report: dict, expected: dict[str, float], tol: float,
         ok &= good
         print(f"   [{'ok' if good else 'FAIL':4s}] {cls:26s} "
               f"expected {want:.4f}  got {got:.4f}  delta {delta:+.4f}")
-    print("   gate PASSED" if ok else "   gate FAILED -- do not report this path")
+    print("   gate PASSED" if ok else "   gate FAILED, do not report this path")
 
     # AP50 is what the gate turns on, because it is the figure the study
     # reports. The other three recorded numbers are printed beside it as
@@ -589,7 +589,7 @@ def tiling_from_header(path: Path) -> tuple[int, float, int | None]:
     m = _TILING_HEADER.search(text)
     if not m:
         raise SystemExit(
-            f"{path} has no '# tiling :' header line -- is it a tiled export "
+            f"{path} has no '# tiling :' header line, is it a tiled export "
             f"written by rdd.data.to_yolo_tiled?")
     tile, overlap, above = int(m.group(1)), float(m.group(2)), m.group(3)
     return tile, overlap, (None if above == "None" else int(above))
@@ -619,7 +619,7 @@ def main(argv=None) -> int:
     ap.add_argument("--untiled", action="store_true",
                     help="pass every image through whole. Turns this into Tier "
                          "A's evaluation routed through our scoring, which is "
-                         "how the path is validated -- see --expect-from")
+                         "how the path is validated, see --expect-from")
 
     ap.add_argument("--merge-mode", choices=("stitch", "nms"), default="stitch")
     ap.add_argument("--merge-iou", type=float, default=0.5)

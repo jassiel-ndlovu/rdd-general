@@ -1,4 +1,4 @@
-# US17 variant C -- dynamic upsampling in the neck
+# US17 variant C: dynamic upsampling in the neck
 #
 # Stock YOLO11s with both nn.Upsample layers replaced by DySample. Nothing else
 # changes.
@@ -27,7 +27,7 @@ scales: # the 's' scale is selected from this file's name
   l: [1.00, 1.00, 512]
   x: [1.00, 1.50, 512]
 
-# Backbone -- unchanged from yolo11.yaml
+# Backbone: unchanged from yolo11.yaml
 backbone:
   # [from, repeats, module, args]
   - [-1, 1, Conv, [64, 3, 2]] # 0-P1/2
@@ -42,7 +42,7 @@ backbone:
   - [-1, 1, SPPF, [1024, 5]] # 9
   - [-1, 2, C2PSA, [1024]] # 10
 
-# Head -- stock yolo11 with DySample in place of nn.Upsample
+# Head: stock yolo11 with DySample in place of nn.Upsample
 head:
   - [-1, 1, DySample, [512, 2]] # 11  (512 ch at scale s)
   - [[-1, 6], 1, Concat, [1]] # cat backbone P4

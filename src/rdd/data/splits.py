@@ -6,7 +6,7 @@ Why not a plain random split
 RDD subsets are video-derived, so the corpus contains near-identical frames of
 the same stretch of road. A per-image random split can put such a pair on both
 sides of the boundary, and the model is then evaluated on an image it has
-effectively already seen — inflating every metric.
+effectively already seen, inflating every metric.
 
 Grouping key: perceptual-hash clusters, NOT sequence numbers
 ------------------------------------------------------------
@@ -32,7 +32,7 @@ Stratification
 --------------
 Segments are shuffled and allocated **per country**, so every country appears in
 both splits in roughly its original proportion. Without this, a country-blind
-shuffle can starve the validation set of whole countries — which matters because
+shuffle can starve the validation set of whole countries, which matters because
 per-country reporting is part of the evaluation protocol.
 
 Output
