@@ -1,0 +1,10117 @@
+[
+ {
+  "image": "China_MotorBike_000091",
+  "country": "China_MotorBike",
+  "box_xyxy": [
+   183.0,
+   42.0,
+   189.0,
+   51.0
+  ],
+  "box_w": 6.0,
+  "box_h": 9.0,
+  "box_area_px": 54.0,
+  "box_area_frac": 0.000206,
+  "image_w": 512,
+  "image_h": 512,
+  "detected_at_floor": true
+ },
+ {
+  "image": "China_MotorBike_000163",
+  "country": "China_MotorBike",
+  "box_xyxy": [
+   77.0,
+   321.0,
+   142.0,
+   512.0
+  ],
+  "box_w": 65.0,
+  "box_h": 191.0,
+  "box_area_px": 12415.0,
+  "box_area_frac": 0.047359,
+  "image_w": 512,
+  "image_h": 512,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Czech_000293",
+  "country": "Czech",
+  "box_xyxy": [
+   248.0,
+   429.0,
+   297.0,
+   449.0
+  ],
+  "box_w": 49.0,
+  "box_h": 20.0,
+  "box_area_px": 980.0,
+  "box_area_frac": 0.002722,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_000296",
+  "country": "Czech",
+  "box_xyxy": [
+   304.0,
+   394.0,
+   374.0,
+   419.0
+  ],
+  "box_w": 70.0,
+  "box_h": 25.0,
+  "box_area_px": 1750.0,
+  "box_area_frac": 0.004861,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_000395",
+  "country": "Czech",
+  "box_xyxy": [
+   352.0,
+   461.0,
+   447.0,
+   515.0
+  ],
+  "box_w": 95.0,
+  "box_h": 54.0,
+  "box_area_px": 5130.0,
+  "box_area_frac": 0.01425,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Czech_000755",
+  "country": "Czech",
+  "box_xyxy": [
+   259.0,
+   358.0,
+   286.0,
+   378.0
+  ],
+  "box_w": 27.0,
+  "box_h": 20.0,
+  "box_area_px": 540.0,
+  "box_area_frac": 0.0015,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_000853",
+  "country": "Czech",
+  "box_xyxy": [
+   39.0,
+   414.0,
+   143.0,
+   436.0
+  ],
+  "box_w": 104.0,
+  "box_h": 22.0,
+  "box_area_px": 2288.0,
+  "box_area_frac": 0.006356,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_000982",
+  "country": "Czech",
+  "box_xyxy": [
+   21.0,
+   453.0,
+   115.0,
+   516.0
+  ],
+  "box_w": 94.0,
+  "box_h": 63.0,
+  "box_area_px": 5922.0,
+  "box_area_frac": 0.01645,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_000982",
+  "country": "Czech",
+  "box_xyxy": [
+   121.0,
+   435.0,
+   208.0,
+   480.0
+  ],
+  "box_w": 87.0,
+  "box_h": 45.0,
+  "box_area_px": 3915.0,
+  "box_area_frac": 0.010875,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_001386",
+  "country": "Czech",
+  "box_xyxy": [
+   204.0,
+   448.0,
+   312.0,
+   512.0
+  ],
+  "box_w": 108.0,
+  "box_h": 64.0,
+  "box_area_px": 6912.0,
+  "box_area_frac": 0.0192,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_002058",
+  "country": "Czech",
+  "box_xyxy": [
+   341.0,
+   431.0,
+   393.0,
+   449.0
+  ],
+  "box_w": 52.0,
+  "box_h": 18.0,
+  "box_area_px": 936.0,
+  "box_area_frac": 0.0026,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Czech_002095",
+  "country": "Czech",
+  "box_xyxy": [
+   276.0,
+   453.0,
+   295.0,
+   473.0
+  ],
+  "box_w": 19.0,
+  "box_h": 20.0,
+  "box_area_px": 380.0,
+  "box_area_frac": 0.001056,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_002501",
+  "country": "Czech",
+  "box_xyxy": [
+   39.0,
+   407.0,
+   87.0,
+   428.0
+  ],
+  "box_w": 48.0,
+  "box_h": 21.0,
+  "box_area_px": 1008.0,
+  "box_area_frac": 0.0028,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_003025",
+  "country": "Czech",
+  "box_xyxy": [
+   99.0,
+   427.0,
+   169.0,
+   461.0
+  ],
+  "box_w": 70.0,
+  "box_h": 34.0,
+  "box_area_px": 2380.0,
+  "box_area_frac": 0.006611,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Czech_003117",
+  "country": "Czech",
+  "box_xyxy": [
+   51.0,
+   477.0,
+   121.0,
+   523.0
+  ],
+  "box_w": 70.0,
+  "box_h": 46.0,
+  "box_area_px": 3220.0,
+  "box_area_frac": 0.008945,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Czech_003188",
+  "country": "Czech",
+  "box_xyxy": [
+   356.0,
+   456.0,
+   419.0,
+   509.0
+  ],
+  "box_w": 63.0,
+  "box_h": 53.0,
+  "box_area_px": 3339.0,
+  "box_area_frac": 0.009275,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Czech_003500",
+  "country": "Czech",
+  "box_xyxy": [
+   270.0,
+   407.0,
+   303.0,
+   437.0
+  ],
+  "box_w": 33.0,
+  "box_h": 30.0,
+  "box_area_px": 990.0,
+  "box_area_frac": 0.00275,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000027",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   624.0,
+   168.0,
+   711.0
+  ],
+  "box_w": 167.0,
+  "box_h": 87.0,
+  "box_area_px": 14528.9,
+  "box_area_frac": 0.028026,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000027",
+  "country": "India",
+  "box_xyxy": [
+   640.0,
+   494.0,
+   720.0,
+   531.0
+  ],
+  "box_w": 80.0,
+  "box_h": 37.0,
+  "box_area_px": 2960.0,
+  "box_area_frac": 0.00571,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000067",
+  "country": "India",
+  "box_xyxy": [
+   2.0,
+   444.0,
+   307.0,
+   487.0
+  ],
+  "box_w": 305.0,
+  "box_h": 43.0,
+  "box_area_px": 13114.9,
+  "box_area_frac": 0.025299,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000105",
+  "country": "India",
+  "box_xyxy": [
+   5.0,
+   497.0,
+   48.0,
+   518.0
+  ],
+  "box_w": 43.0,
+  "box_h": 21.0,
+  "box_area_px": 903.0,
+  "box_area_frac": 0.001742,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_000105",
+  "country": "India",
+  "box_xyxy": [
+   47.0,
+   510.0,
+   83.0,
+   534.0
+  ],
+  "box_w": 36.0,
+  "box_h": 24.0,
+  "box_area_px": 864.0,
+  "box_area_frac": 0.001667,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_000105",
+  "country": "India",
+  "box_xyxy": [
+   93.0,
+   513.0,
+   129.0,
+   537.0
+  ],
+  "box_w": 36.0,
+  "box_h": 24.0,
+  "box_area_px": 864.0,
+  "box_area_frac": 0.001667,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000147",
+  "country": "India",
+  "box_xyxy": [
+   417.0,
+   426.0,
+   467.0,
+   452.0
+  ],
+  "box_w": 50.0,
+  "box_h": 26.0,
+  "box_area_px": 1300.0,
+  "box_area_frac": 0.002508,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000288",
+  "country": "India",
+  "box_xyxy": [
+   98.0,
+   545.0,
+   261.0,
+   660.0
+  ],
+  "box_w": 163.0,
+  "box_h": 115.0,
+  "box_area_px": 18745.0,
+  "box_area_frac": 0.036159,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_000288",
+  "country": "India",
+  "box_xyxy": [
+   436.0,
+   563.0,
+   509.0,
+   609.0
+  ],
+  "box_w": 73.0,
+  "box_h": 46.0,
+  "box_area_px": 3358.0,
+  "box_area_frac": 0.006478,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000301",
+  "country": "India",
+  "box_xyxy": [
+   371.0,
+   588.0,
+   405.0,
+   611.0
+  ],
+  "box_w": 34.0,
+  "box_h": 23.0,
+  "box_area_px": 782.0,
+  "box_area_frac": 0.001508,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000301",
+  "country": "India",
+  "box_xyxy": [
+   432.0,
+   637.0,
+   604.0,
+   683.0
+  ],
+  "box_w": 172.0,
+  "box_h": 46.0,
+  "box_area_px": 7912.0,
+  "box_area_frac": 0.015262,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000352",
+  "country": "India",
+  "box_xyxy": [
+   44.0,
+   593.0,
+   92.0,
+   619.0
+  ],
+  "box_w": 48.0,
+  "box_h": 26.0,
+  "box_area_px": 1248.0,
+  "box_area_frac": 0.002407,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_000352",
+  "country": "India",
+  "box_xyxy": [
+   341.0,
+   365.0,
+   389.0,
+   391.0
+  ],
+  "box_w": 48.0,
+  "box_h": 26.0,
+  "box_area_px": 1248.0,
+  "box_area_frac": 0.002407,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000470",
+  "country": "India",
+  "box_xyxy": [
+   180.0,
+   480.0,
+   282.0,
+   558.0
+  ],
+  "box_w": 102.0,
+  "box_h": 78.0,
+  "box_area_px": 7956.0,
+  "box_area_frac": 0.015347,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000470",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   526.0,
+   60.0,
+   565.0
+  ],
+  "box_w": 59.0,
+  "box_h": 39.0,
+  "box_area_px": 2301.0,
+  "box_area_frac": 0.004439,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000470",
+  "country": "India",
+  "box_xyxy": [
+   69.0,
+   508.0,
+   156.0,
+   550.0
+  ],
+  "box_w": 87.0,
+  "box_h": 42.0,
+  "box_area_px": 3654.0,
+  "box_area_frac": 0.007049,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000470",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   448.0,
+   60.0,
+   481.0
+  ],
+  "box_w": 59.0,
+  "box_h": 33.0,
+  "box_area_px": 1947.0,
+  "box_area_frac": 0.003756,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000470",
+  "country": "India",
+  "box_xyxy": [
+   81.0,
+   464.0,
+   162.0,
+   505.0
+  ],
+  "box_w": 81.0,
+  "box_h": 41.0,
+  "box_area_px": 3321.0,
+  "box_area_frac": 0.006406,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000470",
+  "country": "India",
+  "box_xyxy": [
+   166.0,
+   398.0,
+   360.0,
+   473.0
+  ],
+  "box_w": 194.0,
+  "box_h": 75.0,
+  "box_area_px": 14550.0,
+  "box_area_frac": 0.028067,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000470",
+  "country": "India",
+  "box_xyxy": [
+   411.0,
+   436.0,
+   477.0,
+   563.0
+  ],
+  "box_w": 66.0,
+  "box_h": 127.0,
+  "box_area_px": 8382.0,
+  "box_area_frac": 0.016169,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000563",
+  "country": "India",
+  "box_xyxy": [
+   172.0,
+   584.0,
+   414.0,
+   671.0
+  ],
+  "box_w": 242.0,
+  "box_h": 87.0,
+  "box_area_px": 21053.9,
+  "box_area_frac": 0.040613,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_000614",
+  "country": "India",
+  "box_xyxy": [
+   434.0,
+   601.0,
+   478.0,
+   640.0
+  ],
+  "box_w": 44.0,
+  "box_h": 39.0,
+  "box_area_px": 1716.0,
+  "box_area_frac": 0.00331,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000614",
+  "country": "India",
+  "box_xyxy": [
+   400.0,
+   678.0,
+   436.0,
+   713.0
+  ],
+  "box_w": 36.0,
+  "box_h": 35.0,
+  "box_area_px": 1260.0,
+  "box_area_frac": 0.002431,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_000701",
+  "country": "India",
+  "box_xyxy": [
+   192.0,
+   573.0,
+   248.0,
+   611.0
+  ],
+  "box_w": 56.0,
+  "box_h": 38.0,
+  "box_area_px": 2128.0,
+  "box_area_frac": 0.004105,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000743",
+  "country": "India",
+  "box_xyxy": [
+   152.0,
+   679.0,
+   216.0,
+   720.0
+  ],
+  "box_w": 64.0,
+  "box_h": 41.0,
+  "box_area_px": 2624.0,
+  "box_area_frac": 0.005062,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000944",
+  "country": "India",
+  "box_xyxy": [
+   304.0,
+   466.0,
+   406.0,
+   499.0
+  ],
+  "box_w": 102.0,
+  "box_h": 33.0,
+  "box_area_px": 3366.0,
+  "box_area_frac": 0.006493,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000944",
+  "country": "India",
+  "box_xyxy": [
+   420.0,
+   470.0,
+   627.0,
+   558.0
+  ],
+  "box_w": 207.0,
+  "box_h": 88.0,
+  "box_area_px": 18216.0,
+  "box_area_frac": 0.035139,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000944",
+  "country": "India",
+  "box_xyxy": [
+   646.0,
+   508.0,
+   720.0,
+   547.0
+  ],
+  "box_w": 74.0,
+  "box_h": 39.0,
+  "box_area_px": 2886.0,
+  "box_area_frac": 0.005567,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_000996",
+  "country": "India",
+  "box_xyxy": [
+   44.0,
+   447.0,
+   219.0,
+   512.0
+  ],
+  "box_w": 175.0,
+  "box_h": 65.0,
+  "box_area_px": 11375.0,
+  "box_area_frac": 0.021943,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001006",
+  "country": "India",
+  "box_xyxy": [
+   222.0,
+   445.0,
+   482.0,
+   501.0
+  ],
+  "box_w": 260.0,
+  "box_h": 56.0,
+  "box_area_px": 14560.0,
+  "box_area_frac": 0.028086,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001006",
+  "country": "India",
+  "box_xyxy": [
+   120.0,
+   452.0,
+   171.0,
+   485.0
+  ],
+  "box_w": 51.0,
+  "box_h": 33.0,
+  "box_area_px": 1683.0,
+  "box_area_frac": 0.003246,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001051",
+  "country": "India",
+  "box_xyxy": [
+   273.0,
+   486.0,
+   335.0,
+   531.0
+  ],
+  "box_w": 62.0,
+  "box_h": 45.0,
+  "box_area_px": 2790.0,
+  "box_area_frac": 0.005382,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001051",
+  "country": "India",
+  "box_xyxy": [
+   300.0,
+   429.0,
+   347.0,
+   475.0
+  ],
+  "box_w": 47.0,
+  "box_h": 46.0,
+  "box_area_px": 2162.0,
+  "box_area_frac": 0.004171,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001051",
+  "country": "India",
+  "box_xyxy": [
+   462.0,
+   474.0,
+   504.0,
+   512.0
+  ],
+  "box_w": 42.0,
+  "box_h": 38.0,
+  "box_area_px": 1596.0,
+  "box_area_frac": 0.003079,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001051",
+  "country": "India",
+  "box_xyxy": [
+   406.0,
+   438.0,
+   448.0,
+   476.0
+  ],
+  "box_w": 42.0,
+  "box_h": 38.0,
+  "box_area_px": 1596.0,
+  "box_area_frac": 0.003079,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001051",
+  "country": "India",
+  "box_xyxy": [
+   422.0,
+   505.0,
+   464.0,
+   543.0
+  ],
+  "box_w": 42.0,
+  "box_h": 38.0,
+  "box_area_px": 1596.0,
+  "box_area_frac": 0.003079,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001051",
+  "country": "India",
+  "box_xyxy": [
+   351.0,
+   431.0,
+   401.0,
+   501.0
+  ],
+  "box_w": 50.0,
+  "box_h": 70.0,
+  "box_area_px": 3500.0,
+  "box_area_frac": 0.006751,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001069",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   460.0,
+   356.0,
+   681.0
+  ],
+  "box_w": 355.0,
+  "box_h": 221.0,
+  "box_area_px": 78455.0,
+  "box_area_frac": 0.151341,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001088",
+  "country": "India",
+  "box_xyxy": [
+   303.0,
+   462.0,
+   395.0,
+   519.0
+  ],
+  "box_w": 92.0,
+  "box_h": 57.0,
+  "box_area_px": 5244.0,
+  "box_area_frac": 0.010116,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001133",
+  "country": "India",
+  "box_xyxy": [
+   634.0,
+   518.0,
+   713.0,
+   578.0
+  ],
+  "box_w": 79.0,
+  "box_h": 60.0,
+  "box_area_px": 4740.0,
+  "box_area_frac": 0.009143,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001167",
+  "country": "India",
+  "box_xyxy": [
+   533.0,
+   563.0,
+   587.0,
+   597.0
+  ],
+  "box_w": 54.0,
+  "box_h": 34.0,
+  "box_area_px": 1836.0,
+  "box_area_frac": 0.003542,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001167",
+  "country": "India",
+  "box_xyxy": [
+   282.0,
+   575.0,
+   316.0,
+   599.0
+  ],
+  "box_w": 34.0,
+  "box_h": 24.0,
+  "box_area_px": 816.0,
+  "box_area_frac": 0.001574,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001239",
+  "country": "India",
+  "box_xyxy": [
+   256.0,
+   597.0,
+   319.0,
+   641.0
+  ],
+  "box_w": 63.0,
+  "box_h": 44.0,
+  "box_area_px": 2772.0,
+  "box_area_frac": 0.005347,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001239",
+  "country": "India",
+  "box_xyxy": [
+   285.0,
+   511.0,
+   345.0,
+   575.0
+  ],
+  "box_w": 60.0,
+  "box_h": 64.0,
+  "box_area_px": 3840.0,
+  "box_area_frac": 0.007407,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001239",
+  "country": "India",
+  "box_xyxy": [
+   386.0,
+   522.0,
+   430.0,
+   558.0
+  ],
+  "box_w": 44.0,
+  "box_h": 36.0,
+  "box_area_px": 1584.0,
+  "box_area_frac": 0.003056,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001239",
+  "country": "India",
+  "box_xyxy": [
+   112.0,
+   559.0,
+   193.0,
+   603.0
+  ],
+  "box_w": 81.0,
+  "box_h": 44.0,
+  "box_area_px": 3564.0,
+  "box_area_frac": 0.006875,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001262",
+  "country": "India",
+  "box_xyxy": [
+   183.0,
+   317.0,
+   270.0,
+   386.0
+  ],
+  "box_w": 87.0,
+  "box_h": 69.0,
+  "box_area_px": 6003.0,
+  "box_area_frac": 0.01158,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001275",
+  "country": "India",
+  "box_xyxy": [
+   513.0,
+   554.0,
+   588.0,
+   602.0
+  ],
+  "box_w": 75.0,
+  "box_h": 48.0,
+  "box_area_px": 3600.0,
+  "box_area_frac": 0.006945,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001338",
+  "country": "India",
+  "box_xyxy": [
+   237.0,
+   562.0,
+   271.0,
+   591.0
+  ],
+  "box_w": 34.0,
+  "box_h": 29.0,
+  "box_area_px": 986.0,
+  "box_area_frac": 0.001902,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001338",
+  "country": "India",
+  "box_xyxy": [
+   97.0,
+   627.0,
+   236.0,
+   718.0
+  ],
+  "box_w": 139.0,
+  "box_h": 91.0,
+  "box_area_px": 12649.0,
+  "box_area_frac": 0.0244,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001338",
+  "country": "India",
+  "box_xyxy": [
+   283.0,
+   545.0,
+   317.0,
+   574.0
+  ],
+  "box_w": 34.0,
+  "box_h": 29.0,
+  "box_area_px": 986.0,
+  "box_area_frac": 0.001902,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001338",
+  "country": "India",
+  "box_xyxy": [
+   481.0,
+   602.0,
+   515.0,
+   631.0
+  ],
+  "box_w": 34.0,
+  "box_h": 29.0,
+  "box_area_px": 986.0,
+  "box_area_frac": 0.001902,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001424",
+  "country": "India",
+  "box_xyxy": [
+   514.0,
+   623.0,
+   720.0,
+   718.0
+  ],
+  "box_w": 206.0,
+  "box_h": 95.0,
+  "box_area_px": 19569.9,
+  "box_area_frac": 0.037751,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001443",
+  "country": "India",
+  "box_xyxy": [
+   174.0,
+   631.0,
+   527.0,
+   704.0
+  ],
+  "box_w": 353.0,
+  "box_h": 73.0,
+  "box_area_px": 25769.0,
+  "box_area_frac": 0.049709,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001493",
+  "country": "India",
+  "box_xyxy": [
+   301.0,
+   603.0,
+   415.0,
+   631.0
+  ],
+  "box_w": 114.0,
+  "box_h": 28.0,
+  "box_area_px": 3192.0,
+  "box_area_frac": 0.006157,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001524",
+  "country": "India",
+  "box_xyxy": [
+   6.0,
+   589.0,
+   436.0,
+   720.0
+  ],
+  "box_w": 430.0,
+  "box_h": 131.0,
+  "box_area_px": 56329.8,
+  "box_area_frac": 0.108661,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001625",
+  "country": "India",
+  "box_xyxy": [
+   340.0,
+   573.0,
+   453.0,
+   606.0
+  ],
+  "box_w": 113.0,
+  "box_h": 33.0,
+  "box_area_px": 3729.0,
+  "box_area_frac": 0.007193,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001704",
+  "country": "India",
+  "box_xyxy": [
+   278.0,
+   549.0,
+   342.0,
+   575.0
+  ],
+  "box_w": 64.0,
+  "box_h": 26.0,
+  "box_area_px": 1664.0,
+  "box_area_frac": 0.00321,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001704",
+  "country": "India",
+  "box_xyxy": [
+   308.0,
+   572.0,
+   356.0,
+   599.0
+  ],
+  "box_w": 48.0,
+  "box_h": 27.0,
+  "box_area_px": 1296.0,
+  "box_area_frac": 0.0025,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001704",
+  "country": "India",
+  "box_xyxy": [
+   430.0,
+   583.0,
+   478.0,
+   610.0
+  ],
+  "box_w": 48.0,
+  "box_h": 27.0,
+  "box_area_px": 1296.0,
+  "box_area_frac": 0.0025,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001704",
+  "country": "India",
+  "box_xyxy": [
+   190.0,
+   608.0,
+   299.0,
+   675.0
+  ],
+  "box_w": 109.0,
+  "box_h": 67.0,
+  "box_area_px": 7303.0,
+  "box_area_frac": 0.014088,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001704",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   419.0,
+   378.0,
+   680.0
+  ],
+  "box_w": 377.0,
+  "box_h": 261.0,
+  "box_area_px": 98397.0,
+  "box_area_frac": 0.189809,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001704",
+  "country": "India",
+  "box_xyxy": [
+   368.0,
+   589.0,
+   431.0,
+   636.0
+  ],
+  "box_w": 63.0,
+  "box_h": 47.0,
+  "box_area_px": 2961.0,
+  "box_area_frac": 0.005712,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001757",
+  "country": "India",
+  "box_xyxy": [
+   529.0,
+   543.0,
+   687.0,
+   646.0
+  ],
+  "box_w": 158.0,
+  "box_h": 103.0,
+  "box_area_px": 16274.0,
+  "box_area_frac": 0.031393,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001779",
+  "country": "India",
+  "box_xyxy": [
+   378.0,
+   485.0,
+   430.0,
+   527.0
+  ],
+  "box_w": 52.0,
+  "box_h": 42.0,
+  "box_area_px": 2184.0,
+  "box_area_frac": 0.004213,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001779",
+  "country": "India",
+  "box_xyxy": [
+   414.0,
+   569.0,
+   438.0,
+   589.0
+  ],
+  "box_w": 24.0,
+  "box_h": 20.0,
+  "box_area_px": 480.0,
+  "box_area_frac": 0.000926,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001812",
+  "country": "India",
+  "box_xyxy": [
+   17.0,
+   573.0,
+   181.0,
+   685.0
+  ],
+  "box_w": 164.0,
+  "box_h": 112.0,
+  "box_area_px": 18368.1,
+  "box_area_frac": 0.035432,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001812",
+  "country": "India",
+  "box_xyxy": [
+   458.0,
+   525.0,
+   516.0,
+   587.0
+  ],
+  "box_w": 58.0,
+  "box_h": 62.0,
+  "box_area_px": 3596.0,
+  "box_area_frac": 0.006937,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001812",
+  "country": "India",
+  "box_xyxy": [
+   389.0,
+   411.0,
+   438.0,
+   436.0
+  ],
+  "box_w": 49.0,
+  "box_h": 25.0,
+  "box_area_px": 1225.0,
+  "box_area_frac": 0.002363,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001812",
+  "country": "India",
+  "box_xyxy": [
+   322.0,
+   382.0,
+   371.0,
+   407.0
+  ],
+  "box_w": 49.0,
+  "box_h": 25.0,
+  "box_area_px": 1225.0,
+  "box_area_frac": 0.002363,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_001904",
+  "country": "India",
+  "box_xyxy": [
+   678.0,
+   523.0,
+   717.0,
+   569.0
+  ],
+  "box_w": 39.0,
+  "box_h": 46.0,
+  "box_area_px": 1794.0,
+  "box_area_frac": 0.003461,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001904",
+  "country": "India",
+  "box_xyxy": [
+   361.0,
+   439.0,
+   674.0,
+   607.0
+  ],
+  "box_w": 313.0,
+  "box_h": 168.0,
+  "box_area_px": 52583.9,
+  "box_area_frac": 0.101435,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001977",
+  "country": "India",
+  "box_xyxy": [
+   91.0,
+   473.0,
+   274.0,
+   526.0
+  ],
+  "box_w": 183.0,
+  "box_h": 53.0,
+  "box_area_px": 9699.0,
+  "box_area_frac": 0.018709,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_001989",
+  "country": "India",
+  "box_xyxy": [
+   338.0,
+   495.0,
+   720.0,
+   593.0
+  ],
+  "box_w": 382.0,
+  "box_h": 98.0,
+  "box_area_px": 37436.0,
+  "box_area_frac": 0.072215,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002063",
+  "country": "India",
+  "box_xyxy": [
+   152.0,
+   585.0,
+   404.0,
+   716.0
+  ],
+  "box_w": 252.0,
+  "box_h": 131.0,
+  "box_area_px": 33011.9,
+  "box_area_frac": 0.06368,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002106",
+  "country": "India",
+  "box_xyxy": [
+   341.0,
+   472.0,
+   421.0,
+   496.0
+  ],
+  "box_w": 80.0,
+  "box_h": 24.0,
+  "box_area_px": 1920.0,
+  "box_area_frac": 0.003704,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002248",
+  "country": "India",
+  "box_xyxy": [
+   320.0,
+   641.0,
+   420.0,
+   716.0
+  ],
+  "box_w": 100.0,
+  "box_h": 75.0,
+  "box_area_px": 7500.0,
+  "box_area_frac": 0.014468,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002248",
+  "country": "India",
+  "box_xyxy": [
+   184.0,
+   590.0,
+   292.0,
+   711.0
+  ],
+  "box_w": 108.0,
+  "box_h": 121.0,
+  "box_area_px": 13068.0,
+  "box_area_frac": 0.025208,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002248",
+  "country": "India",
+  "box_xyxy": [
+   333.0,
+   563.0,
+   479.0,
+   637.0
+  ],
+  "box_w": 146.0,
+  "box_h": 74.0,
+  "box_area_px": 10804.0,
+  "box_area_frac": 0.020841,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_002253",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   520.0,
+   524.0,
+   666.0
+  ],
+  "box_w": 523.0,
+  "box_h": 146.0,
+  "box_area_px": 76358.1,
+  "box_area_frac": 0.147296,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002253",
+  "country": "India",
+  "box_xyxy": [
+   411.0,
+   436.0,
+   510.0,
+   518.0
+  ],
+  "box_w": 99.0,
+  "box_h": 82.0,
+  "box_area_px": 8118.0,
+  "box_area_frac": 0.01566,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002340",
+  "country": "India",
+  "box_xyxy": [
+   22.0,
+   616.0,
+   174.0,
+   706.0
+  ],
+  "box_w": 152.0,
+  "box_h": 90.0,
+  "box_area_px": 13680.0,
+  "box_area_frac": 0.026389,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_002341",
+  "country": "India",
+  "box_xyxy": [
+   460.0,
+   231.0,
+   497.0,
+   249.0
+  ],
+  "box_w": 37.0,
+  "box_h": 18.0,
+  "box_area_px": 666.0,
+  "box_area_frac": 0.001285,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002342",
+  "country": "India",
+  "box_xyxy": [
+   384.0,
+   544.0,
+   458.0,
+   620.0
+  ],
+  "box_w": 74.0,
+  "box_h": 76.0,
+  "box_area_px": 5624.0,
+  "box_area_frac": 0.010849,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002342",
+  "country": "India",
+  "box_xyxy": [
+   327.0,
+   622.0,
+   389.0,
+   696.0
+  ],
+  "box_w": 62.0,
+  "box_h": 74.0,
+  "box_area_px": 4588.0,
+  "box_area_frac": 0.00885,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002395",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   512.0,
+   530.0,
+   672.0
+  ],
+  "box_w": 529.0,
+  "box_h": 160.0,
+  "box_area_px": 84639.9,
+  "box_area_frac": 0.163271,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002395",
+  "country": "India",
+  "box_xyxy": [
+   287.0,
+   477.0,
+   480.0,
+   528.0
+  ],
+  "box_w": 193.0,
+  "box_h": 51.0,
+  "box_area_px": 9843.0,
+  "box_area_frac": 0.018987,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002395",
+  "country": "India",
+  "box_xyxy": [
+   209.0,
+   442.0,
+   311.0,
+   466.0
+  ],
+  "box_w": 102.0,
+  "box_h": 24.0,
+  "box_area_px": 2448.0,
+  "box_area_frac": 0.004722,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002447",
+  "country": "India",
+  "box_xyxy": [
+   521.0,
+   548.0,
+   616.0,
+   585.0
+  ],
+  "box_w": 95.0,
+  "box_h": 37.0,
+  "box_area_px": 3515.0,
+  "box_area_frac": 0.00678,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002497",
+  "country": "India",
+  "box_xyxy": [
+   310.0,
+   594.0,
+   412.0,
+   718.0
+  ],
+  "box_w": 102.0,
+  "box_h": 124.0,
+  "box_area_px": 12648.0,
+  "box_area_frac": 0.024398,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002549",
+  "country": "India",
+  "box_xyxy": [
+   227.0,
+   518.0,
+   330.0,
+   557.0
+  ],
+  "box_w": 103.0,
+  "box_h": 39.0,
+  "box_area_px": 4017.0,
+  "box_area_frac": 0.007749,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002549",
+  "country": "India",
+  "box_xyxy": [
+   331.0,
+   500.0,
+   576.0,
+   658.0
+  ],
+  "box_w": 245.0,
+  "box_h": 158.0,
+  "box_area_px": 38709.9,
+  "box_area_frac": 0.074672,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002593",
+  "country": "India",
+  "box_xyxy": [
+   450.0,
+   561.0,
+   557.0,
+   645.0
+  ],
+  "box_w": 107.0,
+  "box_h": 84.0,
+  "box_area_px": 8988.0,
+  "box_area_frac": 0.017338,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_002658",
+  "country": "India",
+  "box_xyxy": [
+   385.0,
+   502.0,
+   527.0,
+   535.0
+  ],
+  "box_w": 142.0,
+  "box_h": 33.0,
+  "box_area_px": 4686.0,
+  "box_area_frac": 0.009039,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_002681",
+  "country": "India",
+  "box_xyxy": [
+   320.0,
+   481.0,
+   382.0,
+   510.0
+  ],
+  "box_w": 62.0,
+  "box_h": 29.0,
+  "box_area_px": 1798.0,
+  "box_area_frac": 0.003468,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002685",
+  "country": "India",
+  "box_xyxy": [
+   427.0,
+   559.0,
+   500.0,
+   694.0
+  ],
+  "box_w": 73.0,
+  "box_h": 135.0,
+  "box_area_px": 9855.0,
+  "box_area_frac": 0.01901,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002702",
+  "country": "India",
+  "box_xyxy": [
+   121.0,
+   609.0,
+   298.0,
+   714.0
+  ],
+  "box_w": 177.0,
+  "box_h": 105.0,
+  "box_area_px": 18584.9,
+  "box_area_frac": 0.035851,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_002775",
+  "country": "India",
+  "box_xyxy": [
+   447.0,
+   616.0,
+   720.0,
+   720.0
+  ],
+  "box_w": 273.0,
+  "box_h": 104.0,
+  "box_area_px": 28391.9,
+  "box_area_frac": 0.054768,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003033",
+  "country": "India",
+  "box_xyxy": [
+   206.0,
+   542.0,
+   297.0,
+   589.0
+  ],
+  "box_w": 91.0,
+  "box_h": 47.0,
+  "box_area_px": 4277.0,
+  "box_area_frac": 0.00825,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003056",
+  "country": "India",
+  "box_xyxy": [
+   268.0,
+   441.0,
+   440.0,
+   511.0
+  ],
+  "box_w": 172.0,
+  "box_h": 70.0,
+  "box_area_px": 12040.0,
+  "box_area_frac": 0.023225,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003056",
+  "country": "India",
+  "box_xyxy": [
+   32.0,
+   595.0,
+   123.0,
+   681.0
+  ],
+  "box_w": 91.0,
+  "box_h": 86.0,
+  "box_area_px": 7826.0,
+  "box_area_frac": 0.015096,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003056",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   664.0,
+   190.0,
+   720.0
+  ],
+  "box_w": 189.0,
+  "box_h": 56.0,
+  "box_area_px": 10584.0,
+  "box_area_frac": 0.020417,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003056",
+  "country": "India",
+  "box_xyxy": [
+   134.0,
+   565.0,
+   200.0,
+   595.0
+  ],
+  "box_w": 66.0,
+  "box_h": 30.0,
+  "box_area_px": 1980.0,
+  "box_area_frac": 0.003819,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003056",
+  "country": "India",
+  "box_xyxy": [
+   198.0,
+   488.0,
+   264.0,
+   518.0
+  ],
+  "box_w": 66.0,
+  "box_h": 30.0,
+  "box_area_px": 1980.0,
+  "box_area_frac": 0.003819,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003057",
+  "country": "India",
+  "box_xyxy": [
+   278.0,
+   452.0,
+   405.0,
+   506.0
+  ],
+  "box_w": 127.0,
+  "box_h": 54.0,
+  "box_area_px": 6858.0,
+  "box_area_frac": 0.013229,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_003103",
+  "country": "India",
+  "box_xyxy": [
+   210.0,
+   584.0,
+   294.0,
+   631.0
+  ],
+  "box_w": 84.0,
+  "box_h": 47.0,
+  "box_area_px": 3948.0,
+  "box_area_frac": 0.007616,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003103",
+  "country": "India",
+  "box_xyxy": [
+   148.0,
+   637.0,
+   344.0,
+   720.0
+  ],
+  "box_w": 196.0,
+  "box_h": 83.0,
+  "box_area_px": 16268.0,
+  "box_area_frac": 0.031381,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003103",
+  "country": "India",
+  "box_xyxy": [
+   356.0,
+   512.0,
+   632.0,
+   680.0
+  ],
+  "box_w": 276.0,
+  "box_h": 168.0,
+  "box_area_px": 46367.9,
+  "box_area_frac": 0.089444,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003103",
+  "country": "India",
+  "box_xyxy": [
+   214.0,
+   493.0,
+   347.0,
+   563.0
+  ],
+  "box_w": 133.0,
+  "box_h": 70.0,
+  "box_area_px": 9310.0,
+  "box_area_frac": 0.017959,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003110",
+  "country": "India",
+  "box_xyxy": [
+   180.0,
+   519.0,
+   243.0,
+   573.0
+  ],
+  "box_w": 63.0,
+  "box_h": 54.0,
+  "box_area_px": 3402.0,
+  "box_area_frac": 0.006563,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_003125",
+  "country": "India",
+  "box_xyxy": [
+   311.0,
+   489.0,
+   363.0,
+   538.0
+  ],
+  "box_w": 52.0,
+  "box_h": 49.0,
+  "box_area_px": 2548.0,
+  "box_area_frac": 0.004915,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003126",
+  "country": "India",
+  "box_xyxy": [
+   16.0,
+   369.0,
+   379.0,
+   664.0
+  ],
+  "box_w": 363.0,
+  "box_h": 295.0,
+  "box_area_px": 107085.0,
+  "box_area_frac": 0.206568,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003239",
+  "country": "India",
+  "box_xyxy": [
+   162.0,
+   620.0,
+   309.0,
+   670.0
+  ],
+  "box_w": 147.0,
+  "box_h": 50.0,
+  "box_area_px": 7350.0,
+  "box_area_frac": 0.014178,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003262",
+  "country": "India",
+  "box_xyxy": [
+   259.0,
+   374.0,
+   483.0,
+   416.0
+  ],
+  "box_w": 224.0,
+  "box_h": 42.0,
+  "box_area_px": 9407.9,
+  "box_area_frac": 0.018148,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003274",
+  "country": "India",
+  "box_xyxy": [
+   298.0,
+   508.0,
+   356.0,
+   597.0
+  ],
+  "box_w": 58.0,
+  "box_h": 89.0,
+  "box_area_px": 5162.0,
+  "box_area_frac": 0.009958,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003312",
+  "country": "India",
+  "box_xyxy": [
+   350.0,
+   660.0,
+   432.0,
+   718.0
+  ],
+  "box_w": 82.0,
+  "box_h": 58.0,
+  "box_area_px": 4756.0,
+  "box_area_frac": 0.009174,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003426",
+  "country": "India",
+  "box_xyxy": [
+   423.0,
+   556.0,
+   536.0,
+   644.0
+  ],
+  "box_w": 113.0,
+  "box_h": 88.0,
+  "box_area_px": 9944.0,
+  "box_area_frac": 0.019182,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003535",
+  "country": "India",
+  "box_xyxy": [
+   243.0,
+   494.0,
+   324.0,
+   529.0
+  ],
+  "box_w": 81.0,
+  "box_h": 35.0,
+  "box_area_px": 2835.0,
+  "box_area_frac": 0.005469,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003535",
+  "country": "India",
+  "box_xyxy": [
+   282.0,
+   443.0,
+   412.0,
+   490.0
+  ],
+  "box_w": 130.0,
+  "box_h": 47.0,
+  "box_area_px": 6110.0,
+  "box_area_frac": 0.011786,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003535",
+  "country": "India",
+  "box_xyxy": [
+   52.0,
+   621.0,
+   193.0,
+   711.0
+  ],
+  "box_w": 141.0,
+  "box_h": 90.0,
+  "box_area_px": 12690.0,
+  "box_area_frac": 0.024479,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003542",
+  "country": "India",
+  "box_xyxy": [
+   555.0,
+   676.0,
+   607.0,
+   706.0
+  ],
+  "box_w": 52.0,
+  "box_h": 30.0,
+  "box_area_px": 1560.0,
+  "box_area_frac": 0.003009,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003542",
+  "country": "India",
+  "box_xyxy": [
+   293.0,
+   654.0,
+   386.0,
+   702.0
+  ],
+  "box_w": 93.0,
+  "box_h": 48.0,
+  "box_area_px": 4464.0,
+  "box_area_frac": 0.008611,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_003565",
+  "country": "India",
+  "box_xyxy": [
+   64.0,
+   686.0,
+   119.0,
+   720.0
+  ],
+  "box_w": 55.0,
+  "box_h": 34.0,
+  "box_area_px": 1870.0,
+  "box_area_frac": 0.003607,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_003565",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   599.0,
+   58.0,
+   651.0
+  ],
+  "box_w": 57.0,
+  "box_h": 52.0,
+  "box_area_px": 2964.0,
+  "box_area_frac": 0.005718,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003565",
+  "country": "India",
+  "box_xyxy": [
+   14.0,
+   560.0,
+   124.0,
+   600.0
+  ],
+  "box_w": 110.0,
+  "box_h": 40.0,
+  "box_area_px": 4400.0,
+  "box_area_frac": 0.008488,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003565",
+  "country": "India",
+  "box_xyxy": [
+   296.0,
+   535.0,
+   370.0,
+   622.0
+  ],
+  "box_w": 74.0,
+  "box_h": 87.0,
+  "box_area_px": 6438.0,
+  "box_area_frac": 0.012419,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003565",
+  "country": "India",
+  "box_xyxy": [
+   391.0,
+   499.0,
+   422.0,
+   521.0
+  ],
+  "box_w": 31.0,
+  "box_h": 22.0,
+  "box_area_px": 682.0,
+  "box_area_frac": 0.001316,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_003565",
+  "country": "India",
+  "box_xyxy": [
+   88.0,
+   587.0,
+   207.0,
+   667.0
+  ],
+  "box_w": 119.0,
+  "box_h": 80.0,
+  "box_area_px": 9520.0,
+  "box_area_frac": 0.018364,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003731",
+  "country": "India",
+  "box_xyxy": [
+   507.0,
+   468.0,
+   686.0,
+   617.0
+  ],
+  "box_w": 179.0,
+  "box_h": 149.0,
+  "box_area_px": 26670.9,
+  "box_area_frac": 0.051449,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_003805",
+  "country": "India",
+  "box_xyxy": [
+   388.0,
+   423.0,
+   512.0,
+   514.0
+  ],
+  "box_w": 124.0,
+  "box_h": 91.0,
+  "box_area_px": 11284.0,
+  "box_area_frac": 0.021767,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_003806",
+  "country": "India",
+  "box_xyxy": [
+   287.0,
+   371.0,
+   387.0,
+   419.0
+  ],
+  "box_w": 100.0,
+  "box_h": 48.0,
+  "box_area_px": 4800.0,
+  "box_area_frac": 0.009259,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004022",
+  "country": "India",
+  "box_xyxy": [
+   298.0,
+   556.0,
+   369.0,
+   606.0
+  ],
+  "box_w": 71.0,
+  "box_h": 50.0,
+  "box_area_px": 3550.0,
+  "box_area_frac": 0.006848,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004022",
+  "country": "India",
+  "box_xyxy": [
+   469.0,
+   514.0,
+   569.0,
+   583.0
+  ],
+  "box_w": 100.0,
+  "box_h": 69.0,
+  "box_area_px": 6900.0,
+  "box_area_frac": 0.01331,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004022",
+  "country": "India",
+  "box_xyxy": [
+   203.0,
+   609.0,
+   279.0,
+   687.0
+  ],
+  "box_w": 76.0,
+  "box_h": 78.0,
+  "box_area_px": 5928.0,
+  "box_area_frac": 0.011435,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004022",
+  "country": "India",
+  "box_xyxy": [
+   515.0,
+   586.0,
+   661.0,
+   704.0
+  ],
+  "box_w": 146.0,
+  "box_h": 118.0,
+  "box_area_px": 17228.0,
+  "box_area_frac": 0.033233,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004043",
+  "country": "India",
+  "box_xyxy": [
+   361.0,
+   382.0,
+   426.0,
+   400.0
+  ],
+  "box_w": 65.0,
+  "box_h": 18.0,
+  "box_area_px": 1170.0,
+  "box_area_frac": 0.002257,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004100",
+  "country": "India",
+  "box_xyxy": [
+   4.0,
+   491.0,
+   260.0,
+   601.0
+  ],
+  "box_w": 256.0,
+  "box_h": 110.0,
+  "box_area_px": 28160.1,
+  "box_area_frac": 0.054321,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004116",
+  "country": "India",
+  "box_xyxy": [
+   290.0,
+   505.0,
+   372.0,
+   640.0
+  ],
+  "box_w": 82.0,
+  "box_h": 135.0,
+  "box_area_px": 11070.0,
+  "box_area_frac": 0.021354,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004133",
+  "country": "India",
+  "box_xyxy": [
+   32.0,
+   431.0,
+   103.0,
+   452.0
+  ],
+  "box_w": 71.0,
+  "box_h": 21.0,
+  "box_area_px": 1491.0,
+  "box_area_frac": 0.002876,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004184",
+  "country": "India",
+  "box_xyxy": [
+   401.0,
+   506.0,
+   467.0,
+   563.0
+  ],
+  "box_w": 66.0,
+  "box_h": 57.0,
+  "box_area_px": 3762.0,
+  "box_area_frac": 0.007257,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004184",
+  "country": "India",
+  "box_xyxy": [
+   472.0,
+   507.0,
+   562.0,
+   564.0
+  ],
+  "box_w": 90.0,
+  "box_h": 57.0,
+  "box_area_px": 5130.0,
+  "box_area_frac": 0.009896,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004196",
+  "country": "India",
+  "box_xyxy": [
+   3.0,
+   547.0,
+   283.0,
+   719.0
+  ],
+  "box_w": 280.0,
+  "box_h": 172.0,
+  "box_area_px": 48160.0,
+  "box_area_frac": 0.092901,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004196",
+  "country": "India",
+  "box_xyxy": [
+   290.0,
+   526.0,
+   529.0,
+   669.0
+  ],
+  "box_w": 239.0,
+  "box_h": 143.0,
+  "box_area_px": 34176.9,
+  "box_area_frac": 0.065928,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004253",
+  "country": "India",
+  "box_xyxy": [
+   249.0,
+   635.0,
+   487.0,
+   714.0
+  ],
+  "box_w": 238.0,
+  "box_h": 79.0,
+  "box_area_px": 18802.0,
+  "box_area_frac": 0.036269,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004312",
+  "country": "India",
+  "box_xyxy": [
+   208.0,
+   404.0,
+   323.0,
+   456.0
+  ],
+  "box_w": 115.0,
+  "box_h": 52.0,
+  "box_area_px": 5980.0,
+  "box_area_frac": 0.011535,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004321",
+  "country": "India",
+  "box_xyxy": [
+   351.0,
+   365.0,
+   440.0,
+   430.0
+  ],
+  "box_w": 89.0,
+  "box_h": 65.0,
+  "box_area_px": 5785.0,
+  "box_area_frac": 0.011159,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004321",
+  "country": "India",
+  "box_xyxy": [
+   448.0,
+   395.0,
+   480.0,
+   414.0
+  ],
+  "box_w": 32.0,
+  "box_h": 19.0,
+  "box_area_px": 608.0,
+  "box_area_frac": 0.001173,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004321",
+  "country": "India",
+  "box_xyxy": [
+   451.0,
+   425.0,
+   527.0,
+   459.0
+  ],
+  "box_w": 76.0,
+  "box_h": 34.0,
+  "box_area_px": 2584.0,
+  "box_area_frac": 0.004985,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004321",
+  "country": "India",
+  "box_xyxy": [
+   379.0,
+   504.0,
+   519.0,
+   547.0
+  ],
+  "box_w": 140.0,
+  "box_h": 43.0,
+  "box_area_px": 6020.0,
+  "box_area_frac": 0.011613,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004321",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   388.0,
+   134.0,
+   430.0
+  ],
+  "box_w": 133.0,
+  "box_h": 42.0,
+  "box_area_px": 5586.0,
+  "box_area_frac": 0.010775,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004340",
+  "country": "India",
+  "box_xyxy": [
+   314.0,
+   562.0,
+   399.0,
+   632.0
+  ],
+  "box_w": 85.0,
+  "box_h": 70.0,
+  "box_area_px": 5950.0,
+  "box_area_frac": 0.011478,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004340",
+  "country": "India",
+  "box_xyxy": [
+   2.0,
+   526.0,
+   264.0,
+   697.0
+  ],
+  "box_w": 262.0,
+  "box_h": 171.0,
+  "box_area_px": 44802.0,
+  "box_area_frac": 0.086424,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004340",
+  "country": "India",
+  "box_xyxy": [
+   235.0,
+   422.0,
+   469.0,
+   520.0
+  ],
+  "box_w": 234.0,
+  "box_h": 98.0,
+  "box_area_px": 22932.0,
+  "box_area_frac": 0.044236,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004340",
+  "country": "India",
+  "box_xyxy": [
+   435.0,
+   466.0,
+   483.0,
+   490.0
+  ],
+  "box_w": 48.0,
+  "box_h": 24.0,
+  "box_area_px": 1152.0,
+  "box_area_frac": 0.002222,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004403",
+  "country": "India",
+  "box_xyxy": [
+   244.0,
+   547.0,
+   312.0,
+   571.0
+  ],
+  "box_w": 68.0,
+  "box_h": 24.0,
+  "box_area_px": 1632.0,
+  "box_area_frac": 0.003148,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004441",
+  "country": "India",
+  "box_xyxy": [
+   219.0,
+   503.0,
+   359.0,
+   669.0
+  ],
+  "box_w": 140.0,
+  "box_h": 166.0,
+  "box_area_px": 23240.0,
+  "box_area_frac": 0.04483,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004485",
+  "country": "India",
+  "box_xyxy": [
+   7.0,
+   364.0,
+   471.0,
+   707.0
+  ],
+  "box_w": 464.0,
+  "box_h": 343.0,
+  "box_area_px": 159151.9,
+  "box_area_frac": 0.307006,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004485",
+  "country": "India",
+  "box_xyxy": [
+   494.0,
+   485.0,
+   554.0,
+   572.0
+  ],
+  "box_w": 60.0,
+  "box_h": 87.0,
+  "box_area_px": 5220.0,
+  "box_area_frac": 0.010069,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004524",
+  "country": "India",
+  "box_xyxy": [
+   570.0,
+   549.0,
+   710.0,
+   651.0
+  ],
+  "box_w": 140.0,
+  "box_h": 102.0,
+  "box_area_px": 14280.0,
+  "box_area_frac": 0.027546,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004525",
+  "country": "India",
+  "box_xyxy": [
+   212.0,
+   590.0,
+   323.0,
+   707.0
+  ],
+  "box_w": 111.0,
+  "box_h": 117.0,
+  "box_area_px": 12987.0,
+  "box_area_frac": 0.025052,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004525",
+  "country": "India",
+  "box_xyxy": [
+   341.0,
+   517.0,
+   452.0,
+   634.0
+  ],
+  "box_w": 111.0,
+  "box_h": 117.0,
+  "box_area_px": 12987.0,
+  "box_area_frac": 0.025052,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004542",
+  "country": "India",
+  "box_xyxy": [
+   43.0,
+   659.0,
+   185.0,
+   720.0
+  ],
+  "box_w": 142.0,
+  "box_h": 61.0,
+  "box_area_px": 8662.0,
+  "box_area_frac": 0.016709,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004542",
+  "country": "India",
+  "box_xyxy": [
+   218.0,
+   492.0,
+   360.0,
+   553.0
+  ],
+  "box_w": 142.0,
+  "box_h": 61.0,
+  "box_area_px": 8662.0,
+  "box_area_frac": 0.016709,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004542",
+  "country": "India",
+  "box_xyxy": [
+   374.0,
+   540.0,
+   487.0,
+   602.0
+  ],
+  "box_w": 113.0,
+  "box_h": 62.0,
+  "box_area_px": 7006.0,
+  "box_area_frac": 0.013515,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004542",
+  "country": "India",
+  "box_xyxy": [
+   500.0,
+   540.0,
+   690.0,
+   629.0
+  ],
+  "box_w": 190.0,
+  "box_h": 89.0,
+  "box_area_px": 16910.0,
+  "box_area_frac": 0.03262,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004586",
+  "country": "India",
+  "box_xyxy": [
+   254.0,
+   385.0,
+   443.0,
+   442.0
+  ],
+  "box_w": 189.0,
+  "box_h": 57.0,
+  "box_area_px": 10773.0,
+  "box_area_frac": 0.020781,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004592",
+  "country": "India",
+  "box_xyxy": [
+   362.0,
+   516.0,
+   404.0,
+   541.0
+  ],
+  "box_w": 42.0,
+  "box_h": 25.0,
+  "box_area_px": 1050.0,
+  "box_area_frac": 0.002025,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004592",
+  "country": "India",
+  "box_xyxy": [
+   332.0,
+   472.0,
+   374.0,
+   497.0
+  ],
+  "box_w": 42.0,
+  "box_h": 25.0,
+  "box_area_px": 1050.0,
+  "box_area_frac": 0.002025,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_004706",
+  "country": "India",
+  "box_xyxy": [
+   344.0,
+   493.0,
+   424.0,
+   523.0
+  ],
+  "box_w": 80.0,
+  "box_h": 30.0,
+  "box_area_px": 2400.0,
+  "box_area_frac": 0.00463,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004863",
+  "country": "India",
+  "box_xyxy": [
+   174.0,
+   411.0,
+   320.0,
+   462.0
+  ],
+  "box_w": 146.0,
+  "box_h": 51.0,
+  "box_area_px": 7446.0,
+  "box_area_frac": 0.014363,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_004863",
+  "country": "India",
+  "box_xyxy": [
+   343.0,
+   425.0,
+   373.0,
+   452.0
+  ],
+  "box_w": 30.0,
+  "box_h": 27.0,
+  "box_area_px": 810.0,
+  "box_area_frac": 0.001563,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005197",
+  "country": "India",
+  "box_xyxy": [
+   32.0,
+   519.0,
+   280.0,
+   699.0
+  ],
+  "box_w": 248.0,
+  "box_h": 180.0,
+  "box_area_px": 44639.9,
+  "box_area_frac": 0.086111,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005260",
+  "country": "India",
+  "box_xyxy": [
+   330.0,
+   421.0,
+   451.0,
+   461.0
+  ],
+  "box_w": 121.0,
+  "box_h": 40.0,
+  "box_area_px": 4840.1,
+  "box_area_frac": 0.009337,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005260",
+  "country": "India",
+  "box_xyxy": [
+   285.0,
+   462.0,
+   417.0,
+   534.0
+  ],
+  "box_w": 132.0,
+  "box_h": 72.0,
+  "box_area_px": 9504.0,
+  "box_area_frac": 0.018333,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005269",
+  "country": "India",
+  "box_xyxy": [
+   147.0,
+   469.0,
+   358.0,
+   673.0
+  ],
+  "box_w": 211.0,
+  "box_h": 204.0,
+  "box_area_px": 43044.0,
+  "box_area_frac": 0.083032,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005445",
+  "country": "India",
+  "box_xyxy": [
+   160.0,
+   567.0,
+   246.0,
+   606.0
+  ],
+  "box_w": 86.0,
+  "box_h": 39.0,
+  "box_area_px": 3354.0,
+  "box_area_frac": 0.00647,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_005445",
+  "country": "India",
+  "box_xyxy": [
+   241.0,
+   528.0,
+   306.0,
+   563.0
+  ],
+  "box_w": 65.0,
+  "box_h": 35.0,
+  "box_area_px": 2275.0,
+  "box_area_frac": 0.004389,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_005489",
+  "country": "India",
+  "box_xyxy": [
+   398.0,
+   335.0,
+   442.0,
+   351.0
+  ],
+  "box_w": 44.0,
+  "box_h": 16.0,
+  "box_area_px": 704.0,
+  "box_area_frac": 0.001358,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_005489",
+  "country": "India",
+  "box_xyxy": [
+   402.0,
+   306.0,
+   446.0,
+   322.0
+  ],
+  "box_w": 44.0,
+  "box_h": 16.0,
+  "box_area_px": 704.0,
+  "box_area_frac": 0.001358,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005489",
+  "country": "India",
+  "box_xyxy": [
+   280.0,
+   332.0,
+   324.0,
+   348.0
+  ],
+  "box_w": 44.0,
+  "box_h": 16.0,
+  "box_area_px": 704.0,
+  "box_area_frac": 0.001358,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_005564",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   492.0,
+   145.0,
+   531.0
+  ],
+  "box_w": 144.0,
+  "box_h": 39.0,
+  "box_area_px": 5616.0,
+  "box_area_frac": 0.010833,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005595",
+  "country": "India",
+  "box_xyxy": [
+   33.0,
+   444.0,
+   229.0,
+   548.0
+  ],
+  "box_w": 196.0,
+  "box_h": 104.0,
+  "box_area_px": 20383.9,
+  "box_area_frac": 0.039321,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005595",
+  "country": "India",
+  "box_xyxy": [
+   530.0,
+   458.0,
+   720.0,
+   616.0
+  ],
+  "box_w": 190.0,
+  "box_h": 158.0,
+  "box_area_px": 30020.0,
+  "box_area_frac": 0.057909,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005643",
+  "country": "India",
+  "box_xyxy": [
+   126.0,
+   157.0,
+   288.0,
+   240.0
+  ],
+  "box_w": 162.0,
+  "box_h": 83.0,
+  "box_area_px": 13446.0,
+  "box_area_frac": 0.025938,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005701",
+  "country": "India",
+  "box_xyxy": [
+   349.0,
+   472.0,
+   487.0,
+   599.0
+  ],
+  "box_w": 138.0,
+  "box_h": 127.0,
+  "box_area_px": 17526.0,
+  "box_area_frac": 0.033808,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005701",
+  "country": "India",
+  "box_xyxy": [
+   238.0,
+   486.0,
+   341.0,
+   557.0
+  ],
+  "box_w": 103.0,
+  "box_h": 71.0,
+  "box_area_px": 7313.0,
+  "box_area_frac": 0.014107,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005701",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   625.0,
+   199.0,
+   720.0
+  ],
+  "box_w": 198.0,
+  "box_h": 95.0,
+  "box_area_px": 18809.9,
+  "box_area_frac": 0.036285,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005701",
+  "country": "India",
+  "box_xyxy": [
+   254.0,
+   628.0,
+   560.0,
+   672.0
+  ],
+  "box_w": 306.0,
+  "box_h": 44.0,
+  "box_area_px": 13464.0,
+  "box_area_frac": 0.025972,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005887",
+  "country": "India",
+  "box_xyxy": [
+   359.0,
+   455.0,
+   422.0,
+   505.0
+  ],
+  "box_w": 63.0,
+  "box_h": 50.0,
+  "box_area_px": 3150.0,
+  "box_area_frac": 0.006076,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005887",
+  "country": "India",
+  "box_xyxy": [
+   174.0,
+   546.0,
+   316.0,
+   678.0
+  ],
+  "box_w": 142.0,
+  "box_h": 132.0,
+  "box_area_px": 18743.9,
+  "box_area_frac": 0.036157,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005895",
+  "country": "India",
+  "box_xyxy": [
+   362.0,
+   367.0,
+   416.0,
+   383.0
+  ],
+  "box_w": 54.0,
+  "box_h": 16.0,
+  "box_area_px": 864.0,
+  "box_area_frac": 0.001667,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_005968",
+  "country": "India",
+  "box_xyxy": [
+   472.0,
+   637.0,
+   523.0,
+   671.0
+  ],
+  "box_w": 51.0,
+  "box_h": 34.0,
+  "box_area_px": 1734.0,
+  "box_area_frac": 0.003345,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006061",
+  "country": "India",
+  "box_xyxy": [
+   330.0,
+   541.0,
+   407.0,
+   574.0
+  ],
+  "box_w": 77.0,
+  "box_h": 33.0,
+  "box_area_px": 2541.0,
+  "box_area_frac": 0.004902,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006061",
+  "country": "India",
+  "box_xyxy": [
+   417.0,
+   531.0,
+   466.0,
+   565.0
+  ],
+  "box_w": 49.0,
+  "box_h": 34.0,
+  "box_area_px": 1666.0,
+  "box_area_frac": 0.003214,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_006187",
+  "country": "India",
+  "box_xyxy": [
+   277.0,
+   604.0,
+   411.0,
+   683.0
+  ],
+  "box_w": 134.0,
+  "box_h": 79.0,
+  "box_area_px": 10586.0,
+  "box_area_frac": 0.02042,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006297",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   417.0,
+   536.0,
+   616.0
+  ],
+  "box_w": 535.0,
+  "box_h": 199.0,
+  "box_area_px": 106465.1,
+  "box_area_frac": 0.205373,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006368",
+  "country": "India",
+  "box_xyxy": [
+   333.0,
+   507.0,
+   378.0,
+   556.0
+  ],
+  "box_w": 45.0,
+  "box_h": 49.0,
+  "box_area_px": 2205.0,
+  "box_area_frac": 0.004253,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006368",
+  "country": "India",
+  "box_xyxy": [
+   273.0,
+   390.0,
+   316.0,
+   421.0
+  ],
+  "box_w": 43.0,
+  "box_h": 31.0,
+  "box_area_px": 1333.0,
+  "box_area_frac": 0.002571,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_006447",
+  "country": "India",
+  "box_xyxy": [
+   78.0,
+   381.0,
+   528.0,
+   665.0
+  ],
+  "box_w": 450.0,
+  "box_h": 284.0,
+  "box_area_px": 127799.9,
+  "box_area_frac": 0.246528,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006549",
+  "country": "India",
+  "box_xyxy": [
+   307.0,
+   518.0,
+   398.0,
+   567.0
+  ],
+  "box_w": 91.0,
+  "box_h": 49.0,
+  "box_area_px": 4459.0,
+  "box_area_frac": 0.008602,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006613",
+  "country": "India",
+  "box_xyxy": [
+   104.0,
+   442.0,
+   324.0,
+   537.0
+  ],
+  "box_w": 220.0,
+  "box_h": 95.0,
+  "box_area_px": 20900.0,
+  "box_area_frac": 0.040316,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006613",
+  "country": "India",
+  "box_xyxy": [
+   258.0,
+   398.0,
+   359.0,
+   441.0
+  ],
+  "box_w": 101.0,
+  "box_h": 43.0,
+  "box_area_px": 4343.0,
+  "box_area_frac": 0.008378,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006619",
+  "country": "India",
+  "box_xyxy": [
+   557.0,
+   501.0,
+   671.0,
+   535.0
+  ],
+  "box_w": 114.0,
+  "box_h": 34.0,
+  "box_area_px": 3876.0,
+  "box_area_frac": 0.007477,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006619",
+  "country": "India",
+  "box_xyxy": [
+   594.0,
+   635.0,
+   709.0,
+   682.0
+  ],
+  "box_w": 115.0,
+  "box_h": 47.0,
+  "box_area_px": 5405.0,
+  "box_area_frac": 0.010426,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006634",
+  "country": "India",
+  "box_xyxy": [
+   445.0,
+   565.0,
+   528.0,
+   633.0
+  ],
+  "box_w": 83.0,
+  "box_h": 68.0,
+  "box_area_px": 5644.0,
+  "box_area_frac": 0.010887,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006697",
+  "country": "India",
+  "box_xyxy": [
+   518.0,
+   576.0,
+   623.0,
+   656.0
+  ],
+  "box_w": 105.0,
+  "box_h": 80.0,
+  "box_area_px": 8400.0,
+  "box_area_frac": 0.016204,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006713",
+  "country": "India",
+  "box_xyxy": [
+   266.0,
+   554.0,
+   314.0,
+   616.0
+  ],
+  "box_w": 48.0,
+  "box_h": 62.0,
+  "box_area_px": 2976.0,
+  "box_area_frac": 0.005741,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006713",
+  "country": "India",
+  "box_xyxy": [
+   385.0,
+   515.0,
+   419.0,
+   571.0
+  ],
+  "box_w": 34.0,
+  "box_h": 56.0,
+  "box_area_px": 1904.0,
+  "box_area_frac": 0.003673,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_006787",
+  "country": "India",
+  "box_xyxy": [
+   326.0,
+   409.0,
+   402.0,
+   433.0
+  ],
+  "box_w": 76.0,
+  "box_h": 24.0,
+  "box_area_px": 1824.0,
+  "box_area_frac": 0.003518,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006883",
+  "country": "India",
+  "box_xyxy": [
+   385.0,
+   612.0,
+   613.0,
+   705.0
+  ],
+  "box_w": 228.0,
+  "box_h": 93.0,
+  "box_area_px": 21204.1,
+  "box_area_frac": 0.040903,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006912",
+  "country": "India",
+  "box_xyxy": [
+   3.0,
+   456.0,
+   109.0,
+   528.0
+  ],
+  "box_w": 106.0,
+  "box_h": 72.0,
+  "box_area_px": 7632.0,
+  "box_area_frac": 0.014722,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006912",
+  "country": "India",
+  "box_xyxy": [
+   140.0,
+   451.0,
+   246.0,
+   523.0
+  ],
+  "box_w": 106.0,
+  "box_h": 72.0,
+  "box_area_px": 7632.0,
+  "box_area_frac": 0.014722,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_006912",
+  "country": "India",
+  "box_xyxy": [
+   7.0,
+   534.0,
+   263.0,
+   720.0
+  ],
+  "box_w": 256.0,
+  "box_h": 186.0,
+  "box_area_px": 47616.0,
+  "box_area_frac": 0.091852,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006912",
+  "country": "India",
+  "box_xyxy": [
+   268.0,
+   527.0,
+   584.0,
+   651.0
+  ],
+  "box_w": 316.0,
+  "box_h": 124.0,
+  "box_area_px": 39184.0,
+  "box_area_frac": 0.075586,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006999",
+  "country": "India",
+  "box_xyxy": [
+   489.0,
+   489.0,
+   548.0,
+   517.0
+  ],
+  "box_w": 59.0,
+  "box_h": 28.0,
+  "box_area_px": 1652.0,
+  "box_area_frac": 0.003187,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_006999",
+  "country": "India",
+  "box_xyxy": [
+   452.0,
+   448.0,
+   511.0,
+   476.0
+  ],
+  "box_w": 59.0,
+  "box_h": 28.0,
+  "box_area_px": 1652.0,
+  "box_area_frac": 0.003187,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007147",
+  "country": "India",
+  "box_xyxy": [
+   263.0,
+   443.0,
+   301.0,
+   474.0
+  ],
+  "box_w": 38.0,
+  "box_h": 31.0,
+  "box_area_px": 1178.0,
+  "box_area_frac": 0.002272,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007147",
+  "country": "India",
+  "box_xyxy": [
+   386.0,
+   456.0,
+   424.0,
+   487.0
+  ],
+  "box_w": 38.0,
+  "box_h": 31.0,
+  "box_area_px": 1178.0,
+  "box_area_frac": 0.002272,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007147",
+  "country": "India",
+  "box_xyxy": [
+   215.0,
+   508.0,
+   284.0,
+   547.0
+  ],
+  "box_w": 69.0,
+  "box_h": 39.0,
+  "box_area_px": 2691.0,
+  "box_area_frac": 0.005191,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007147",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   465.0,
+   116.0,
+   500.0
+  ],
+  "box_w": 115.0,
+  "box_h": 35.0,
+  "box_area_px": 4025.0,
+  "box_area_frac": 0.007764,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007147",
+  "country": "India",
+  "box_xyxy": [
+   332.0,
+   483.0,
+   370.0,
+   514.0
+  ],
+  "box_w": 38.0,
+  "box_h": 31.0,
+  "box_area_px": 1178.0,
+  "box_area_frac": 0.002272,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007147",
+  "country": "India",
+  "box_xyxy": [
+   188.0,
+   595.0,
+   251.0,
+   628.0
+  ],
+  "box_w": 63.0,
+  "box_h": 33.0,
+  "box_area_px": 2079.0,
+  "box_area_frac": 0.00401,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007147",
+  "country": "India",
+  "box_xyxy": [
+   12.0,
+   643.0,
+   140.0,
+   703.0
+  ],
+  "box_w": 128.0,
+  "box_h": 60.0,
+  "box_area_px": 7680.0,
+  "box_area_frac": 0.014815,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007259",
+  "country": "India",
+  "box_xyxy": [
+   271.0,
+   419.0,
+   376.0,
+   484.0
+  ],
+  "box_w": 105.0,
+  "box_h": 65.0,
+  "box_area_px": 6825.0,
+  "box_area_frac": 0.013166,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007259",
+  "country": "India",
+  "box_xyxy": [
+   150.0,
+   424.0,
+   255.0,
+   489.0
+  ],
+  "box_w": 105.0,
+  "box_h": 65.0,
+  "box_area_px": 6825.0,
+  "box_area_frac": 0.013166,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007259",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   496.0,
+   368.0,
+   684.0
+  ],
+  "box_w": 367.0,
+  "box_h": 188.0,
+  "box_area_px": 68995.9,
+  "box_area_frac": 0.133094,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007362",
+  "country": "India",
+  "box_xyxy": [
+   182.0,
+   578.0,
+   297.0,
+   651.0
+  ],
+  "box_w": 115.0,
+  "box_h": 73.0,
+  "box_area_px": 8395.0,
+  "box_area_frac": 0.016194,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007362",
+  "country": "India",
+  "box_xyxy": [
+   418.0,
+   445.0,
+   488.0,
+   490.0
+  ],
+  "box_w": 70.0,
+  "box_h": 45.0,
+  "box_area_px": 3150.0,
+  "box_area_frac": 0.006076,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007409",
+  "country": "India",
+  "box_xyxy": [
+   69.0,
+   526.0,
+   260.0,
+   643.0
+  ],
+  "box_w": 191.0,
+  "box_h": 117.0,
+  "box_area_px": 22347.0,
+  "box_area_frac": 0.043108,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007418",
+  "country": "India",
+  "box_xyxy": [
+   345.0,
+   474.0,
+   374.0,
+   502.0
+  ],
+  "box_w": 29.0,
+  "box_h": 28.0,
+  "box_area_px": 812.0,
+  "box_area_frac": 0.001566,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007555",
+  "country": "India",
+  "box_xyxy": [
+   388.0,
+   357.0,
+   443.0,
+   414.0
+  ],
+  "box_w": 55.0,
+  "box_h": 57.0,
+  "box_area_px": 3135.0,
+  "box_area_frac": 0.006047,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007555",
+  "country": "India",
+  "box_xyxy": [
+   286.0,
+   511.0,
+   320.0,
+   531.0
+  ],
+  "box_w": 34.0,
+  "box_h": 20.0,
+  "box_area_px": 680.0,
+  "box_area_frac": 0.001312,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007572",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   421.0,
+   312.0,
+   716.0
+  ],
+  "box_w": 311.0,
+  "box_h": 295.0,
+  "box_area_px": 91744.9,
+  "box_area_frac": 0.176977,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007579",
+  "country": "India",
+  "box_xyxy": [
+   333.0,
+   317.0,
+   371.0,
+   358.0
+  ],
+  "box_w": 38.0,
+  "box_h": 41.0,
+  "box_area_px": 1558.0,
+  "box_area_frac": 0.003005,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007611",
+  "country": "India",
+  "box_xyxy": [
+   5.0,
+   587.0,
+   76.0,
+   658.0
+  ],
+  "box_w": 71.0,
+  "box_h": 71.0,
+  "box_area_px": 5041.0,
+  "box_area_frac": 0.009724,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007611",
+  "country": "India",
+  "box_xyxy": [
+   564.0,
+   616.0,
+   696.0,
+   705.0
+  ],
+  "box_w": 132.0,
+  "box_h": 89.0,
+  "box_area_px": 11748.0,
+  "box_area_frac": 0.022662,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007627",
+  "country": "India",
+  "box_xyxy": [
+   469.0,
+   521.0,
+   529.0,
+   553.0
+  ],
+  "box_w": 60.0,
+  "box_h": 32.0,
+  "box_area_px": 1920.0,
+  "box_area_frac": 0.003704,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007637",
+  "country": "India",
+  "box_xyxy": [
+   105.0,
+   621.0,
+   228.0,
+   696.0
+  ],
+  "box_w": 123.0,
+  "box_h": 75.0,
+  "box_area_px": 9225.0,
+  "box_area_frac": 0.017795,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007637",
+  "country": "India",
+  "box_xyxy": [
+   170.0,
+   440.0,
+   400.0,
+   499.0
+  ],
+  "box_w": 230.0,
+  "box_h": 59.0,
+  "box_area_px": 13569.9,
+  "box_area_frac": 0.026177,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007637",
+  "country": "India",
+  "box_xyxy": [
+   322.0,
+   514.0,
+   399.0,
+   545.0
+  ],
+  "box_w": 77.0,
+  "box_h": 31.0,
+  "box_area_px": 2387.0,
+  "box_area_frac": 0.004605,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007637",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   634.0,
+   101.0,
+   711.0
+  ],
+  "box_w": 100.0,
+  "box_h": 77.0,
+  "box_area_px": 7700.0,
+  "box_area_frac": 0.014853,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007697",
+  "country": "India",
+  "box_xyxy": [
+   66.0,
+   377.0,
+   352.0,
+   498.0
+  ],
+  "box_w": 286.0,
+  "box_h": 121.0,
+  "box_area_px": 34606.1,
+  "box_area_frac": 0.066756,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007699",
+  "country": "India",
+  "box_xyxy": [
+   344.0,
+   402.0,
+   402.0,
+   421.0
+  ],
+  "box_w": 58.0,
+  "box_h": 19.0,
+  "box_area_px": 1102.0,
+  "box_area_frac": 0.002126,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007699",
+  "country": "India",
+  "box_xyxy": [
+   348.0,
+   439.0,
+   380.0,
+   462.0
+  ],
+  "box_w": 32.0,
+  "box_h": 23.0,
+  "box_area_px": 736.0,
+  "box_area_frac": 0.00142,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007699",
+  "country": "India",
+  "box_xyxy": [
+   300.0,
+   365.0,
+   332.0,
+   388.0
+  ],
+  "box_w": 32.0,
+  "box_h": 23.0,
+  "box_area_px": 736.0,
+  "box_area_frac": 0.00142,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007706",
+  "country": "India",
+  "box_xyxy": [
+   342.0,
+   437.0,
+   388.0,
+   468.0
+  ],
+  "box_w": 46.0,
+  "box_h": 31.0,
+  "box_area_px": 1426.0,
+  "box_area_frac": 0.002751,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007706",
+  "country": "India",
+  "box_xyxy": [
+   342.0,
+   393.0,
+   388.0,
+   424.0
+  ],
+  "box_w": 46.0,
+  "box_h": 31.0,
+  "box_area_px": 1426.0,
+  "box_area_frac": 0.002751,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007749",
+  "country": "India",
+  "box_xyxy": [
+   88.0,
+   448.0,
+   137.0,
+   484.0
+  ],
+  "box_w": 49.0,
+  "box_h": 36.0,
+  "box_area_px": 1764.0,
+  "box_area_frac": 0.003403,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007749",
+  "country": "India",
+  "box_xyxy": [
+   118.0,
+   405.0,
+   167.0,
+   441.0
+  ],
+  "box_w": 49.0,
+  "box_h": 36.0,
+  "box_area_px": 1764.0,
+  "box_area_frac": 0.003403,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007749",
+  "country": "India",
+  "box_xyxy": [
+   243.0,
+   378.0,
+   289.0,
+   409.0
+  ],
+  "box_w": 46.0,
+  "box_h": 31.0,
+  "box_area_px": 1426.0,
+  "box_area_frac": 0.002751,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007791",
+  "country": "India",
+  "box_xyxy": [
+   238.0,
+   519.0,
+   365.0,
+   568.0
+  ],
+  "box_w": 127.0,
+  "box_h": 49.0,
+  "box_area_px": 6223.0,
+  "box_area_frac": 0.012004,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007791",
+  "country": "India",
+  "box_xyxy": [
+   416.0,
+   398.0,
+   490.0,
+   439.0
+  ],
+  "box_w": 74.0,
+  "box_h": 41.0,
+  "box_area_px": 3034.0,
+  "box_area_frac": 0.005853,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007810",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   645.0,
+   237.0,
+   720.0
+  ],
+  "box_w": 236.0,
+  "box_h": 75.0,
+  "box_area_px": 17700.1,
+  "box_area_frac": 0.034144,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007810",
+  "country": "India",
+  "box_xyxy": [
+   279.0,
+   424.0,
+   416.0,
+   459.0
+  ],
+  "box_w": 137.0,
+  "box_h": 35.0,
+  "box_area_px": 4795.0,
+  "box_area_frac": 0.00925,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_007810",
+  "country": "India",
+  "box_xyxy": [
+   396.0,
+   505.0,
+   601.0,
+   628.0
+  ],
+  "box_w": 205.0,
+  "box_h": 123.0,
+  "box_area_px": 25214.9,
+  "box_area_frac": 0.04864,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_007915",
+  "country": "India",
+  "box_xyxy": [
+   347.0,
+   464.0,
+   386.0,
+   486.0
+  ],
+  "box_w": 39.0,
+  "box_h": 22.0,
+  "box_area_px": 858.0,
+  "box_area_frac": 0.001655,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008022",
+  "country": "India",
+  "box_xyxy": [
+   125.0,
+   587.0,
+   216.0,
+   639.0
+  ],
+  "box_w": 91.0,
+  "box_h": 52.0,
+  "box_area_px": 4732.0,
+  "box_area_frac": 0.009128,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008022",
+  "country": "India",
+  "box_xyxy": [
+   262.0,
+   595.0,
+   298.0,
+   627.0
+  ],
+  "box_w": 36.0,
+  "box_h": 32.0,
+  "box_area_px": 1152.0,
+  "box_area_frac": 0.002222,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008022",
+  "country": "India",
+  "box_xyxy": [
+   411.0,
+   414.0,
+   462.0,
+   430.0
+  ],
+  "box_w": 51.0,
+  "box_h": 16.0,
+  "box_area_px": 816.0,
+  "box_area_frac": 0.001574,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008084",
+  "country": "India",
+  "box_xyxy": [
+   287.0,
+   588.0,
+   322.0,
+   614.0
+  ],
+  "box_w": 35.0,
+  "box_h": 26.0,
+  "box_area_px": 910.0,
+  "box_area_frac": 0.001755,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008154",
+  "country": "India",
+  "box_xyxy": [
+   247.0,
+   613.0,
+   422.0,
+   720.0
+  ],
+  "box_w": 175.0,
+  "box_h": 107.0,
+  "box_area_px": 18725.0,
+  "box_area_frac": 0.036121,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008154",
+  "country": "India",
+  "box_xyxy": [
+   457.0,
+   513.0,
+   566.0,
+   597.0
+  ],
+  "box_w": 109.0,
+  "box_h": 84.0,
+  "box_area_px": 9156.0,
+  "box_area_frac": 0.017662,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008154",
+  "country": "India",
+  "box_xyxy": [
+   323.0,
+   541.0,
+   405.0,
+   602.0
+  ],
+  "box_w": 82.0,
+  "box_h": 61.0,
+  "box_area_px": 5002.0,
+  "box_area_frac": 0.009649,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008157",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   608.0,
+   187.0,
+   720.0
+  ],
+  "box_w": 186.0,
+  "box_h": 112.0,
+  "box_area_px": 20832.0,
+  "box_area_frac": 0.040185,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_008233",
+  "country": "India",
+  "box_xyxy": [
+   236.0,
+   452.0,
+   313.0,
+   471.0
+  ],
+  "box_w": 77.0,
+  "box_h": 19.0,
+  "box_area_px": 1463.0,
+  "box_area_frac": 0.002822,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_008233",
+  "country": "India",
+  "box_xyxy": [
+   95.0,
+   540.0,
+   252.0,
+   650.0
+  ],
+  "box_w": 157.0,
+  "box_h": 110.0,
+  "box_area_px": 17270.1,
+  "box_area_frac": 0.033314,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008233",
+  "country": "India",
+  "box_xyxy": [
+   326.0,
+   526.0,
+   377.0,
+   572.0
+  ],
+  "box_w": 51.0,
+  "box_h": 46.0,
+  "box_area_px": 2346.0,
+  "box_area_frac": 0.004525,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008233",
+  "country": "India",
+  "box_xyxy": [
+   323.0,
+   455.0,
+   358.0,
+   481.0
+  ],
+  "box_w": 35.0,
+  "box_h": 26.0,
+  "box_area_px": 910.0,
+  "box_area_frac": 0.001755,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008244",
+  "country": "India",
+  "box_xyxy": [
+   56.0,
+   523.0,
+   109.0,
+   549.0
+  ],
+  "box_w": 53.0,
+  "box_h": 26.0,
+  "box_area_px": 1378.0,
+  "box_area_frac": 0.002658,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008465",
+  "country": "India",
+  "box_xyxy": [
+   289.0,
+   571.0,
+   429.0,
+   676.0
+  ],
+  "box_w": 140.0,
+  "box_h": 105.0,
+  "box_area_px": 14699.9,
+  "box_area_frac": 0.028356,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008749",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   559.0,
+   174.0,
+   706.0
+  ],
+  "box_w": 173.0,
+  "box_h": 147.0,
+  "box_area_px": 25431.1,
+  "box_area_frac": 0.049057,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008749",
+  "country": "India",
+  "box_xyxy": [
+   219.0,
+   534.0,
+   314.0,
+   556.0
+  ],
+  "box_w": 95.0,
+  "box_h": 22.0,
+  "box_area_px": 2090.0,
+  "box_area_frac": 0.004032,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008762",
+  "country": "India",
+  "box_xyxy": [
+   21.0,
+   595.0,
+   147.0,
+   714.0
+  ],
+  "box_w": 126.0,
+  "box_h": 119.0,
+  "box_area_px": 14994.0,
+  "box_area_frac": 0.028924,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008762",
+  "country": "India",
+  "box_xyxy": [
+   148.0,
+   557.0,
+   269.0,
+   630.0
+  ],
+  "box_w": 121.0,
+  "box_h": 73.0,
+  "box_area_px": 8833.0,
+  "box_area_frac": 0.017039,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008762",
+  "country": "India",
+  "box_xyxy": [
+   281.0,
+   534.0,
+   432.0,
+   607.0
+  ],
+  "box_w": 151.0,
+  "box_h": 73.0,
+  "box_area_px": 11023.0,
+  "box_area_frac": 0.021264,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008762",
+  "country": "India",
+  "box_xyxy": [
+   353.0,
+   432.0,
+   448.0,
+   478.0
+  ],
+  "box_w": 95.0,
+  "box_h": 46.0,
+  "box_area_px": 4370.0,
+  "box_area_frac": 0.00843,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008881",
+  "country": "India",
+  "box_xyxy": [
+   157.0,
+   434.0,
+   243.0,
+   475.0
+  ],
+  "box_w": 86.0,
+  "box_h": 41.0,
+  "box_area_px": 3526.0,
+  "box_area_frac": 0.006802,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008881",
+  "country": "India",
+  "box_xyxy": [
+   323.0,
+   398.0,
+   442.0,
+   429.0
+  ],
+  "box_w": 119.0,
+  "box_h": 31.0,
+  "box_area_px": 3689.0,
+  "box_area_frac": 0.007116,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008881",
+  "country": "India",
+  "box_xyxy": [
+   84.0,
+   562.0,
+   268.0,
+   707.0
+  ],
+  "box_w": 184.0,
+  "box_h": 145.0,
+  "box_area_px": 26680.1,
+  "box_area_frac": 0.051466,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_008971",
+  "country": "India",
+  "box_xyxy": [
+   140.0,
+   499.0,
+   194.0,
+   534.0
+  ],
+  "box_w": 54.0,
+  "box_h": 35.0,
+  "box_area_px": 1890.0,
+  "box_area_frac": 0.003646,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_008971",
+  "country": "India",
+  "box_xyxy": [
+   193.0,
+   531.0,
+   247.0,
+   566.0
+  ],
+  "box_w": 54.0,
+  "box_h": 35.0,
+  "box_area_px": 1890.0,
+  "box_area_frac": 0.003646,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_008971",
+  "country": "India",
+  "box_xyxy": [
+   256.0,
+   537.0,
+   310.0,
+   572.0
+  ],
+  "box_w": 54.0,
+  "box_h": 35.0,
+  "box_area_px": 1890.0,
+  "box_area_frac": 0.003646,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_008984",
+  "country": "India",
+  "box_xyxy": [
+   190.0,
+   428.0,
+   295.0,
+   466.0
+  ],
+  "box_w": 105.0,
+  "box_h": 38.0,
+  "box_area_px": 3990.0,
+  "box_area_frac": 0.007697,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009013",
+  "country": "India",
+  "box_xyxy": [
+   0.0,
+   486.0,
+   59.0,
+   589.0
+  ],
+  "box_w": 59.0,
+  "box_h": 103.0,
+  "box_area_px": 6077.0,
+  "box_area_frac": 0.011723,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009041",
+  "country": "India",
+  "box_xyxy": [
+   8.0,
+   540.0,
+   80.0,
+   586.0
+  ],
+  "box_w": 72.0,
+  "box_h": 46.0,
+  "box_area_px": 3312.0,
+  "box_area_frac": 0.006389,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009041",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   606.0,
+   72.0,
+   652.0
+  ],
+  "box_w": 71.0,
+  "box_h": 46.0,
+  "box_area_px": 3266.0,
+  "box_area_frac": 0.0063,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009041",
+  "country": "India",
+  "box_xyxy": [
+   195.0,
+   519.0,
+   267.0,
+   565.0
+  ],
+  "box_w": 72.0,
+  "box_h": 46.0,
+  "box_area_px": 3312.0,
+  "box_area_frac": 0.006389,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009041",
+  "country": "India",
+  "box_xyxy": [
+   342.0,
+   455.0,
+   423.0,
+   497.0
+  ],
+  "box_w": 81.0,
+  "box_h": 42.0,
+  "box_area_px": 3402.0,
+  "box_area_frac": 0.006562,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009054",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   450.0,
+   231.0,
+   576.0
+  ],
+  "box_w": 230.0,
+  "box_h": 126.0,
+  "box_area_px": 28980.0,
+  "box_area_frac": 0.055903,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009142",
+  "country": "India",
+  "box_xyxy": [
+   515.0,
+   619.0,
+   630.0,
+   665.0
+  ],
+  "box_w": 115.0,
+  "box_h": 46.0,
+  "box_area_px": 5290.0,
+  "box_area_frac": 0.010204,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009142",
+  "country": "India",
+  "box_xyxy": [
+   394.0,
+   572.0,
+   509.0,
+   618.0
+  ],
+  "box_w": 115.0,
+  "box_h": 46.0,
+  "box_area_px": 5290.0,
+  "box_area_frac": 0.010204,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009148",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   550.0,
+   162.0,
+   665.0
+  ],
+  "box_w": 161.0,
+  "box_h": 115.0,
+  "box_area_px": 18515.0,
+  "box_area_frac": 0.035716,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009148",
+  "country": "India",
+  "box_xyxy": [
+   382.0,
+   403.0,
+   464.0,
+   432.0
+  ],
+  "box_w": 82.0,
+  "box_h": 29.0,
+  "box_area_px": 2378.0,
+  "box_area_frac": 0.004587,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009163",
+  "country": "India",
+  "box_xyxy": [
+   437.0,
+   537.0,
+   488.0,
+   583.0
+  ],
+  "box_w": 51.0,
+  "box_h": 46.0,
+  "box_area_px": 2346.0,
+  "box_area_frac": 0.004525,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009171",
+  "country": "India",
+  "box_xyxy": [
+   372.0,
+   488.0,
+   426.0,
+   535.0
+  ],
+  "box_w": 54.0,
+  "box_h": 47.0,
+  "box_area_px": 2538.0,
+  "box_area_frac": 0.004896,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009171",
+  "country": "India",
+  "box_xyxy": [
+   444.0,
+   491.0,
+   468.0,
+   511.0
+  ],
+  "box_w": 24.0,
+  "box_h": 20.0,
+  "box_area_px": 480.0,
+  "box_area_frac": 0.000926,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009173",
+  "country": "India",
+  "box_xyxy": [
+   405.0,
+   293.0,
+   565.0,
+   426.0
+  ],
+  "box_w": 160.0,
+  "box_h": 133.0,
+  "box_area_px": 21280.0,
+  "box_area_frac": 0.041049,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009173",
+  "country": "India",
+  "box_xyxy": [
+   130.0,
+   269.0,
+   384.0,
+   390.0
+  ],
+  "box_w": 254.0,
+  "box_h": 121.0,
+  "box_area_px": 30734.1,
+  "box_area_frac": 0.059286,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009249",
+  "country": "India",
+  "box_xyxy": [
+   579.0,
+   580.0,
+   675.0,
+   640.0
+  ],
+  "box_w": 96.0,
+  "box_h": 60.0,
+  "box_area_px": 5760.0,
+  "box_area_frac": 0.011111,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009249",
+  "country": "India",
+  "box_xyxy": [
+   358.0,
+   465.0,
+   434.0,
+   523.0
+  ],
+  "box_w": 76.0,
+  "box_h": 58.0,
+  "box_area_px": 4408.0,
+  "box_area_frac": 0.008503,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009254",
+  "country": "India",
+  "box_xyxy": [
+   345.0,
+   469.0,
+   506.0,
+   549.0
+  ],
+  "box_w": 161.0,
+  "box_h": 80.0,
+  "box_area_px": 12880.0,
+  "box_area_frac": 0.024846,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009254",
+  "country": "India",
+  "box_xyxy": [
+   1.0,
+   456.0,
+   295.0,
+   583.0
+  ],
+  "box_w": 294.0,
+  "box_h": 127.0,
+  "box_area_px": 37338.0,
+  "box_area_frac": 0.072025,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009254",
+  "country": "India",
+  "box_xyxy": [
+   2.0,
+   586.0,
+   179.0,
+   715.0
+  ],
+  "box_w": 177.0,
+  "box_h": 129.0,
+  "box_area_px": 22833.0,
+  "box_area_frac": 0.044045,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009254",
+  "country": "India",
+  "box_xyxy": [
+   532.0,
+   505.0,
+   614.0,
+   574.0
+  ],
+  "box_w": 82.0,
+  "box_h": 69.0,
+  "box_area_px": 5658.0,
+  "box_area_frac": 0.010914,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009376",
+  "country": "India",
+  "box_xyxy": [
+   607.0,
+   488.0,
+   656.0,
+   510.0
+  ],
+  "box_w": 49.0,
+  "box_h": 22.0,
+  "box_area_px": 1078.0,
+  "box_area_frac": 0.00208,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009376",
+  "country": "India",
+  "box_xyxy": [
+   549.0,
+   468.0,
+   598.0,
+   490.0
+  ],
+  "box_w": 49.0,
+  "box_h": 22.0,
+  "box_area_px": 1078.0,
+  "box_area_frac": 0.00208,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009380",
+  "country": "India",
+  "box_xyxy": [
+   467.0,
+   634.0,
+   524.0,
+   673.0
+  ],
+  "box_w": 57.0,
+  "box_h": 39.0,
+  "box_area_px": 2223.0,
+  "box_area_frac": 0.004288,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009510",
+  "country": "India",
+  "box_xyxy": [
+   11.0,
+   465.0,
+   63.0,
+   491.0
+  ],
+  "box_w": 52.0,
+  "box_h": 26.0,
+  "box_area_px": 1352.0,
+  "box_area_frac": 0.002608,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009510",
+  "country": "India",
+  "box_xyxy": [
+   86.0,
+   430.0,
+   156.0,
+   486.0
+  ],
+  "box_w": 70.0,
+  "box_h": 56.0,
+  "box_area_px": 3920.0,
+  "box_area_frac": 0.007562,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009586",
+  "country": "India",
+  "box_xyxy": [
+   350.0,
+   407.0,
+   401.0,
+   447.0
+  ],
+  "box_w": 51.0,
+  "box_h": 40.0,
+  "box_area_px": 2040.0,
+  "box_area_frac": 0.003935,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009630",
+  "country": "India",
+  "box_xyxy": [
+   416.0,
+   432.0,
+   463.0,
+   465.0
+  ],
+  "box_w": 47.0,
+  "box_h": 33.0,
+  "box_area_px": 1551.0,
+  "box_area_frac": 0.002992,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": true
+ },
+ {
+  "image": "India_009832",
+  "country": "India",
+  "box_xyxy": [
+   347.0,
+   525.0,
+   407.0,
+   583.0
+  ],
+  "box_w": 60.0,
+  "box_h": 58.0,
+  "box_area_px": 3480.0,
+  "box_area_frac": 0.006713,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009890",
+  "country": "India",
+  "box_xyxy": [
+   238.0,
+   500.0,
+   294.0,
+   541.0
+  ],
+  "box_w": 56.0,
+  "box_h": 41.0,
+  "box_area_px": 2296.0,
+  "box_area_frac": 0.004429,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "India_009890",
+  "country": "India",
+  "box_xyxy": [
+   301.0,
+   455.0,
+   357.0,
+   496.0
+  ],
+  "box_w": 56.0,
+  "box_h": 41.0,
+  "box_area_px": 2296.0,
+  "box_area_frac": 0.004429,
+  "image_w": 720,
+  "image_h": 720,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_000074",
+  "country": "Japan",
+  "box_xyxy": [
+   286.0,
+   535.0,
+   319.0,
+   554.0
+  ],
+  "box_w": 33.0,
+  "box_h": 19.0,
+  "box_area_px": 627.0,
+  "box_area_frac": 0.001742,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000074",
+  "country": "Japan",
+  "box_xyxy": [
+   366.0,
+   568.0,
+   410.0,
+   596.0
+  ],
+  "box_w": 44.0,
+  "box_h": 28.0,
+  "box_area_px": 1232.0,
+  "box_area_frac": 0.003422,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000074",
+  "country": "Japan",
+  "box_xyxy": [
+   409.0,
+   556.0,
+   443.0,
+   581.0
+  ],
+  "box_w": 34.0,
+  "box_h": 25.0,
+  "box_area_px": 850.0,
+  "box_area_frac": 0.002361,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000281",
+  "country": "Japan",
+  "box_xyxy": [
+   261.0,
+   447.0,
+   291.0,
+   461.0
+  ],
+  "box_w": 30.0,
+  "box_h": 14.0,
+  "box_area_px": 420.0,
+  "box_area_frac": 0.001167,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000281",
+  "country": "Japan",
+  "box_xyxy": [
+   280.0,
+   528.0,
+   301.0,
+   548.0
+  ],
+  "box_w": 21.0,
+  "box_h": 20.0,
+  "box_area_px": 420.0,
+  "box_area_frac": 0.001167,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_000291",
+  "country": "Japan",
+  "box_xyxy": [
+   426.0,
+   222.0,
+   566.0,
+   343.0
+  ],
+  "box_w": 140.0,
+  "box_h": 121.0,
+  "box_area_px": 16940.0,
+  "box_area_frac": 0.016155,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000295",
+  "country": "Japan",
+  "box_xyxy": [
+   438.0,
+   440.0,
+   675.0,
+   636.0
+  ],
+  "box_w": 237.0,
+  "box_h": 196.0,
+  "box_area_px": 46451.9,
+  "box_area_frac": 0.0443,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000302",
+  "country": "Japan",
+  "box_xyxy": [
+   450.0,
+   448.0,
+   523.0,
+   486.0
+  ],
+  "box_w": 73.0,
+  "box_h": 38.0,
+  "box_area_px": 2774.0,
+  "box_area_frac": 0.007706,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000302",
+  "country": "Japan",
+  "box_xyxy": [
+   180.0,
+   451.0,
+   211.0,
+   471.0
+  ],
+  "box_w": 31.0,
+  "box_h": 20.0,
+  "box_area_px": 620.0,
+  "box_area_frac": 0.001722,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000302",
+  "country": "Japan",
+  "box_xyxy": [
+   290.0,
+   489.0,
+   344.0,
+   512.0
+  ],
+  "box_w": 54.0,
+  "box_h": 23.0,
+  "box_area_px": 1242.0,
+  "box_area_frac": 0.00345,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000310",
+  "country": "Japan",
+  "box_xyxy": [
+   368.0,
+   421.0,
+   480.0,
+   490.0
+  ],
+  "box_w": 112.0,
+  "box_h": 69.0,
+  "box_area_px": 7728.0,
+  "box_area_frac": 0.021467,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000453",
+  "country": "Japan",
+  "box_xyxy": [
+   95.0,
+   483.0,
+   128.0,
+   514.0
+  ],
+  "box_w": 33.0,
+  "box_h": 31.0,
+  "box_area_px": 1023.0,
+  "box_area_frac": 0.002842,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000650",
+  "country": "Japan",
+  "box_xyxy": [
+   33.0,
+   436.0,
+   89.0,
+   458.0
+  ],
+  "box_w": 56.0,
+  "box_h": 22.0,
+  "box_area_px": 1232.0,
+  "box_area_frac": 0.003422,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_000662",
+  "country": "Japan",
+  "box_xyxy": [
+   248.0,
+   372.0,
+   445.0,
+   479.0
+  ],
+  "box_w": 197.0,
+  "box_h": 107.0,
+  "box_area_px": 21078.9,
+  "box_area_frac": 0.058553,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000736",
+  "country": "Japan",
+  "box_xyxy": [
+   405.0,
+   509.0,
+   463.0,
+   588.0
+  ],
+  "box_w": 58.0,
+  "box_h": 79.0,
+  "box_area_px": 4582.0,
+  "box_area_frac": 0.012728,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000743",
+  "country": "Japan",
+  "box_xyxy": [
+   500.0,
+   466.0,
+   544.0,
+   497.0
+  ],
+  "box_w": 44.0,
+  "box_h": 31.0,
+  "box_area_px": 1364.0,
+  "box_area_frac": 0.003789,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000840",
+  "country": "Japan",
+  "box_xyxy": [
+   199.0,
+   561.0,
+   236.0,
+   592.0
+  ],
+  "box_w": 37.0,
+  "box_h": 31.0,
+  "box_area_px": 1147.0,
+  "box_area_frac": 0.003186,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_000840",
+  "country": "Japan",
+  "box_xyxy": [
+   20.0,
+   542.0,
+   49.0,
+   565.0
+  ],
+  "box_w": 29.0,
+  "box_h": 23.0,
+  "box_area_px": 667.0,
+  "box_area_frac": 0.001853,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001131",
+  "country": "Japan",
+  "box_xyxy": [
+   395.0,
+   162.0,
+   563.0,
+   259.0
+  ],
+  "box_w": 168.0,
+  "box_h": 97.0,
+  "box_area_px": 16296.0,
+  "box_area_frac": 0.015541,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001131",
+  "country": "Japan",
+  "box_xyxy": [
+   526.0,
+   229.0,
+   763.0,
+   336.0
+  ],
+  "box_w": 237.0,
+  "box_h": 107.0,
+  "box_area_px": 25358.9,
+  "box_area_frac": 0.024184,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001131",
+  "country": "Japan",
+  "box_xyxy": [
+   932.0,
+   381.0,
+   1024.0,
+   451.0
+  ],
+  "box_w": 92.0,
+  "box_h": 70.0,
+  "box_area_px": 6440.0,
+  "box_area_frac": 0.006142,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001131",
+  "country": "Japan",
+  "box_xyxy": [
+   740.0,
+   350.0,
+   818.0,
+   403.0
+  ],
+  "box_w": 78.0,
+  "box_h": 53.0,
+  "box_area_px": 4134.0,
+  "box_area_frac": 0.003943,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001420",
+  "country": "Japan",
+  "box_xyxy": [
+   168.0,
+   387.0,
+   295.0,
+   479.0
+  ],
+  "box_w": 127.0,
+  "box_h": 92.0,
+  "box_area_px": 11684.0,
+  "box_area_frac": 0.040068,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001541",
+  "country": "Japan",
+  "box_xyxy": [
+   124.0,
+   143.0,
+   165.0,
+   162.0
+  ],
+  "box_w": 41.0,
+  "box_h": 19.0,
+  "box_area_px": 779.0,
+  "box_area_frac": 0.002164,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001563",
+  "country": "Japan",
+  "box_xyxy": [
+   91.0,
+   534.0,
+   185.0,
+   583.0
+  ],
+  "box_w": 94.0,
+  "box_h": 49.0,
+  "box_area_px": 4606.0,
+  "box_area_frac": 0.012795,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001574",
+  "country": "Japan",
+  "box_xyxy": [
+   114.0,
+   7.0,
+   235.0,
+   286.0
+  ],
+  "box_w": 121.0,
+  "box_h": 279.0,
+  "box_area_px": 33759.0,
+  "box_area_frac": 0.032195,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001574",
+  "country": "Japan",
+  "box_xyxy": [
+   454.0,
+   215.0,
+   666.0,
+   448.0
+  ],
+  "box_w": 212.0,
+  "box_h": 233.0,
+  "box_area_px": 49395.9,
+  "box_area_frac": 0.047108,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001574",
+  "country": "Japan",
+  "box_xyxy": [
+   266.0,
+   3.0,
+   473.0,
+   219.0
+  ],
+  "box_w": 207.0,
+  "box_h": 216.0,
+  "box_area_px": 44712.0,
+  "box_area_frac": 0.042641,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001574",
+  "country": "Japan",
+  "box_xyxy": [
+   821.0,
+   633.0,
+   1024.0,
+   872.0
+  ],
+  "box_w": 203.0,
+  "box_h": 239.0,
+  "box_area_px": 48516.9,
+  "box_area_frac": 0.046269,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_001637",
+  "country": "Japan",
+  "box_xyxy": [
+   454.0,
+   419.0,
+   509.0,
+   463.0
+  ],
+  "box_w": 55.0,
+  "box_h": 44.0,
+  "box_area_px": 2420.0,
+  "box_area_frac": 0.006722,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001637",
+  "country": "Japan",
+  "box_xyxy": [
+   456.0,
+   379.0,
+   487.0,
+   408.0
+  ],
+  "box_w": 31.0,
+  "box_h": 29.0,
+  "box_area_px": 899.0,
+  "box_area_frac": 0.002497,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001791",
+  "country": "Japan",
+  "box_xyxy": [
+   241.0,
+   548.0,
+   353.0,
+   566.0
+  ],
+  "box_w": 112.0,
+  "box_h": 18.0,
+  "box_area_px": 2016.0,
+  "box_area_frac": 0.0056,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_001791",
+  "country": "Japan",
+  "box_xyxy": [
+   200.0,
+   549.0,
+   267.0,
+   579.0
+  ],
+  "box_w": 67.0,
+  "box_h": 30.0,
+  "box_area_px": 2010.0,
+  "box_area_frac": 0.005583,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_002097",
+  "country": "Japan",
+  "box_xyxy": [
+   208.0,
+   350.0,
+   289.0,
+   373.0
+  ],
+  "box_w": 81.0,
+  "box_h": 23.0,
+  "box_area_px": 1863.0,
+  "box_area_frac": 0.005175,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_002473",
+  "country": "Japan",
+  "box_xyxy": [
+   124.0,
+   401.0,
+   284.0,
+   491.0
+  ],
+  "box_w": 160.0,
+  "box_h": 90.0,
+  "box_area_px": 14400.1,
+  "box_area_frac": 0.013733,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_002688",
+  "country": "Japan",
+  "box_xyxy": [
+   569.0,
+   577.0,
+   599.0,
+   600.0
+  ],
+  "box_w": 30.0,
+  "box_h": 23.0,
+  "box_area_px": 690.0,
+  "box_area_frac": 0.001917,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_002688",
+  "country": "Japan",
+  "box_xyxy": [
+   568.0,
+   426.0,
+   600.0,
+   443.0
+  ],
+  "box_w": 32.0,
+  "box_h": 17.0,
+  "box_area_px": 544.0,
+  "box_area_frac": 0.001511,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003222",
+  "country": "Japan",
+  "box_xyxy": [
+   284.0,
+   514.0,
+   355.0,
+   571.0
+  ],
+  "box_w": 71.0,
+  "box_h": 57.0,
+  "box_area_px": 4047.0,
+  "box_area_frac": 0.011242,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003222",
+  "country": "Japan",
+  "box_xyxy": [
+   340.0,
+   525.0,
+   432.0,
+   567.0
+  ],
+  "box_w": 92.0,
+  "box_h": 42.0,
+  "box_area_px": 3864.0,
+  "box_area_frac": 0.010733,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003255",
+  "country": "Japan",
+  "box_xyxy": [
+   409.0,
+   557.0,
+   503.0,
+   600.0
+  ],
+  "box_w": 94.0,
+  "box_h": 43.0,
+  "box_area_px": 4042.0,
+  "box_area_frac": 0.011228,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003389",
+  "country": "Japan",
+  "box_xyxy": [
+   229.0,
+   445.0,
+   270.0,
+   500.0
+  ],
+  "box_w": 41.0,
+  "box_h": 55.0,
+  "box_area_px": 2255.0,
+  "box_area_frac": 0.006264,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003389",
+  "country": "Japan",
+  "box_xyxy": [
+   312.0,
+   408.0,
+   381.0,
+   469.0
+  ],
+  "box_w": 69.0,
+  "box_h": 61.0,
+  "box_area_px": 4209.0,
+  "box_area_frac": 0.011692,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003389",
+  "country": "Japan",
+  "box_xyxy": [
+   386.0,
+   392.0,
+   429.0,
+   417.0
+  ],
+  "box_w": 43.0,
+  "box_h": 25.0,
+  "box_area_px": 1075.0,
+  "box_area_frac": 0.002986,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003513",
+  "country": "Japan",
+  "box_xyxy": [
+   306.0,
+   509.0,
+   326.0,
+   550.0
+  ],
+  "box_w": 20.0,
+  "box_h": 41.0,
+  "box_area_px": 820.0,
+  "box_area_frac": 0.002278,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003670",
+  "country": "Japan",
+  "box_xyxy": [
+   339.0,
+   334.0,
+   378.0,
+   381.0
+  ],
+  "box_w": 39.0,
+  "box_h": 47.0,
+  "box_area_px": 1833.0,
+  "box_area_frac": 0.006286,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003670",
+  "country": "Japan",
+  "box_xyxy": [
+   334.0,
+   389.0,
+   368.0,
+   426.0
+  ],
+  "box_w": 34.0,
+  "box_h": 37.0,
+  "box_area_px": 1258.0,
+  "box_area_frac": 0.004314,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_003859",
+  "country": "Japan",
+  "box_xyxy": [
+   230.0,
+   461.0,
+   331.0,
+   497.0
+  ],
+  "box_w": 101.0,
+  "box_h": 36.0,
+  "box_area_px": 3636.0,
+  "box_area_frac": 0.0101,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003859",
+  "country": "Japan",
+  "box_xyxy": [
+   212.0,
+   395.0,
+   282.0,
+   450.0
+  ],
+  "box_w": 70.0,
+  "box_h": 55.0,
+  "box_area_px": 3850.0,
+  "box_area_frac": 0.010695,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003878",
+  "country": "Japan",
+  "box_xyxy": [
+   322.0,
+   510.0,
+   364.0,
+   561.0
+  ],
+  "box_w": 42.0,
+  "box_h": 51.0,
+  "box_area_px": 2142.0,
+  "box_area_frac": 0.00595,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003878",
+  "country": "Japan",
+  "box_xyxy": [
+   242.0,
+   545.0,
+   266.0,
+   561.0
+  ],
+  "box_w": 24.0,
+  "box_h": 16.0,
+  "box_area_px": 384.0,
+  "box_area_frac": 0.001067,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_003978",
+  "country": "Japan",
+  "box_xyxy": [
+   266.0,
+   497.0,
+   330.0,
+   579.0
+  ],
+  "box_w": 64.0,
+  "box_h": 82.0,
+  "box_area_px": 5248.0,
+  "box_area_frac": 0.014578,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004023",
+  "country": "Japan",
+  "box_xyxy": [
+   470.0,
+   550.0,
+   577.0,
+   590.0
+  ],
+  "box_w": 107.0,
+  "box_h": 40.0,
+  "box_area_px": 4280.0,
+  "box_area_frac": 0.011889,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004342",
+  "country": "Japan",
+  "box_xyxy": [
+   -0.0,
+   520.0,
+   70.0,
+   547.0
+  ],
+  "box_w": 70.0,
+  "box_h": 27.0,
+  "box_area_px": 1890.0,
+  "box_area_frac": 0.00525,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004342",
+  "country": "Japan",
+  "box_xyxy": [
+   311.0,
+   492.0,
+   344.0,
+   509.0
+  ],
+  "box_w": 33.0,
+  "box_h": 17.0,
+  "box_area_px": 561.0,
+  "box_area_frac": 0.001558,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004342",
+  "country": "Japan",
+  "box_xyxy": [
+   233.0,
+   507.0,
+   318.0,
+   532.0
+  ],
+  "box_w": 85.0,
+  "box_h": 25.0,
+  "box_area_px": 2125.0,
+  "box_area_frac": 0.005903,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004537",
+  "country": "Japan",
+  "box_xyxy": [
+   344.0,
+   507.0,
+   394.0,
+   544.0
+  ],
+  "box_w": 50.0,
+  "box_h": 37.0,
+  "box_area_px": 1850.0,
+  "box_area_frac": 0.005139,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004646",
+  "country": "Japan",
+  "box_xyxy": [
+   418.0,
+   440.0,
+   449.0,
+   473.0
+  ],
+  "box_w": 31.0,
+  "box_h": 33.0,
+  "box_area_px": 1023.0,
+  "box_area_frac": 0.002842,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004689",
+  "country": "Japan",
+  "box_xyxy": [
+   464.0,
+   492.0,
+   519.0,
+   535.0
+  ],
+  "box_w": 55.0,
+  "box_h": 43.0,
+  "box_area_px": 2365.0,
+  "box_area_frac": 0.006569,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004912",
+  "country": "Japan",
+  "box_xyxy": [
+   152.0,
+   418.0,
+   181.0,
+   430.0
+  ],
+  "box_w": 29.0,
+  "box_h": 12.0,
+  "box_area_px": 348.0,
+  "box_area_frac": 0.000967,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_004984",
+  "country": "Japan",
+  "box_xyxy": [
+   209.0,
+   451.0,
+   233.0,
+   468.0
+  ],
+  "box_w": 24.0,
+  "box_h": 17.0,
+  "box_area_px": 408.0,
+  "box_area_frac": 0.001133,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004984",
+  "country": "Japan",
+  "box_xyxy": [
+   208.0,
+   393.0,
+   241.0,
+   417.0
+  ],
+  "box_w": 33.0,
+  "box_h": 24.0,
+  "box_area_px": 792.0,
+  "box_area_frac": 0.0022,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004984",
+  "country": "Japan",
+  "box_xyxy": [
+   135.0,
+   512.0,
+   222.0,
+   530.0
+  ],
+  "box_w": 87.0,
+  "box_h": 18.0,
+  "box_area_px": 1566.0,
+  "box_area_frac": 0.00435,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004988",
+  "country": "Japan",
+  "box_xyxy": [
+   68.0,
+   394.0,
+   212.0,
+   461.0
+  ],
+  "box_w": 144.0,
+  "box_h": 67.0,
+  "box_area_px": 9648.0,
+  "box_area_frac": 0.0268,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_004988",
+  "country": "Japan",
+  "box_xyxy": [
+   115.0,
+   501.0,
+   446.0,
+   587.0
+  ],
+  "box_w": 331.0,
+  "box_h": 86.0,
+  "box_area_px": 28466.0,
+  "box_area_frac": 0.079072,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_005193",
+  "country": "Japan",
+  "box_xyxy": [
+   202.0,
+   480.0,
+   298.0,
+   551.0
+  ],
+  "box_w": 96.0,
+  "box_h": 71.0,
+  "box_area_px": 6816.0,
+  "box_area_frac": 0.018933,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005395",
+  "country": "Japan",
+  "box_xyxy": [
+   478.0,
+   131.0,
+   540.0,
+   191.0
+  ],
+  "box_w": 62.0,
+  "box_h": 60.0,
+  "box_area_px": 3720.0,
+  "box_area_frac": 0.012757,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005395",
+  "country": "Japan",
+  "box_xyxy": [
+   452.0,
+   171.0,
+   501.0,
+   202.0
+  ],
+  "box_w": 49.0,
+  "box_h": 31.0,
+  "box_area_px": 1519.0,
+  "box_area_frac": 0.005209,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005666",
+  "country": "Japan",
+  "box_xyxy": [
+   289.0,
+   380.0,
+   353.0,
+   417.0
+  ],
+  "box_w": 64.0,
+  "box_h": 37.0,
+  "box_area_px": 2368.0,
+  "box_area_frac": 0.008121,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005666",
+  "country": "Japan",
+  "box_xyxy": [
+   310.0,
+   491.0,
+   379.0,
+   539.0
+  ],
+  "box_w": 69.0,
+  "box_h": 48.0,
+  "box_area_px": 3312.0,
+  "box_area_frac": 0.011358,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005666",
+  "country": "Japan",
+  "box_xyxy": [
+   299.0,
+   338.0,
+   340.0,
+   369.0
+  ],
+  "box_w": 41.0,
+  "box_h": 31.0,
+  "box_area_px": 1271.0,
+  "box_area_frac": 0.004359,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_005693",
+  "country": "Japan",
+  "box_xyxy": [
+   271.0,
+   506.0,
+   331.0,
+   561.0
+  ],
+  "box_w": 60.0,
+  "box_h": 55.0,
+  "box_area_px": 3300.0,
+  "box_area_frac": 0.009167,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005824",
+  "country": "Japan",
+  "box_xyxy": [
+   482.0,
+   403.0,
+   522.0,
+   425.0
+  ],
+  "box_w": 40.0,
+  "box_h": 22.0,
+  "box_area_px": 880.0,
+  "box_area_frac": 0.002444,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005911",
+  "country": "Japan",
+  "box_xyxy": [
+   4.0,
+   505.0,
+   63.0,
+   576.0
+  ],
+  "box_w": 59.0,
+  "box_h": 71.0,
+  "box_area_px": 4189.0,
+  "box_area_frac": 0.011636,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005987",
+  "country": "Japan",
+  "box_xyxy": [
+   86.0,
+   457.0,
+   206.0,
+   541.0
+  ],
+  "box_w": 120.0,
+  "box_h": 84.0,
+  "box_area_px": 10080.0,
+  "box_area_frac": 0.028,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_005987",
+  "country": "Japan",
+  "box_xyxy": [
+   279.0,
+   425.0,
+   325.0,
+   538.0
+  ],
+  "box_w": 46.0,
+  "box_h": 113.0,
+  "box_area_px": 5198.0,
+  "box_area_frac": 0.014439,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006175",
+  "country": "Japan",
+  "box_xyxy": [
+   224.0,
+   472.0,
+   276.0,
+   496.0
+  ],
+  "box_w": 52.0,
+  "box_h": 24.0,
+  "box_area_px": 1248.0,
+  "box_area_frac": 0.003467,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006262",
+  "country": "Japan",
+  "box_xyxy": [
+   559.0,
+   566.0,
+   600.0,
+   594.0
+  ],
+  "box_w": 41.0,
+  "box_h": 28.0,
+  "box_area_px": 1148.0,
+  "box_area_frac": 0.003189,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006332",
+  "country": "Japan",
+  "box_xyxy": [
+   347.0,
+   477.0,
+   407.0,
+   526.0
+  ],
+  "box_w": 60.0,
+  "box_h": 49.0,
+  "box_area_px": 2940.0,
+  "box_area_frac": 0.008167,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006393",
+  "country": "Japan",
+  "box_xyxy": [
+   121.0,
+   89.0,
+   191.0,
+   149.0
+  ],
+  "box_w": 70.0,
+  "box_h": 60.0,
+  "box_area_px": 4200.0,
+  "box_area_frac": 0.011667,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006555",
+  "country": "Japan",
+  "box_xyxy": [
+   325.0,
+   484.0,
+   386.0,
+   505.0
+  ],
+  "box_w": 61.0,
+  "box_h": 21.0,
+  "box_area_px": 1281.0,
+  "box_area_frac": 0.003558,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006555",
+  "country": "Japan",
+  "box_xyxy": [
+   200.0,
+   487.0,
+   228.0,
+   504.0
+  ],
+  "box_w": 28.0,
+  "box_h": 17.0,
+  "box_area_px": 476.0,
+  "box_area_frac": 0.001322,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006717",
+  "country": "Japan",
+  "box_xyxy": [
+   8.0,
+   406.0,
+   282.0,
+   505.0
+  ],
+  "box_w": 274.0,
+  "box_h": 99.0,
+  "box_area_px": 27126.0,
+  "box_area_frac": 0.07535,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_006717",
+  "country": "Japan",
+  "box_xyxy": [
+   296.0,
+   428.0,
+   380.0,
+   506.0
+  ],
+  "box_w": 84.0,
+  "box_h": 78.0,
+  "box_area_px": 6552.0,
+  "box_area_frac": 0.0182,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_006755",
+  "country": "Japan",
+  "box_xyxy": [
+   97.0,
+   112.0,
+   149.0,
+   139.0
+  ],
+  "box_w": 52.0,
+  "box_h": 27.0,
+  "box_area_px": 1404.0,
+  "box_area_frac": 0.0039,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007090",
+  "country": "Japan",
+  "box_xyxy": [
+   302.0,
+   424.0,
+   326.0,
+   446.0
+  ],
+  "box_w": 24.0,
+  "box_h": 22.0,
+  "box_area_px": 528.0,
+  "box_area_frac": 0.001467,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_007090",
+  "country": "Japan",
+  "box_xyxy": [
+   247.0,
+   405.0,
+   267.0,
+   419.0
+  ],
+  "box_w": 20.0,
+  "box_h": 14.0,
+  "box_area_px": 280.0,
+  "box_area_frac": 0.000778,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_007213",
+  "country": "Japan",
+  "box_xyxy": [
+   526.0,
+   212.0,
+   585.0,
+   242.0
+  ],
+  "box_w": 59.0,
+  "box_h": 30.0,
+  "box_area_px": 1770.0,
+  "box_area_frac": 0.004917,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007213",
+  "country": "Japan",
+  "box_xyxy": [
+   323.0,
+   144.0,
+   476.0,
+   233.0
+  ],
+  "box_w": 153.0,
+  "box_h": 89.0,
+  "box_area_px": 13617.0,
+  "box_area_frac": 0.037825,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_007340",
+  "country": "Japan",
+  "box_xyxy": [
+   166.0,
+   522.0,
+   214.0,
+   578.0
+  ],
+  "box_w": 48.0,
+  "box_h": 56.0,
+  "box_area_px": 2688.0,
+  "box_area_frac": 0.007467,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007345",
+  "country": "Japan",
+  "box_xyxy": [
+   447.0,
+   590.0,
+   473.0,
+   597.0
+  ],
+  "box_w": 26.0,
+  "box_h": 7.0,
+  "box_area_px": 182.0,
+  "box_area_frac": 0.000506,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_007345",
+  "country": "Japan",
+  "box_xyxy": [
+   252.0,
+   558.0,
+   270.0,
+   572.0
+  ],
+  "box_w": 18.0,
+  "box_h": 14.0,
+  "box_area_px": 252.0,
+  "box_area_frac": 0.0007,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_007445",
+  "country": "Japan",
+  "box_xyxy": [
+   143.0,
+   317.0,
+   206.0,
+   353.0
+  ],
+  "box_w": 63.0,
+  "box_h": 36.0,
+  "box_area_px": 2268.0,
+  "box_area_frac": 0.0063,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007462",
+  "country": "Japan",
+  "box_xyxy": [
+   485.0,
+   636.0,
+   572.0,
+   678.0
+  ],
+  "box_w": 87.0,
+  "box_h": 42.0,
+  "box_area_px": 3654.0,
+  "box_area_frac": 0.003133,
+  "image_w": 1080,
+  "image_h": 1080,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007714",
+  "country": "Japan",
+  "box_xyxy": [
+   421.0,
+   413.0,
+   478.0,
+   452.0
+  ],
+  "box_w": 57.0,
+  "box_h": 39.0,
+  "box_area_px": 2223.0,
+  "box_area_frac": 0.006175,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007760",
+  "country": "Japan",
+  "box_xyxy": [
+   339.0,
+   501.0,
+   381.0,
+   541.0
+  ],
+  "box_w": 42.0,
+  "box_h": 40.0,
+  "box_area_px": 1680.0,
+  "box_area_frac": 0.004667,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007796",
+  "country": "Japan",
+  "box_xyxy": [
+   365.0,
+   485.0,
+   397.0,
+   505.0
+  ],
+  "box_w": 32.0,
+  "box_h": 20.0,
+  "box_area_px": 640.0,
+  "box_area_frac": 0.001778,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007796",
+  "country": "Japan",
+  "box_xyxy": [
+   427.0,
+   571.0,
+   456.0,
+   600.0
+  ],
+  "box_w": 29.0,
+  "box_h": 29.0,
+  "box_area_px": 841.0,
+  "box_area_frac": 0.002336,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007820",
+  "country": "Japan",
+  "box_xyxy": [
+   190.0,
+   442.0,
+   227.0,
+   461.0
+  ],
+  "box_w": 37.0,
+  "box_h": 19.0,
+  "box_area_px": 703.0,
+  "box_area_frac": 0.001953,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007820",
+  "country": "Japan",
+  "box_xyxy": [
+   350.0,
+   453.0,
+   387.0,
+   481.0
+  ],
+  "box_w": 37.0,
+  "box_h": 28.0,
+  "box_area_px": 1036.0,
+  "box_area_frac": 0.002878,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007820",
+  "country": "Japan",
+  "box_xyxy": [
+   299.0,
+   551.0,
+   318.0,
+   569.0
+  ],
+  "box_w": 19.0,
+  "box_h": 18.0,
+  "box_area_px": 342.0,
+  "box_area_frac": 0.00095,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_007820",
+  "country": "Japan",
+  "box_xyxy": [
+   285.0,
+   345.0,
+   324.0,
+   365.0
+  ],
+  "box_w": 39.0,
+  "box_h": 20.0,
+  "box_area_px": 780.0,
+  "box_area_frac": 0.002167,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008052",
+  "country": "Japan",
+  "box_xyxy": [
+   490.0,
+   530.0,
+   529.0,
+   561.0
+  ],
+  "box_w": 39.0,
+  "box_h": 31.0,
+  "box_area_px": 1209.0,
+  "box_area_frac": 0.003358,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008079",
+  "country": "Japan",
+  "box_xyxy": [
+   384.0,
+   390.0,
+   523.0,
+   454.0
+  ],
+  "box_w": 139.0,
+  "box_h": 64.0,
+  "box_area_px": 8896.0,
+  "box_area_frac": 0.024711,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008079",
+  "country": "Japan",
+  "box_xyxy": [
+   108.0,
+   381.0,
+   241.0,
+   454.0
+  ],
+  "box_w": 133.0,
+  "box_h": 73.0,
+  "box_area_px": 9709.0,
+  "box_area_frac": 0.02697,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008079",
+  "country": "Japan",
+  "box_xyxy": [
+   350.0,
+   338.0,
+   390.0,
+   375.0
+  ],
+  "box_w": 40.0,
+  "box_h": 37.0,
+  "box_area_px": 1480.0,
+  "box_area_frac": 0.004111,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008093",
+  "country": "Japan",
+  "box_xyxy": [
+   419.0,
+   520.0,
+   452.0,
+   575.0
+  ],
+  "box_w": 33.0,
+  "box_h": 55.0,
+  "box_area_px": 1815.0,
+  "box_area_frac": 0.005042,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_008149",
+  "country": "Japan",
+  "box_xyxy": [
+   325.0,
+   471.0,
+   356.0,
+   485.0
+  ],
+  "box_w": 31.0,
+  "box_h": 14.0,
+  "box_area_px": 434.0,
+  "box_area_frac": 0.001206,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_008301",
+  "country": "Japan",
+  "box_xyxy": [
+   544.0,
+   381.0,
+   577.0,
+   395.0
+  ],
+  "box_w": 33.0,
+  "box_h": 14.0,
+  "box_area_px": 462.0,
+  "box_area_frac": 0.001283,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008549",
+  "country": "Japan",
+  "box_xyxy": [
+   147.0,
+   537.0,
+   231.0,
+   600.0
+  ],
+  "box_w": 84.0,
+  "box_h": 63.0,
+  "box_area_px": 5292.0,
+  "box_area_frac": 0.0147,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008614",
+  "country": "Japan",
+  "box_xyxy": [
+   220.0,
+   492.0,
+   235.0,
+   514.0
+  ],
+  "box_w": 15.0,
+  "box_h": 22.0,
+  "box_area_px": 330.0,
+  "box_area_frac": 0.000917,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_008614",
+  "country": "Japan",
+  "box_xyxy": [
+   469.0,
+   472.0,
+   538.0,
+   513.0
+  ],
+  "box_w": 69.0,
+  "box_h": 41.0,
+  "box_area_px": 2829.0,
+  "box_area_frac": 0.007858,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_008830",
+  "country": "Japan",
+  "box_xyxy": [
+   850.0,
+   983.0,
+   896.0,
+   1028.0
+  ],
+  "box_w": 46.0,
+  "box_h": 45.0,
+  "box_area_px": 2070.0,
+  "box_area_frac": 0.001775,
+  "image_w": 1080,
+  "image_h": 1080,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_008908",
+  "country": "Japan",
+  "box_xyxy": [
+   342.0,
+   82.0,
+   401.0,
+   119.0
+  ],
+  "box_w": 59.0,
+  "box_h": 37.0,
+  "box_area_px": 2183.0,
+  "box_area_frac": 0.006064,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009129",
+  "country": "Japan",
+  "box_xyxy": [
+   360.0,
+   410.0,
+   502.0,
+   457.0
+  ],
+  "box_w": 142.0,
+  "box_h": 47.0,
+  "box_area_px": 6674.0,
+  "box_area_frac": 0.018539,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_009208",
+  "country": "Japan",
+  "box_xyxy": [
+   282.0,
+   469.0,
+   332.0,
+   495.0
+  ],
+  "box_w": 50.0,
+  "box_h": 26.0,
+  "box_area_px": 1300.0,
+  "box_area_frac": 0.003611,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009219",
+  "country": "Japan",
+  "box_xyxy": [
+   14.0,
+   12.0,
+   349.0,
+   174.0
+  ],
+  "box_w": 335.0,
+  "box_h": 162.0,
+  "box_area_px": 54269.9,
+  "box_area_frac": 0.051756,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009219",
+  "country": "Japan",
+  "box_xyxy": [
+   240.0,
+   171.0,
+   913.0,
+   631.0
+  ],
+  "box_w": 673.0,
+  "box_h": 460.0,
+  "box_area_px": 309580.4,
+  "box_area_frac": 0.295239,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009321",
+  "country": "Japan",
+  "box_xyxy": [
+   337.0,
+   559.0,
+   374.0,
+   600.0
+  ],
+  "box_w": 37.0,
+  "box_h": 41.0,
+  "box_area_px": 1517.0,
+  "box_area_frac": 0.004214,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_009321",
+  "country": "Japan",
+  "box_xyxy": [
+   335.0,
+   540.0,
+   353.0,
+   556.0
+  ],
+  "box_w": 18.0,
+  "box_h": 16.0,
+  "box_area_px": 288.0,
+  "box_area_frac": 0.0008,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_009358",
+  "country": "Japan",
+  "box_xyxy": [
+   551.0,
+   461.0,
+   600.0,
+   494.0
+  ],
+  "box_w": 49.0,
+  "box_h": 33.0,
+  "box_area_px": 1617.0,
+  "box_area_frac": 0.004492,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009444",
+  "country": "Japan",
+  "box_xyxy": [
+   198.0,
+   221.0,
+   222.0,
+   233.0
+  ],
+  "box_w": 24.0,
+  "box_h": 12.0,
+  "box_area_px": 288.0,
+  "box_area_frac": 0.0008,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_009444",
+  "country": "Japan",
+  "box_xyxy": [
+   310.0,
+   223.0,
+   334.0,
+   235.0
+  ],
+  "box_w": 24.0,
+  "box_h": 12.0,
+  "box_area_px": 288.0,
+  "box_area_frac": 0.0008,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009490",
+  "country": "Japan",
+  "box_xyxy": [
+   388.0,
+   565.0,
+   451.0,
+   588.0
+  ],
+  "box_w": 63.0,
+  "box_h": 23.0,
+  "box_area_px": 1449.0,
+  "box_area_frac": 0.004025,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009776",
+  "country": "Japan",
+  "box_xyxy": [
+   384.0,
+   280.0,
+   465.0,
+   346.0
+  ],
+  "box_w": 81.0,
+  "box_h": 66.0,
+  "box_area_px": 5346.0,
+  "box_area_frac": 0.01485,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009784",
+  "country": "Japan",
+  "box_xyxy": [
+   466.0,
+   400.0,
+   732.0,
+   565.0
+  ],
+  "box_w": 266.0,
+  "box_h": 165.0,
+  "box_area_px": 43890.1,
+  "box_area_frac": 0.041857,
+  "image_w": 1024,
+  "image_h": 1024,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009935",
+  "country": "Japan",
+  "box_xyxy": [
+   253.0,
+   552.0,
+   299.0,
+   600.0
+  ],
+  "box_w": 46.0,
+  "box_h": 48.0,
+  "box_area_px": 2208.0,
+  "box_area_frac": 0.006133,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_009956",
+  "country": "Japan",
+  "box_xyxy": [
+   160.0,
+   403.0,
+   328.0,
+   452.0
+  ],
+  "box_w": 168.0,
+  "box_h": 49.0,
+  "box_area_px": 8232.0,
+  "box_area_frac": 0.022867,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_010561",
+  "country": "Japan",
+  "box_xyxy": [
+   513.0,
+   547.0,
+   562.0,
+   573.0
+  ],
+  "box_w": 49.0,
+  "box_h": 26.0,
+  "box_area_px": 1274.0,
+  "box_area_frac": 0.003539,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_010569",
+  "country": "Japan",
+  "box_xyxy": [
+   416.0,
+   432.0,
+   455.0,
+   463.0
+  ],
+  "box_w": 39.0,
+  "box_h": 31.0,
+  "box_area_px": 1209.0,
+  "box_area_frac": 0.003358,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_010705",
+  "country": "Japan",
+  "box_xyxy": [
+   22.0,
+   480.0,
+   72.0,
+   513.0
+  ],
+  "box_w": 50.0,
+  "box_h": 33.0,
+  "box_area_px": 1650.0,
+  "box_area_frac": 0.004583,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_010769",
+  "country": "Japan",
+  "box_xyxy": [
+   521.0,
+   488.0,
+   600.0,
+   575.0
+  ],
+  "box_w": 79.0,
+  "box_h": 87.0,
+  "box_area_px": 6873.0,
+  "box_area_frac": 0.019092,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_011081",
+  "country": "Japan",
+  "box_xyxy": [
+   78.0,
+   484.0,
+   123.0,
+   516.0
+  ],
+  "box_w": 45.0,
+  "box_h": 32.0,
+  "box_area_px": 1440.0,
+  "box_area_frac": 0.004,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_011081",
+  "country": "Japan",
+  "box_xyxy": [
+   41.0,
+   506.0,
+   77.0,
+   537.0
+  ],
+  "box_w": 36.0,
+  "box_h": 31.0,
+  "box_area_px": 1116.0,
+  "box_area_frac": 0.0031,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_011226",
+  "country": "Japan",
+  "box_xyxy": [
+   386.0,
+   535.0,
+   468.0,
+   600.0
+  ],
+  "box_w": 82.0,
+  "box_h": 65.0,
+  "box_area_px": 5330.0,
+  "box_area_frac": 0.014806,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_011390",
+  "country": "Japan",
+  "box_xyxy": [
+   385.0,
+   388.0,
+   410.0,
+   401.0
+  ],
+  "box_w": 25.0,
+  "box_h": 13.0,
+  "box_area_px": 325.0,
+  "box_area_frac": 0.000903,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_011650",
+  "country": "Japan",
+  "box_xyxy": [
+   177.0,
+   554.0,
+   217.0,
+   583.0
+  ],
+  "box_w": 40.0,
+  "box_h": 29.0,
+  "box_area_px": 1160.0,
+  "box_area_frac": 0.003222,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012108",
+  "country": "Japan",
+  "box_xyxy": [
+   430.0,
+   179.0,
+   489.0,
+   222.0
+  ],
+  "box_w": 59.0,
+  "box_h": 43.0,
+  "box_area_px": 2537.0,
+  "box_area_frac": 0.0087,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012108",
+  "country": "Japan",
+  "box_xyxy": [
+   499.0,
+   167.0,
+   540.0,
+   209.0
+  ],
+  "box_w": 41.0,
+  "box_h": 42.0,
+  "box_area_px": 1722.0,
+  "box_area_frac": 0.005905,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_012131",
+  "country": "Japan",
+  "box_xyxy": [
+   513.0,
+   565.0,
+   557.0,
+   600.0
+  ],
+  "box_w": 44.0,
+  "box_h": 35.0,
+  "box_area_px": 1540.0,
+  "box_area_frac": 0.004278,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012131",
+  "country": "Japan",
+  "box_xyxy": [
+   500.0,
+   398.0,
+   526.0,
+   409.0
+  ],
+  "box_w": 26.0,
+  "box_h": 11.0,
+  "box_area_px": 286.0,
+  "box_area_frac": 0.000794,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012260",
+  "country": "Japan",
+  "box_xyxy": [
+   241.0,
+   189.0,
+   291.0,
+   221.0
+  ],
+  "box_w": 50.0,
+  "box_h": 32.0,
+  "box_area_px": 1600.0,
+  "box_area_frac": 0.005487,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012339",
+  "country": "Japan",
+  "box_xyxy": [
+   22.0,
+   563.0,
+   141.0,
+   600.0
+  ],
+  "box_w": 119.0,
+  "box_h": 37.0,
+  "box_area_px": 4403.0,
+  "box_area_frac": 0.012231,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012365",
+  "country": "Japan",
+  "box_xyxy": [
+   106.0,
+   354.0,
+   167.0,
+   379.0
+  ],
+  "box_w": 61.0,
+  "box_h": 25.0,
+  "box_area_px": 1525.0,
+  "box_area_frac": 0.004236,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012465",
+  "country": "Japan",
+  "box_xyxy": [
+   276.0,
+   482.0,
+   361.0,
+   542.0
+  ],
+  "box_w": 85.0,
+  "box_h": 60.0,
+  "box_area_px": 5100.0,
+  "box_area_frac": 0.014167,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012635",
+  "country": "Japan",
+  "box_xyxy": [
+   395.0,
+   357.0,
+   440.0,
+   395.0
+  ],
+  "box_w": 45.0,
+  "box_h": 38.0,
+  "box_area_px": 1710.0,
+  "box_area_frac": 0.00475,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012639",
+  "country": "Japan",
+  "box_xyxy": [
+   516.0,
+   483.0,
+   554.0,
+   499.0
+  ],
+  "box_w": 38.0,
+  "box_h": 16.0,
+  "box_area_px": 608.0,
+  "box_area_frac": 0.001689,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_012839",
+  "country": "Japan",
+  "box_xyxy": [
+   439.0,
+   87.0,
+   540.0,
+   113.0
+  ],
+  "box_w": 101.0,
+  "box_h": 26.0,
+  "box_area_px": 2626.0,
+  "box_area_frac": 0.009005,
+  "image_w": 540,
+  "image_h": 540,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_013030",
+  "country": "Japan",
+  "box_xyxy": [
+   222.0,
+   388.0,
+   269.0,
+   412.0
+  ],
+  "box_w": 47.0,
+  "box_h": 24.0,
+  "box_area_px": 1128.0,
+  "box_area_frac": 0.003133,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_013030",
+  "country": "Japan",
+  "box_xyxy": [
+   245.0,
+   380.0,
+   289.0,
+   394.0
+  ],
+  "box_w": 44.0,
+  "box_h": 14.0,
+  "box_area_px": 616.0,
+  "box_area_frac": 0.001711,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_013069",
+  "country": "Japan",
+  "box_xyxy": [
+   242.0,
+   402.0,
+   287.0,
+   426.0
+  ],
+  "box_w": 45.0,
+  "box_h": 24.0,
+  "box_area_px": 1080.0,
+  "box_area_frac": 0.003,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_013069",
+  "country": "Japan",
+  "box_xyxy": [
+   301.0,
+   433.0,
+   338.0,
+   451.0
+  ],
+  "box_w": 37.0,
+  "box_h": 18.0,
+  "box_area_px": 666.0,
+  "box_area_frac": 0.00185,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Japan_013069",
+  "country": "Japan",
+  "box_xyxy": [
+   128.0,
+   404.0,
+   157.0,
+   416.0
+  ],
+  "box_w": 29.0,
+  "box_h": 12.0,
+  "box_area_px": 348.0,
+  "box_area_frac": 0.000967,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_013109",
+  "country": "Japan",
+  "box_xyxy": [
+   418.0,
+   472.0,
+   503.0,
+   504.0
+  ],
+  "box_w": 85.0,
+  "box_h": 32.0,
+  "box_area_px": 2720.0,
+  "box_area_frac": 0.007556,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_013109",
+  "country": "Japan",
+  "box_xyxy": [
+   336.0,
+   489.0,
+   364.0,
+   510.0
+  ],
+  "box_w": 28.0,
+  "box_h": 21.0,
+  "box_area_px": 588.0,
+  "box_area_frac": 0.001633,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_013109",
+  "country": "Japan",
+  "box_xyxy": [
+   377.0,
+   436.0,
+   435.0,
+   472.0
+  ],
+  "box_w": 58.0,
+  "box_h": 36.0,
+  "box_area_px": 2088.0,
+  "box_area_frac": 0.0058,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Japan_013109",
+  "country": "Japan",
+  "box_xyxy": [
+   545.0,
+   454.0,
+   598.0,
+   480.0
+  ],
+  "box_w": 53.0,
+  "box_h": 26.0,
+  "box_area_px": 1378.0,
+  "box_area_frac": 0.003828,
+  "image_w": 600,
+  "image_h": 600,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000005",
+  "country": "Norway",
+  "box_xyxy": [
+   1190.2,
+   1354.5,
+   1290.5,
+   1406.1
+  ],
+  "box_w": 100.3,
+  "box_h": 51.6,
+  "box_area_px": 5179.9,
+  "box_area_frac": 0.000694,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000005",
+  "country": "Norway",
+  "box_xyxy": [
+   1286.5,
+   1428.0,
+   1376.9,
+   1455.8
+  ],
+  "box_w": 90.4,
+  "box_h": 27.8,
+  "box_area_px": 2513.6,
+  "box_area_frac": 0.000337,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000005",
+  "country": "Norway",
+  "box_xyxy": [
+   1472.3,
+   1202.5,
+   1550.7,
+   1232.3
+  ],
+  "box_w": 78.4,
+  "box_h": 29.8,
+  "box_area_px": 2338.8,
+  "box_area_frac": 0.000313,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000005",
+  "country": "Norway",
+  "box_xyxy": [
+   1768.6,
+   1154.2,
+   1806.7,
+   1166.6
+  ],
+  "box_w": 38.2,
+  "box_h": 12.4,
+  "box_area_px": 473.9,
+  "box_area_frac": 6.4e-05,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000005",
+  "country": "Norway",
+  "box_xyxy": [
+   1756.3,
+   1466.7,
+   1810.9,
+   1497.5
+  ],
+  "box_w": 54.6,
+  "box_h": 30.8,
+  "box_area_px": 1681.2,
+  "box_area_frac": 0.000225,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000145",
+  "country": "Norway",
+  "box_xyxy": [
+   1030.5,
+   1111.0,
+   1137.2,
+   1146.6
+  ],
+  "box_w": 106.7,
+  "box_h": 35.6,
+  "box_area_px": 3796.0,
+  "box_area_frac": 0.000462,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000401",
+  "country": "Norway",
+  "box_xyxy": [
+   611.6,
+   1487.9,
+   836.4,
+   1656.1
+  ],
+  "box_w": 224.8,
+  "box_h": 168.2,
+  "box_area_px": 37810.6,
+  "box_area_frac": 0.005068,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000401",
+  "country": "Norway",
+  "box_xyxy": [
+   306.1,
+   1860.3,
+   589.3,
+   2028.5
+  ],
+  "box_w": 283.2,
+  "box_h": 168.2,
+  "box_area_px": 47626.6,
+  "box_area_frac": 0.006384,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000401",
+  "country": "Norway",
+  "box_xyxy": [
+   818.3,
+   1457.0,
+   858.0,
+   1471.9
+  ],
+  "box_w": 39.7,
+  "box_h": 14.9,
+  "box_area_px": 592.0,
+  "box_area_frac": 7.9e-05,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000412",
+  "country": "Norway",
+  "box_xyxy": [
+   768.4,
+   1846.0,
+   880.3,
+   2038.8
+  ],
+  "box_w": 111.9,
+  "box_h": 192.8,
+  "box_area_px": 21565.3,
+  "box_area_frac": 0.0029,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000550",
+  "country": "Norway",
+  "box_xyxy": [
+   1110.4,
+   1177.9,
+   1151.6,
+   1187.0
+  ],
+  "box_w": 41.2,
+  "box_h": 9.1,
+  "box_area_px": 374.9,
+  "box_area_frac": 5e-05,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000683",
+  "country": "Norway",
+  "box_xyxy": [
+   1185.1,
+   1326.3,
+   1234.2,
+   1339.5
+  ],
+  "box_w": 49.0,
+  "box_h": 13.2,
+  "box_area_px": 649.5,
+  "box_area_frac": 7.9e-05,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000720",
+  "country": "Norway",
+  "box_xyxy": [
+   1573.0,
+   1198.1,
+   1591.3,
+   1210.7
+  ],
+  "box_w": 18.3,
+  "box_h": 12.6,
+  "box_area_px": 230.6,
+  "box_area_frac": 3.1e-05,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000720",
+  "country": "Norway",
+  "box_xyxy": [
+   1548.3,
+   1163.8,
+   1581.8,
+   1180.6
+  ],
+  "box_w": 33.5,
+  "box_h": 16.7,
+  "box_area_px": 560.5,
+  "box_area_frac": 7.5e-05,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   3553.0,
+   1283.9,
+   3651.9,
+   1318.5
+  ],
+  "box_w": 98.9,
+  "box_h": 34.6,
+  "box_area_px": 3422.8,
+  "box_area_frac": 0.000416,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   3210.1,
+   1483.4,
+   3449.1,
+   1593.8
+  ],
+  "box_w": 239.0,
+  "box_h": 110.4,
+  "box_area_px": 26392.4,
+  "box_area_frac": 0.00321,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   2771.7,
+   1326.8,
+   2865.6,
+   1353.1
+  ],
+  "box_w": 94.0,
+  "box_h": 26.4,
+  "box_area_px": 2477.6,
+  "box_area_frac": 0.000301,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   3323.8,
+   1275.7,
+   3472.2,
+   1338.3
+  ],
+  "box_w": 148.3,
+  "box_h": 62.6,
+  "box_area_px": 9291.0,
+  "box_area_frac": 0.00113,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   2941.4,
+   1396.0,
+   3150.8,
+   1475.1
+  ],
+  "box_w": 209.3,
+  "box_h": 79.1,
+  "box_area_px": 16561.1,
+  "box_area_frac": 0.002014,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   3358.5,
+   1198.2,
+   3472.2,
+   1244.3
+  ],
+  "box_w": 113.7,
+  "box_h": 46.1,
+  "box_area_px": 5249.0,
+  "box_area_frac": 0.000638,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   3829.9,
+   1578.9,
+   4040.0,
+   1696.0
+  ],
+  "box_w": 210.1,
+  "box_h": 117.0,
+  "box_area_px": 24590.6,
+  "box_area_frac": 0.002991,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   3416.1,
+   1432.3,
+   3518.3,
+   1476.7
+  ],
+  "box_w": 102.2,
+  "box_h": 44.5,
+  "box_area_px": 4547.8,
+  "box_area_frac": 0.000553,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   3571.1,
+   1242.7,
+   3696.4,
+   1274.0
+  ],
+  "box_w": 125.3,
+  "box_h": 31.3,
+  "box_area_px": 3923.5,
+  "box_area_frac": 0.000477,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000833",
+  "country": "Norway",
+  "box_xyxy": [
+   2899.7,
+   1329.2,
+   2978.1,
+   1343.6
+  ],
+  "box_w": 78.4,
+  "box_h": 14.4,
+  "box_area_px": 1125.7,
+  "box_area_frac": 0.000137,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_000986",
+  "country": "Norway",
+  "box_xyxy": [
+   791.9,
+   1635.5,
+   831.9,
+   1678.9
+  ],
+  "box_w": 40.1,
+  "box_h": 43.4,
+  "box_area_px": 1737.8,
+  "box_area_frac": 0.000234,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_001255",
+  "country": "Norway",
+  "box_xyxy": [
+   284.0,
+   1479.5,
+   361.5,
+   1515.1
+  ],
+  "box_w": 77.6,
+  "box_h": 35.6,
+  "box_area_px": 2762.7,
+  "box_area_frac": 0.000336,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_001481",
+  "country": "Norway",
+  "box_xyxy": [
+   1680.8,
+   1317.7,
+   1757.1,
+   1370.1
+  ],
+  "box_w": 76.3,
+  "box_h": 52.4,
+  "box_area_px": 4000.3,
+  "box_area_frac": 0.000536,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_001517",
+  "country": "Norway",
+  "box_xyxy": [
+   1723.7,
+   1240.7,
+   1778.6,
+   1300.8
+  ],
+  "box_w": 54.9,
+  "box_h": 60.1,
+  "box_area_px": 3299.1,
+  "box_area_frac": 0.000442,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_001668",
+  "country": "Norway",
+  "box_xyxy": [
+   743.5,
+   1474.4,
+   825.9,
+   1549.5
+  ],
+  "box_w": 82.4,
+  "box_h": 75.1,
+  "box_area_px": 6188.9,
+  "box_area_frac": 0.000753,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002146",
+  "country": "Norway",
+  "box_xyxy": [
+   371.3,
+   1309.4,
+   447.8,
+   1321.3
+  ],
+  "box_w": 76.5,
+  "box_h": 11.9,
+  "box_area_px": 911.7,
+  "box_area_frac": 0.000122,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002146",
+  "country": "Norway",
+  "box_xyxy": [
+   170.3,
+   1355.6,
+   307.8,
+   1392.8
+  ],
+  "box_w": 137.5,
+  "box_h": 37.2,
+  "box_area_px": 5119.3,
+  "box_area_frac": 0.000686,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002146",
+  "country": "Norway",
+  "box_xyxy": [
+   0.0,
+   1382.9,
+   97.2,
+   1418.6
+  ],
+  "box_w": 97.2,
+  "box_h": 35.8,
+  "box_area_px": 3476.6,
+  "box_area_frac": 0.000466,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002367",
+  "country": "Norway",
+  "box_xyxy": [
+   200.6,
+   1558.9,
+   306.4,
+   1606.0
+  ],
+  "box_w": 105.8,
+  "box_h": 47.1,
+  "box_area_px": 4986.2,
+  "box_area_frac": 0.000671,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002706",
+  "country": "Norway",
+  "box_xyxy": [
+   1569.0,
+   1275.2,
+   1636.8,
+   1312.1
+  ],
+  "box_w": 67.8,
+  "box_h": 36.9,
+  "box_area_px": 2502.6,
+  "box_area_frac": 0.000337,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002721",
+  "country": "Norway",
+  "box_xyxy": [
+   505.9,
+   1324.7,
+   583.3,
+   1350.1
+  ],
+  "box_w": 77.4,
+  "box_h": 25.4,
+  "box_area_px": 1967.5,
+  "box_area_frac": 0.000239,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_002721",
+  "country": "Norway",
+  "box_xyxy": [
+   247.1,
+   1500.9,
+   339.3,
+   1541.1
+  ],
+  "box_w": 92.2,
+  "box_h": 40.3,
+  "box_area_px": 3713.3,
+  "box_area_frac": 0.000452,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002913",
+  "country": "Norway",
+  "box_xyxy": [
+   677.0,
+   1375.2,
+   713.8,
+   1398.7
+  ],
+  "box_w": 36.9,
+  "box_h": 23.5,
+  "box_area_px": 868.2,
+  "box_area_frac": 0.000106,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_002913",
+  "country": "Norway",
+  "box_xyxy": [
+   640.9,
+   1408.3,
+   691.0,
+   1449.5
+  ],
+  "box_w": 50.1,
+  "box_h": 41.2,
+  "box_area_px": 2065.5,
+  "box_area_frac": 0.000251,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003140",
+  "country": "Norway",
+  "box_xyxy": [
+   1196.1,
+   1311.0,
+   1254.9,
+   1341.8
+  ],
+  "box_w": 58.8,
+  "box_h": 30.8,
+  "box_area_px": 1813.2,
+  "box_area_frac": 0.000244,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003140",
+  "country": "Norway",
+  "box_xyxy": [
+   1226.6,
+   1271.5,
+   1303.0,
+   1295.7
+  ],
+  "box_w": 76.4,
+  "box_h": 24.2,
+  "box_area_px": 1850.1,
+  "box_area_frac": 0.000249,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003140",
+  "country": "Norway",
+  "box_xyxy": [
+   1185.3,
+   1350.2,
+   1226.0,
+   1364.5
+  ],
+  "box_w": 40.7,
+  "box_h": 14.3,
+  "box_area_px": 582.1,
+  "box_area_frac": 7.8e-05,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003140",
+  "country": "Norway",
+  "box_xyxy": [
+   1523.4,
+   1300.6,
+   1670.1,
+   1426.0
+  ],
+  "box_w": 146.7,
+  "box_h": 125.3,
+  "box_area_px": 18385.1,
+  "box_area_frac": 0.002473,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003448",
+  "country": "Norway",
+  "box_xyxy": [
+   1477.2,
+   1270.9,
+   1541.7,
+   1311.6
+  ],
+  "box_w": 64.5,
+  "box_h": 40.7,
+  "box_area_px": 2621.0,
+  "box_area_frac": 0.000352,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003448",
+  "country": "Norway",
+  "box_xyxy": [
+   1477.0,
+   1234.9,
+   1518.3,
+   1272.8
+  ],
+  "box_w": 41.3,
+  "box_h": 37.9,
+  "box_area_px": 1565.2,
+  "box_area_frac": 0.000211,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003741",
+  "country": "Norway",
+  "box_xyxy": [
+   1441.2,
+   1719.8,
+   1595.1,
+   1809.5
+  ],
+  "box_w": 153.8,
+  "box_h": 89.7,
+  "box_area_px": 13803.1,
+  "box_area_frac": 0.001679,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003780",
+  "country": "Norway",
+  "box_xyxy": [
+   1201.4,
+   1257.9,
+   1236.8,
+   1272.3
+  ],
+  "box_w": 35.4,
+  "box_h": 14.4,
+  "box_area_px": 509.3,
+  "box_area_frac": 6.8e-05,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003780",
+  "country": "Norway",
+  "box_xyxy": [
+   1214.8,
+   1148.7,
+   1339.8,
+   1241.2
+  ],
+  "box_w": 125.0,
+  "box_h": 92.4,
+  "box_area_px": 11555.8,
+  "box_area_frac": 0.001549,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003780",
+  "country": "Norway",
+  "box_xyxy": [
+   855.3,
+   1520.5,
+   1105.8,
+   1721.3
+  ],
+  "box_w": 250.6,
+  "box_h": 200.8,
+  "box_area_px": 50314.4,
+  "box_area_frac": 0.006744,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_003780",
+  "country": "Norway",
+  "box_xyxy": [
+   1063.1,
+   1283.4,
+   1241.0,
+   1452.4
+  ],
+  "box_w": 177.9,
+  "box_h": 169.0,
+  "box_area_px": 30068.4,
+  "box_area_frac": 0.00403,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_004040",
+  "country": "Norway",
+  "box_xyxy": [
+   1711.7,
+   1405.5,
+   1761.4,
+   1443.3
+  ],
+  "box_w": 49.8,
+  "box_h": 37.8,
+  "box_area_px": 1878.9,
+  "box_area_frac": 0.000252,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_004040",
+  "country": "Norway",
+  "box_xyxy": [
+   1838.7,
+   1601.1,
+   1931.3,
+   1678.4
+  ],
+  "box_w": 92.7,
+  "box_h": 77.2,
+  "box_area_px": 7156.9,
+  "box_area_frac": 0.000959,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_004413",
+  "country": "Norway",
+  "box_xyxy": [
+   1087.0,
+   1374.3,
+   1151.5,
+   1404.3
+  ],
+  "box_w": 64.5,
+  "box_h": 30.0,
+  "box_area_px": 1936.1,
+  "box_area_frac": 0.000235,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_004566",
+  "country": "Norway",
+  "box_xyxy": [
+   698.9,
+   1416.3,
+   762.1,
+   1469.9
+  ],
+  "box_w": 63.2,
+  "box_h": 53.6,
+  "box_area_px": 3385.0,
+  "box_area_frac": 0.000412,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_004847",
+  "country": "Norway",
+  "box_xyxy": [
+   896.6,
+   1384.7,
+   952.2,
+   1428.9
+  ],
+  "box_w": 55.7,
+  "box_h": 44.2,
+  "box_area_px": 2457.5,
+  "box_area_frac": 0.000299,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_004896",
+  "country": "Norway",
+  "box_xyxy": [
+   1594.2,
+   1557.7,
+   1640.6,
+   1623.1
+  ],
+  "box_w": 46.5,
+  "box_h": 65.4,
+  "box_area_px": 3041.3,
+  "box_area_frac": 0.000409,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_004896",
+  "country": "Norway",
+  "box_xyxy": [
+   1479.8,
+   1523.7,
+   1554.2,
+   1551.5
+  ],
+  "box_w": 74.4,
+  "box_h": 27.8,
+  "box_area_px": 2065.5,
+  "box_area_frac": 0.000278,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_004896",
+  "country": "Norway",
+  "box_xyxy": [
+   460.9,
+   1784.0,
+   881.0,
+   2013.7
+  ],
+  "box_w": 420.1,
+  "box_h": 229.7,
+  "box_area_px": 96486.0,
+  "box_area_frac": 0.012977,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_004896",
+  "country": "Norway",
+  "box_xyxy": [
+   1494.9,
+   1484.8,
+   1542.5,
+   1516.4
+  ],
+  "box_w": 47.6,
+  "box_h": 31.6,
+  "box_area_px": 1503.5,
+  "box_area_frac": 0.000202,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_005104",
+  "country": "Norway",
+  "box_xyxy": [
+   433.8,
+   1311.3,
+   504.4,
+   1353.2
+  ],
+  "box_w": 70.6,
+  "box_h": 41.9,
+  "box_area_px": 2957.0,
+  "box_area_frac": 0.000398,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_005104",
+  "country": "Norway",
+  "box_xyxy": [
+   540.3,
+   1276.6,
+   607.5,
+   1308.1
+  ],
+  "box_w": 67.2,
+  "box_h": 31.6,
+  "box_area_px": 2120.8,
+  "box_area_frac": 0.000285,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_005104",
+  "country": "Norway",
+  "box_xyxy": [
+   96.9,
+   1466.4,
+   183.8,
+   1510.2
+  ],
+  "box_w": 86.9,
+  "box_h": 43.8,
+  "box_area_px": 3804.5,
+  "box_area_frac": 0.000512,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_005344",
+  "country": "Norway",
+  "box_xyxy": [
+   1620.3,
+   1304.5,
+   1688.2,
+   1331.0
+  ],
+  "box_w": 67.9,
+  "box_h": 26.5,
+  "box_area_px": 1797.9,
+  "box_area_frac": 0.000241,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_005807",
+  "country": "Norway",
+  "box_xyxy": [
+   2123.3,
+   1712.4,
+   2274.6,
+   1780.2
+  ],
+  "box_w": 151.3,
+  "box_h": 67.8,
+  "box_area_px": 10261.7,
+  "box_area_frac": 0.00138,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_005807",
+  "country": "Norway",
+  "box_xyxy": [
+   1891.1,
+   1557.0,
+   1991.6,
+   1587.5
+  ],
+  "box_w": 100.5,
+  "box_h": 30.5,
+  "box_area_px": 3068.8,
+  "box_area_frac": 0.000413,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_005858",
+  "country": "Norway",
+  "box_xyxy": [
+   150.7,
+   1898.7,
+   460.9,
+   1998.1
+  ],
+  "box_w": 310.2,
+  "box_h": 99.4,
+  "box_area_px": 30828.9,
+  "box_area_frac": 0.004146,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006212",
+  "country": "Norway",
+  "box_xyxy": [
+   469.1,
+   1248.1,
+   564.5,
+   1287.0
+  ],
+  "box_w": 95.4,
+  "box_h": 38.9,
+  "box_area_px": 3706.8,
+  "box_area_frac": 0.000451,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006306",
+  "country": "Norway",
+  "box_xyxy": [
+   1489.2,
+   1240.0,
+   1561.7,
+   1267.8
+  ],
+  "box_w": 72.5,
+  "box_h": 27.8,
+  "box_area_px": 2016.3,
+  "box_area_frac": 0.00027,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006306",
+  "country": "Norway",
+  "box_xyxy": [
+   1386.9,
+   1267.8,
+   1458.4,
+   1284.7
+  ],
+  "box_w": 71.5,
+  "box_h": 16.9,
+  "box_area_px": 1207.8,
+  "box_area_frac": 0.000162,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006306",
+  "country": "Norway",
+  "box_xyxy": [
+   1438.5,
+   1210.2,
+   1556.7,
+   1234.3
+  ],
+  "box_w": 118.2,
+  "box_h": 24.1,
+  "box_area_px": 2851.9,
+  "box_area_frac": 0.000382,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006387",
+  "country": "Norway",
+  "box_xyxy": [
+   1465.0,
+   1816.8,
+   1659.2,
+   2027.5
+  ],
+  "box_w": 194.1,
+  "box_h": 210.6,
+  "box_area_px": 40885.8,
+  "box_area_frac": 0.004973,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006387",
+  "country": "Norway",
+  "box_xyxy": [
+   1411.0,
+   1676.9,
+   1493.6,
+   1718.2
+  ],
+  "box_w": 82.7,
+  "box_h": 41.3,
+  "box_area_px": 3417.0,
+  "box_area_frac": 0.000416,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_006441",
+  "country": "Norway",
+  "box_xyxy": [
+   1244.7,
+   1258.3,
+   1291.3,
+   1282.1
+  ],
+  "box_w": 46.6,
+  "box_h": 23.8,
+  "box_area_px": 1109.3,
+  "box_area_frac": 0.000149,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006655",
+  "country": "Norway",
+  "box_xyxy": [
+   1696.1,
+   1449.0,
+   1752.1,
+   1481.7
+  ],
+  "box_w": 56.0,
+  "box_h": 32.7,
+  "box_area_px": 1830.7,
+  "box_area_frac": 0.000246,
+  "image_w": 3643,
+  "image_h": 2041,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_006926",
+  "country": "Norway",
+  "box_xyxy": [
+   795.9,
+   1780.0,
+   883.4,
+   1858.9
+  ],
+  "box_w": 87.5,
+  "box_h": 78.9,
+  "box_area_px": 6910.5,
+  "box_area_frac": 0.000926,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_006987",
+  "country": "Norway",
+  "box_xyxy": [
+   1223.8,
+   1300.1,
+   1273.3,
+   1342.7
+  ],
+  "box_w": 49.6,
+  "box_h": 42.6,
+  "box_area_px": 2111.6,
+  "box_area_frac": 0.000257,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_007133",
+  "country": "Norway",
+  "box_xyxy": [
+   1329.2,
+   1305.9,
+   1383.2,
+   1326.0
+  ],
+  "box_w": 54.1,
+  "box_h": 20.1,
+  "box_area_px": 1088.6,
+  "box_area_frac": 0.000132,
+  "image_w": 4040,
+  "image_h": 2035,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_007207",
+  "country": "Norway",
+  "box_xyxy": [
+   1039.3,
+   1447.7,
+   1200.0,
+   1490.0
+  ],
+  "box_w": 160.7,
+  "box_h": 42.3,
+  "box_area_px": 6794.8,
+  "box_area_frac": 0.000911,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_007207",
+  "country": "Norway",
+  "box_xyxy": [
+   1082.4,
+   1299.6,
+   1347.3,
+   1398.9
+  ],
+  "box_w": 264.8,
+  "box_h": 99.3,
+  "box_area_px": 26303.9,
+  "box_area_frac": 0.003526,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_007207",
+  "country": "Norway",
+  "box_xyxy": [
+   1063.4,
+   1403.9,
+   1283.6,
+   1448.6
+  ],
+  "box_w": 220.1,
+  "box_h": 44.7,
+  "box_area_px": 9840.7,
+  "box_area_frac": 0.001319,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_007317",
+  "country": "Norway",
+  "box_xyxy": [
+   1475.7,
+   1493.6,
+   1597.3,
+   1553.7
+  ],
+  "box_w": 121.6,
+  "box_h": 60.1,
+  "box_area_px": 7302.0,
+  "box_area_frac": 0.000979,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_007317",
+  "country": "Norway",
+  "box_xyxy": [
+   1158.6,
+   1365.8,
+   1220.4,
+   1425.5
+  ],
+  "box_w": 61.8,
+  "box_h": 59.7,
+  "box_area_px": 3690.8,
+  "box_area_frac": 0.000495,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_007390",
+  "country": "Norway",
+  "box_xyxy": [
+   740.3,
+   1640.6,
+   834.7,
+   1736.7
+  ],
+  "box_w": 94.4,
+  "box_h": 96.1,
+  "box_area_px": 9071.8,
+  "box_area_frac": 0.001216,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": true
+ },
+ {
+  "image": "Norway_007551",
+  "country": "Norway",
+  "box_xyxy": [
+   1127.3,
+   1408.2,
+   1223.9,
+   1443.4
+  ],
+  "box_w": 96.6,
+  "box_h": 35.2,
+  "box_area_px": 3396.9,
+  "box_area_frac": 0.000455,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_007551",
+  "country": "Norway",
+  "box_xyxy": [
+   1078.3,
+   1516.5,
+   1194.2,
+   1546.8
+  ],
+  "box_w": 115.9,
+  "box_h": 30.3,
+  "box_area_px": 3515.4,
+  "box_area_frac": 0.000471,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "Norway_007799",
+  "country": "Norway",
+  "box_xyxy": [
+   1188.2,
+   1326.6,
+   1298.1,
+   1417.5
+  ],
+  "box_w": 109.8,
+  "box_h": 91.0,
+  "box_area_px": 9990.0,
+  "box_area_frac": 0.001339,
+  "image_w": 3650,
+  "image_h": 2044,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_000087",
+  "country": "United_States",
+  "box_xyxy": [
+   267.0,
+   393.0,
+   303.0,
+   410.0
+  ],
+  "box_w": 36.0,
+  "box_h": 17.0,
+  "box_area_px": 612.0,
+  "box_area_frac": 0.001494,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_000087",
+  "country": "United_States",
+  "box_xyxy": [
+   325.0,
+   395.0,
+   347.0,
+   409.0
+  ],
+  "box_w": 22.0,
+  "box_h": 14.0,
+  "box_area_px": 308.0,
+  "box_area_frac": 0.000752,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_000620",
+  "country": "United_States",
+  "box_xyxy": [
+   60.0,
+   391.0,
+   89.0,
+   407.0
+  ],
+  "box_w": 29.0,
+  "box_h": 16.0,
+  "box_area_px": 464.0,
+  "box_area_frac": 0.001133,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_000630",
+  "country": "United_States",
+  "box_xyxy": [
+   480.0,
+   561.0,
+   504.0,
+   575.0
+  ],
+  "box_w": 24.0,
+  "box_h": 14.0,
+  "box_area_px": 336.0,
+  "box_area_frac": 0.00082,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_001071",
+  "country": "United_States",
+  "box_xyxy": [
+   109.0,
+   561.0,
+   133.0,
+   579.0
+  ],
+  "box_w": 24.0,
+  "box_h": 18.0,
+  "box_area_px": 432.0,
+  "box_area_frac": 0.001055,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_001071",
+  "country": "United_States",
+  "box_xyxy": [
+   158.0,
+   485.0,
+   182.0,
+   510.0
+  ],
+  "box_w": 24.0,
+  "box_h": 25.0,
+  "box_area_px": 600.0,
+  "box_area_frac": 0.001465,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_001264",
+  "country": "United_States",
+  "box_xyxy": [
+   298.0,
+   548.0,
+   326.0,
+   576.0
+  ],
+  "box_w": 28.0,
+  "box_h": 28.0,
+  "box_area_px": 784.0,
+  "box_area_frac": 0.001914,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_001270",
+  "country": "United_States",
+  "box_xyxy": [
+   452.0,
+   515.0,
+   486.0,
+   533.0
+  ],
+  "box_w": 34.0,
+  "box_h": 18.0,
+  "box_area_px": 612.0,
+  "box_area_frac": 0.001494,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_001940",
+  "country": "United_States",
+  "box_xyxy": [
+   192.0,
+   536.0,
+   272.0,
+   600.0
+  ],
+  "box_w": 80.0,
+  "box_h": 64.0,
+  "box_area_px": 5120.0,
+  "box_area_frac": 0.0125,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_002352",
+  "country": "United_States",
+  "box_xyxy": [
+   306.0,
+   606.0,
+   342.0,
+   637.0
+  ],
+  "box_w": 36.0,
+  "box_h": 31.0,
+  "box_area_px": 1116.0,
+  "box_area_frac": 0.002725,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_002736",
+  "country": "United_States",
+  "box_xyxy": [
+   444.0,
+   477.0,
+   466.0,
+   494.0
+  ],
+  "box_w": 22.0,
+  "box_h": 17.0,
+  "box_area_px": 374.0,
+  "box_area_frac": 0.000913,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_002767",
+  "country": "United_States",
+  "box_xyxy": [
+   163.0,
+   508.0,
+   221.0,
+   522.0
+  ],
+  "box_w": 58.0,
+  "box_h": 14.0,
+  "box_area_px": 812.0,
+  "box_area_frac": 0.001982,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_002921",
+  "country": "United_States",
+  "box_xyxy": [
+   426.0,
+   553.0,
+   458.0,
+   570.0
+  ],
+  "box_w": 32.0,
+  "box_h": 17.0,
+  "box_area_px": 544.0,
+  "box_area_frac": 0.001328,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_003114",
+  "country": "United_States",
+  "box_xyxy": [
+   438.0,
+   552.0,
+   476.0,
+   579.0
+  ],
+  "box_w": 38.0,
+  "box_h": 27.0,
+  "box_area_px": 1026.0,
+  "box_area_frac": 0.002505,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_003186",
+  "country": "United_States",
+  "box_xyxy": [
+   370.0,
+   441.0,
+   417.0,
+   458.0
+  ],
+  "box_w": 47.0,
+  "box_h": 17.0,
+  "box_area_px": 799.0,
+  "box_area_frac": 0.001951,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_003332",
+  "country": "United_States",
+  "box_xyxy": [
+   271.0,
+   498.0,
+   287.0,
+   516.0
+  ],
+  "box_w": 16.0,
+  "box_h": 18.0,
+  "box_area_px": 288.0,
+  "box_area_frac": 0.000703,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_003555",
+  "country": "United_States",
+  "box_xyxy": [
+   339.0,
+   481.0,
+   406.0,
+   526.0
+  ],
+  "box_w": 67.0,
+  "box_h": 45.0,
+  "box_area_px": 3015.0,
+  "box_area_frac": 0.007361,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_004109",
+  "country": "United_States",
+  "box_xyxy": [
+   205.0,
+   473.0,
+   229.0,
+   487.0
+  ],
+  "box_w": 24.0,
+  "box_h": 14.0,
+  "box_area_px": 336.0,
+  "box_area_frac": 0.00082,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_004398",
+  "country": "United_States",
+  "box_xyxy": [
+   63.0,
+   536.0,
+   84.0,
+   552.0
+  ],
+  "box_w": 21.0,
+  "box_h": 16.0,
+  "box_area_px": 336.0,
+  "box_area_frac": 0.00082,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_004531",
+  "country": "United_States",
+  "box_xyxy": [
+   61.0,
+   514.0,
+   90.0,
+   534.0
+  ],
+  "box_w": 29.0,
+  "box_h": 20.0,
+  "box_area_px": 580.0,
+  "box_area_frac": 0.001416,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": false
+ },
+ {
+  "image": "United_States_004643",
+  "country": "United_States",
+  "box_xyxy": [
+   322.0,
+   421.0,
+   382.0,
+   450.0
+  ],
+  "box_w": 60.0,
+  "box_h": 29.0,
+  "box_area_px": 1740.0,
+  "box_area_frac": 0.004248,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_004760",
+  "country": "United_States",
+  "box_xyxy": [
+   421.0,
+   546.0,
+   447.0,
+   564.0
+  ],
+  "box_w": 26.0,
+  "box_h": 18.0,
+  "box_area_px": 468.0,
+  "box_area_frac": 0.001143,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ },
+ {
+  "image": "United_States_004760",
+  "country": "United_States",
+  "box_xyxy": [
+   480.0,
+   522.0,
+   547.0,
+   544.0
+  ],
+  "box_w": 67.0,
+  "box_h": 22.0,
+  "box_area_px": 1474.0,
+  "box_area_frac": 0.003599,
+  "image_w": 640,
+  "image_h": 640,
+  "detected_at_floor": true
+ }
+]

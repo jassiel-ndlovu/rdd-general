@@ -1,0 +1,32 @@
+{
+  "dataset": "stellenbosch_potholes",
+  "source": "Nienaber, Kroon & Booysen 2018, Stellenbosch University, CC0, via Dataset Ninja",
+  "note": "C4 is the only annotated class; predictions for other classes are observations, not errors",
+  "imgsz": 640,
+  "variants": {
+    "us17b": {
+      "weights": "/opt/rdd/runs/us17b_strip_s0/weights/best.pt",
+      "C4": {
+        "AP50": 0.043,
+        "AP50_95": 0.0104,
+        "precision": 0.2421,
+        "recall": 0.0592
+      },
+      "negatives": {
+        "images": 8552,
+        "conf": 0.25,
+        "predictions_per_class": {
+          "C1_longitudinal_crack": 528,
+          "C2_transverse_crack": 24,
+          "C3_alligator_crack": 15,
+          "C4_pothole": 1,
+          "C5_white_line_blur": 0,
+          "C6_crosswalk_blur": 0
+        },
+        "images_with_a_pothole_prediction": 1,
+        "false_positive_rate_per_image": 0.0001,
+        "images_with_a_pothole_prediction_frac": 0.0001
+      }
+    }
+  }
+}

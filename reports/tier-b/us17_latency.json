@@ -1,0 +1,130 @@
+{
+  "gpu": "Tesla T4",
+  "imgsz": 640,
+  "batch": 1,
+  "precision": "fp32",
+  "iters": 100,
+  "warmup": 20,
+  "variants": {
+    "baseline": {
+      "weights": "/opt/rdd/latency/tierA_base6_s0.pt",
+      "parameters": 9430114,
+      "gflops": 21.68,
+      "forward": {
+        "mean_ms": 9.142,
+        "median_ms": 9.126,
+        "p95_ms": 9.597,
+        "std_ms": 0.29,
+        "min_ms": 8.758,
+        "fps": 109.4,
+        "iters": 100
+      },
+      "end_to_end": {
+        "mean_ms": 13.049,
+        "median_ms": 13.115,
+        "p95_ms": 13.601,
+        "std_ms": 0.384,
+        "min_ms": 12.091,
+        "fps": 76.6,
+        "iters": 100
+      },
+      "end_to_end_images": 100
+    },
+    "us17a": {
+      "weights": "/opt/rdd/latency/us17a_p2head_s0.pt",
+      "parameters": 9576072,
+      "gflops": 29.08,
+      "forward": {
+        "mean_ms": 12.029,
+        "median_ms": 12.017,
+        "p95_ms": 12.175,
+        "std_ms": 0.098,
+        "min_ms": 11.831,
+        "fps": 83.1,
+        "iters": 100
+      },
+      "end_to_end": {
+        "mean_ms": 16.495,
+        "median_ms": 16.478,
+        "p95_ms": 17.141,
+        "std_ms": 0.424,
+        "min_ms": 15.692,
+        "fps": 60.6,
+        "iters": 100
+      },
+      "end_to_end_images": 100
+    },
+    "us17b": {
+      "weights": "/opt/rdd/latency/us17b_strip_s0.pt",
+      "parameters": 10132578,
+      "gflops": 22.99,
+      "forward": {
+        "mean_ms": 10.045,
+        "median_ms": 10.074,
+        "p95_ms": 10.474,
+        "std_ms": 0.296,
+        "min_ms": 9.453,
+        "fps": 99.5,
+        "iters": 100
+      },
+      "end_to_end": {
+        "mean_ms": 13.823,
+        "median_ms": 13.819,
+        "p95_ms": 14.422,
+        "std_ms": 0.36,
+        "min_ms": 12.898,
+        "fps": 72.3,
+        "iters": 100
+      },
+      "end_to_end_images": 100
+    },
+    "us17c": {
+      "weights": "/opt/rdd/latency/us17c_dysample_s0.pt",
+      "parameters": 9436274,
+      "gflops": 21.69,
+      "forward": {
+        "mean_ms": 10.039,
+        "median_ms": 9.919,
+        "p95_ms": 10.609,
+        "std_ms": 0.303,
+        "min_ms": 9.691,
+        "fps": 99.6,
+        "iters": 100
+      },
+      "end_to_end": {
+        "mean_ms": 14.059,
+        "median_ms": 14.084,
+        "p95_ms": 14.714,
+        "std_ms": 0.387,
+        "min_ms": 13.17,
+        "fps": 71.1,
+        "iters": 100
+      },
+      "end_to_end_images": 100
+    },
+    "us17d": {
+      "weights": "/opt/rdd/latency/us17d_combined_s0.pt",
+      "parameters": 10294944,
+      "gflops": 30.89,
+      "forward": {
+        "mean_ms": 14.224,
+        "median_ms": 14.194,
+        "p95_ms": 14.48,
+        "std_ms": 0.145,
+        "min_ms": 13.922,
+        "fps": 70.3,
+        "iters": 100
+      },
+      "end_to_end": {
+        "mean_ms": 18.566,
+        "median_ms": 18.577,
+        "p95_ms": 19.193,
+        "std_ms": 0.364,
+        "min_ms": 17.77,
+        "fps": 53.9,
+        "iters": 100
+      },
+      "end_to_end_images": 100
+    }
+  }
+}

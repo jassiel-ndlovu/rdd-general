@@ -88,6 +88,89 @@ If both succeed the environment works. CI runs the same smoke test.
 `requirements.txt` pins `ultralytics`, which pulls in PyTorch at roughly 900 MB. To
 work on the data pipeline only, install everything except that line.
 
+## Getting the data
+
+Three public datasets. None of them is redistributed here, and all three are
+fetched by script.
+
+| Dataset | Used for | Licence | Fetch |
+|---|---|---|---|
+| RDD2022 | C1 to C6, training and validation | CC BY 4.0 on figshare; the authors' GitHub README says CC BY-SA 4.0 | `bash infra/fetch-datasets.sh` |
+| Road Rutting (Sekilab) | C7 rutting | CC BY 4.0, doi:10.17632/v8mbnvx8pv.1 | `bash infra/run-us21.sh` |
+| Stellenbosch potholes | zero-shot evaluation | CC0 1.0 | `bash infra/run-us22.sh` |
+
+The RDD2022 licence is stated inconsistently by its own publishers, so treat it
+as the more restrictive CC BY-SA 4.0 until that is resolved. The rutting
+archive is verified against the SHA-256 its publisher provides; the Stellenbosch
+archive has no published hash, so its size and tar index are checked instead and
+the extracted image count is compared against the published 11,497.
+
+RDD2022 is a 13.3 GB download and `fetch-datasets.sh` is meant to run on the
+training instance, where the transfer and the S3 upload are both in-region.
+
+Once the raw data is in place, build the canonical store, the splits and the
+YOLO views:
+
+```bash
+bash infra/run-m1.sh      # VOC to COCO, de-duplication, grouped splits, YOLO export
+```
+
+The splits are grouped by country and duplicate cluster, never by random image,
+and are fixed by SHA-256. Those hashes are recorded in every `revalidation.json`
+under `reports/`, so a rebuilt split can be checked against the one the reported
+results used.
+
+## Reproducing the results
+
+Every training run sets its seed explicitly. The Tier A baseline runs three
+seeds (0, 1, 2) and everything else runs seed 0, which is what the report states
+alongside each number.
+
+```bash
+bash infra/run-tierA.sh       # six-class baseline x3 seeds, four-class control
+bash infra/run-tierB.sh       # tiled resolution front end
+bash infra/run-us17.sh abcd   # the four architecture variants
+bash infra/run-us21.sh        # rutting detection and segmentation
+bash infra/run-us22.sh        # zero-shot evaluation on held-out imagery
+bash infra/latency.sh         # per-variant latency, on an idle GPU
+```
+
+Each run writes `summary.json` and `reval/revalidation.json` beside its
+checkpoints and syncs them to S3. The aggregation and comparison steps are:
+
+```bash
+PYTHONPATH=src python -m rdd.eval.aggregate --runs runs --out runs/tierA_summary.json
+PYTHONPATH=src python -m rdd.eval.aggregate_seeds \
+    --reval reports/tier-a/tierA_base6_s0.revalidation.json \
+    --reval reports/tier-a/tierA_base6_s1.revalidation.json \
+    --reval reports/tier-a/tierA_base6_s2.revalidation.json \
+    --out   reports/tier-a/aggregate_seeds.json
+PYTHONPATH=src python -m rdd.eval.compare_variants \
+    --baseline reports/tier-a/tierA_base6_s0.revalidation.json \
+    --aggregate reports/tier-a/aggregate.json \
+    --variant us17b=reports/tier-b/us17b_strip_s0.revalidation.json
+```
+
+A full reproduction needs a GPU: the Tier A set is about 40 GPU-hours and each
+variant is 15 to 17 hours on an NVIDIA T4. The data pipeline, the aggregation
+and the comparison tables all run on a laptop with no GPU.
+
+## Results in this repository
+
+Every number in the report is read from one of these files rather than
+transcribed by hand.
+
+| Report section | Files |
+|---|---|
+| Per class, per country, cost of generality | `reports/tier-a/aggregate.json`, `aggregate_seeds.json`, `tierA_base6_s{0,1,2}.revalidation.json`, `tierA_ctrl4_s0.json` |
+| Why potholes are missed | `reports/tier-a/false_negatives_C4_pothole.json` |
+| Architecture variants and latency | `reports/tier-b/us17{a,b,c,d}_*.json`, `us17_latency.json` |
+| Rutting | `reports/tier-c/us21_rutting_*.json` |
+| Zero-shot transfer | `reports/tier-c/us22_zeroshot*.json`, `us22_conversion.json` |
+
+`reports/tier-a/` and `reports/tier-b/` also hold the generated LaTeX tables, so
+the report's tables and the JSON cannot disagree.
+
 ## Cloud infrastructure
 
 `infra/` provisions and manages an AWS GPU training environment: an S3 bucket, a
