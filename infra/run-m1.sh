@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- run M1 stages 3-6 end to end
+#  RDD project: run M1 stages 3-6 end to end
 # =============================================================================
 #  Assumes stages 0-2 are already done, i.e. the dataset is extracted and the
 #  canonical COCO store exists at data/coco/rdd2022_train.json.
 #
 #  Stage 3  de-duplicate        perceptual hash, banded LSH
-#  Stage 4  grouped splits      by country + derived road segment
+#  Stage 4  grouped splits      by country and derived road segment
 #  Stage 6  YOLO export         generated view of the COCO store
 #
 #  RUN ON THE INSTANCE:  bash infra/run-m1.sh
@@ -34,13 +34,13 @@ export PYTHONPATH=src
 
 say() { printf '\n\033[1;36m### %s\033[0m\n' "$*"; }
 
-say "STAGE 2 -- VOC to canonical COCO"
+say "STAGE 2: VOC to canonical COCO"
 "$PY" -m rdd.data.voc_to_coco \
   --root "$DATA/rdd2022/RDD2022" \
   --source rdd2022 --split train \
   --out "$DATA/coco/rdd2022_train.json"
 
-say "STAGE 3 -- de-duplication"
+say "STAGE 3: de-duplication"
 "$PY" -m rdd.data.dedup \
   --coco "$DATA/coco/rdd2022_train.json" \
   --root "$DATA/rdd2022/RDD2022" \
@@ -51,7 +51,7 @@ say "STAGE 3 -- de-duplication"
 # filename numbering. Set MAX_SEQ_GAP and add the flag back only for a dataset
 # where that verifier reports TEMPORAL.
 
-say "STAGE 4 -- grouped splits"
+say "STAGE 4: grouped splits"
 "$PY" -m rdd.data.splits \
   --coco  "$DATA/coco/rdd2022_train.json" \
   --dedup "$DATA/coco/dedup_report.json" \
@@ -59,7 +59,7 @@ say "STAGE 4 -- grouped splits"
   --val-fraction "${VAL_FRACTION:-0.15}" \
   --seed "${SPLIT_SEED:-0}"
 
-say "STAGE 6 -- YOLO export"
+say "STAGE 6: YOLO export"
 "$PY" -m rdd.data.to_yolo \
   --coco   "$DATA/coco/rdd2022_train.json" \
   --splits "$DATA/splits/rdd2022_core.json" \

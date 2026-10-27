@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- AWS foundation bootstrap
+#  RDD project: AWS foundation bootstrap
 # =============================================================================
 #  Creates the durable, near-zero-cost resources the project needs:
-#    * S3 bucket           (dataset + artefact store)
-#    * IAM role + profile  (so EC2 reaches S3 without static keys)
+#    * S3 bucket           (dataset and artefact store)
+#    * IAM role and profile (so EC2 reaches S3 without static keys)
 #    * Security group      (egress-only; access is via SSM Session Manager)
 #    * Budget              (spend guardrail)
 #
@@ -21,7 +21,7 @@ export MSYS_NO_PATHCONV=1
 export MSYS2_ARG_CONV_EXCL='*'
 
 # ----------------------------------------------------------------------------
-# Configuration -- single source of truth, also read by the launch scripts
+# Configuration: single source of truth, also read by the launch scripts
 # ----------------------------------------------------------------------------
 source "$(dirname "${BASH_SOURCE[0]}")/config.sh"
 
@@ -82,7 +82,7 @@ aws s3api put-bucket-tagging --bucket "$RDD_BUCKET" \
 ok "tagged Project=$PROJECT_TAG"
 
 # ----------------------------------------------------------------------------
-# 2. IAM role + instance profile
+# 2. IAM role and instance profile
 # ----------------------------------------------------------------------------
 say "IAM role: $IAM_ROLE"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -92,7 +92,7 @@ if aws iam get-role --role-name "$IAM_ROLE" >/dev/null 2>&1; then
 else
   aws iam create-role --role-name "$IAM_ROLE" \
     --assume-role-policy-document "$(fileurl "$HERE/policies/ec2-trust-policy.json")" \
-    --description "EC2 role for the RDD project (S3 + logs, scoped to $RDD_BUCKET)" \
+    --description "EC2 role for the RDD project (S3 and logs, scoped to $RDD_BUCKET)" \
     --tags "Key=Project,Value=$PROJECT_TAG" >/dev/null
   ok "role created"
 fi
@@ -129,7 +129,7 @@ else
 fi
 
 # ----------------------------------------------------------------------------
-# 3. Security group (egress only -- no inbound rules at all)
+# 3. Security group (egress only, no inbound rules at all)
 # ----------------------------------------------------------------------------
 say "Security group: $SG_NAME"
 VPC_ID=$(aws ec2 describe-vpcs --region "$AWS_REGION" \
@@ -146,7 +146,7 @@ if [ "$SG_ID" = "None" ] || [ -z "$SG_ID" ]; then
           --description "RDD training instances: egress only, access via SSM" \
           --tag-specifications "ResourceType=security-group,Tags=[{Key=Project,Value=$PROJECT_TAG},{Key=Name,Value=$SG_NAME}]" \
           --query GroupId --output text)
-  # A new SG has no inbound rules by default -- that is exactly what we want.
+  # A new SG has no inbound rules by default, that is exactly what we want.
   ok "created $SG_ID (no inbound rules; outbound allow-all)"
 else
   skip "already exists: $SG_ID"

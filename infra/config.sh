@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- shared infrastructure configuration
+#  RDD project: shared infrastructure configuration
 # =============================================================================
 #  Sourced by every script in infra/. Edit here, not in the scripts.
 # =============================================================================

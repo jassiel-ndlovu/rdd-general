@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-#  RDD project -- EC2 first-boot provisioning (cloud-init user-data)
+#  RDD project: EC2 first-boot provisioning (cloud-init user-data)
 # =============================================================================
 #  Runs once, as root, on first boot of a training instance.
 #  Placeholders __LIKE_THIS__ are substituted by infra/launch-instance.sh.
@@ -66,7 +66,7 @@ print('ultralytics settings pinned')
 # A WRAPPER, not a symlink. /opt/pytorch is a virtualenv, and Python locates its
 # venv by looking for pyvenv.cfg next to sys.executable. A symlink resolves
 # through to the base interpreter (/usr/local/bin/python3.12), which sits outside
-# the venv, so the venv's site-packages -- including torch -- never load.
+# the venv, so the venv's site-packages, including torch, never load.
 # exec'ing the real path keeps sys.executable inside the venv.
 cat > /usr/local/bin/rddpython <<WRAP
 #!/bin/sh
@@ -76,7 +76,7 @@ chmod +x /usr/local/bin/rddpython
 "$PY" -c "import torch" && echo "rddpython wrapper verified: torch importable"
 
 # ----------------------------------------------------------------------------
-# 4. Idle auto-shutdown -- the main cost control
+# 4. Idle auto-shutdown, the main cost control
 #    Stops (does not terminate) the instance after IDLE_MINUTES of GPU
 #    inactivity, so the EBS volume and any in-progress work survive.
 #    Create /opt/rdd/KEEP_ALIVE to suspend the watchdog.
@@ -103,7 +103,7 @@ echo "$COUNT" > "$STATE"
 logger -t rdd-idle "GPU idle (${UTIL}%), ${COUNT}/${LIMIT} samples"
 
 if [ "$COUNT" -ge "$LIMIT" ]; then
-    logger -t rdd-idle "Idle limit reached -- stopping instance"
+    logger -t rdd-idle "Idle limit reached: stopping instance"
     /usr/local/bin/rdd-sync-out || true
     shutdown -h now
 fi
@@ -185,7 +185,7 @@ chown ubuntu:ubuntu /home/ubuntu/.bashrc
 # 6. Pull project code from S3 (if it has been pushed)
 # ----------------------------------------------------------------------------
 aws s3 sync "s3://$RDD_BUCKET/code/" "$WORKDIR/code/" --only-show-errors || \
-    echo "no code/ prefix in S3 yet -- run infra/sync-code.sh from your laptop"
+    echo "no code/ prefix in S3 yet, run infra/sync-code.sh from your laptop"
 chown -R ubuntu:ubuntu "$WORKDIR"
 
 # ----------------------------------------------------------------------------

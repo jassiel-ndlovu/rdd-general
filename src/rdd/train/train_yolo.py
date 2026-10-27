@@ -5,7 +5,7 @@ Follows the proposal's protocol:
   * one-stage CNN (YOLO family, small variant), COCO-initialised
   * 640 px, 100-150 epochs
   * three seeds, mean +/- std reported
-  * SINGLE MODEL -- no ensembling, no test-time augmentation
+  * SINGLE MODEL, no ensembling, no test-time augmentation
   * per-class AND per-country metrics, never one pooled number
 
 Two things this script does that a stock `yolo train` call does not
@@ -22,7 +22,7 @@ Augmentation constraints (enforced here, not left to defaults)
 --------------------------------------------------------------
 Vertical flip and large rotation are DISABLED. "Longitudinal" and "transverse"
 are defined by orientation relative to the direction of travel, so a 90-degree
-rotation turns a C1 into a C2 while leaving the label untouched — it teaches the
+rotation turns a C1 into a C2 while leaving the label untouched, it teaches the
 model the opposite of the truth. Horizontal flip and colour jitter are safe and
 are kept.
 
@@ -37,6 +37,7 @@ Usage
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 import os
 import random
@@ -80,7 +81,7 @@ def s3_sync(local: Path, remote: str) -> None:
     these patterns against the path RELATIVE TO THE SYNC SOURCE, so which one
     fires depends on whether the source is the run directory or its parent.
     Getting this wrong is silent: the sync succeeds and simply uploads 1.7 GB of
-    duplicated images. It has happened once already -- see infra/run-tierA.sh.
+    duplicated images. It has happened once already, see infra/run-tierA.sh.
     """
     if not remote:
         return
@@ -92,11 +93,18 @@ def s3_sync(local: Path, remote: str) -> None:
         check=False)
 
 
-def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int) -> dict:
+def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int,
+                     names: dict[int, str] | None = None) -> dict:
     """Re-evaluate the trained model on each country's validation images.
 
     Builds a temporary data.yaml per country whose val/ contains only that
     country's images, then runs validation. Inference-only, so cheap.
+
+    Pass `names` to also record the per-class breakdown within each country.
+    That block is what US13 task 13.5 needs, and it is captured here rather
+    than by re-validating afterwards because each validation pass retains a
+    few hundred megabytes: a second pass over six countries is what pushed a
+    16 GB instance into the OOM killer.
     """
     import yaml as _yaml
     cfg = _yaml.safe_load(data_yaml.read_text(encoding="utf-8"))
@@ -148,7 +156,7 @@ def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int) -> dict:
         try:
             m = model.val(data=str(cyaml), imgsz=imgsz, split="val",
                           verbose=False, plots=False)
-            results[country] = {
+            entry = {
                 "n_images": len(paths),
                 "mAP50": round(float(m.box.map50), 4),
                 "mAP50_95": round(float(m.box.map), 4),
@@ -157,6 +165,30 @@ def per_country_eval(model, data_yaml: Path, out_dir: Path, imgsz: int) -> dict:
                 "f1": round(float(2 * m.box.mp * m.box.mr / (m.box.mp + m.box.mr))
                             if (m.box.mp + m.box.mr) else 0.0, 4),
             }
+            if names is not None:
+                # ap_class_index matters: a class with no instances in this
+                # country is omitted from the arrays rather than reported as
+                # zero, so the index is the only safe attribution.
+                per_class = {}
+                for i, _ in enumerate(m.box.ap50):
+                    ci = int(m.box.ap_class_index[i])
+                    per_class[names.get(ci, str(ci))] = {
+                        "AP50": round(float(m.box.ap50[i]), 4),
+                        "AP50_95": round(float(m.box.ap[i]), 4),
+                        "precision": round(float(m.box.p[i]), 4),
+                        "recall": round(float(m.box.r[i]), 4),
+                    }
+                entry["per_class"] = per_class
+            results[country] = entry
+            # Each pass holds on to its own validator state. Release it before
+            # the next country rather than at the end of the loop.
+            del m
+            gc.collect()
+            try:
+                import torch
+                torch.cuda.empty_cache()
+            except Exception:                        # noqa: BLE001
+                pass
         except Exception as e:                       # noqa: BLE001
             results[country] = {"n_images": len(paths), "error": str(e)[:200]}
     return results
@@ -166,6 +198,20 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Tier A YOLO baseline.")
     ap.add_argument("--data", required=True, type=Path, help="data.yaml")
     ap.add_argument("--model", default="yolo11s.pt")
+    ap.add_argument("--transfer-from", default=None,
+                    help="checkpoint to transfer matching weights from when "
+                         "--model is an architecture .yaml. Without this a "
+                         ".yaml builds random weights, and comparing that "
+                         "against a COCO-pretrained baseline would confound "
+                         "architecture with initialisation")
+    ap.add_argument("--transfer-max-shift", type=int, default=6,
+                    help="how far back transfer_weights may look for a "
+                         "renumbered layer. Each inserted module shifts every "
+                         "later layer by one, so a config combining several "
+                         "modifications needs a larger value than the default "
+                         "-- the combined US17 variant shifts Detect by 10. "
+                         "Too small and the deepest layers silently fall back "
+                         "to random initialisation")
     ap.add_argument("--epochs", type=int, default=100)
     ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--batch", type=int, default=16)
@@ -181,13 +227,13 @@ def main(argv=None) -> int:
     ap.add_argument("--fraction", type=float, default=1.0,
                     help="train on this fraction of the data. Use a small value "
                          "(e.g. 0.05) for a smoke test that exercises the whole "
-                         "path -- callbacks, S3 sync, per-country eval, summary "
+                         "path, callbacks, S3 sync, per-country eval, summary "
                          "-- in minutes rather than hours. NEVER use <1.0 for a "
                          "reported result.")
     args = ap.parse_args(argv)
 
     if args.fraction < 1.0:
-        print(f"\n  *** SMOKE TEST: fraction={args.fraction} -- "
+        print(f"\n  *** SMOKE TEST: fraction={args.fraction}, "
               f"results are NOT valid for reporting ***\n")
 
     run_name = args.name or f"{Path(args.model).stem}_s{args.seed}"
@@ -204,10 +250,68 @@ def main(argv=None) -> int:
     print(f"  device     {args.device}  cuda={torch.cuda.is_available()}"
           f" {torch.cuda.get_device_name(0) if torch.cuda.is_available() else ''}")
     print(f"  run        {args.project / run_name}")
-    print(f"  s3         {args.s3 or '(none -- checkpoints are local only)'}")
+    print(f"  s3         {args.s3 or '(none, checkpoints are local only)'}")
     print("=" * 66)
 
+    # Custom US17 modules must be resolvable before a YAML is parsed or a
+    # checkpoint containing them is unpickled.
+    from rdd.models import register as register_custom_modules
+    register_custom_modules()
+
     model = YOLO(args.model)
+    model_transfer = {}
+    if args.transfer_from:
+        # Transfers every layer whose shape matches and leaves the rest at
+        # their initialised values, which for an added detection head is the
+        # head itself. This is what keeps an architecture variant comparable
+        # with a baseline that started from the same pretrained weights.
+        if not str(args.model).endswith((".yaml", ".yml")):
+            print(f"  [warn] --transfer-from with a non-yaml model "
+                  f"({args.model}); weights would be overwritten, ignoring")
+        else:
+            # Not model.load(): it matches state-dict keys verbatim, and keys
+            # carry the layer index, so inserting a module renumbers every
+            # layer after it and roughly 40% of the pretrained weights are
+            # silently dropped. See rdd.models.transfer_weights.
+            from rdd.models import transfer_weights
+            n, tot = transfer_weights(model, args.transfer_from,
+                                      max_shift=args.transfer_max_shift)
+            model_transfer = {"from": str(args.transfer_from),
+                              "tensors": n, "of": tot,
+                              "max_shift": args.transfer_max_shift}
+            print(f"  source: {args.transfer_from}")
+
+            # The transfer has to survive into the trainer, and by default it
+            # does not. Model.train() reuses the module it is already holding
+            # only when self.ckpt is set, which happens for a .pt and not for
+            # a .yaml; otherwise the trainer falls back to the YAML path in
+            # overrides, rebuilds from scratch, and every transferred tensor
+            # is discarded. Measured on ultralytics 8.4.131: without the line
+            # below the trainer's first conv does not match the pretrained
+            # one, so the variant trains from random initialisation while the
+            # Tier A baseline: launched from yolo11s.pt, did not. That is
+            # the same confound transfer_weights exists to remove, one layer
+            # further out. Setting ckpt puts a YAML-built model on the same
+            # path a checkpoint-loaded one already takes; ultralytics then
+            # reports its own "Transferred N/M items" line, which is the
+            # number to trust.
+            model.ckpt = {"model": model.model}
+
+    # Parameters and FLOPs, which US17 asks for per variant.
+    # Not model_info(): it early-returns None unless verbose=True, despite a
+    # docstring promising a tuple. The primitives below actually return values.
+    model_stats = {}
+    try:
+        from ultralytics.utils.torch_utils import get_flops, get_num_params
+        n_p = get_num_params(model.model)
+        flops = get_flops(model.model, imgsz=args.imgsz)
+        n_l = sum(1 for m in model.model.modules() if not list(m.children()))
+        model_stats = {"layers": n_l, "parameters": int(n_p),
+                       "gflops": round(float(flops), 2)}
+        print(f"  layers {n_l}, parameters {n_p:,}, GFLOPs {flops:.1f}")
+    except Exception as e:                            # noqa: BLE001
+        print(f"  [warn] could not read model info: {e}")
+
     out_dir = args.project / run_name
     remote = f"{args.s3.rstrip('/')}/{run_name}" if args.s3 else ""
 
@@ -278,6 +382,9 @@ def main(argv=None) -> int:
     summary = {
         "run": run_name,
         "model": args.model,
+        "transfer_from": args.transfer_from,
+        "model_stats": model_stats,
+        "weight_transfer": model_transfer,
         "seed": args.seed,
         "epochs": args.epochs,
         "imgsz": args.imgsz,

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- push local code to S3, where instances pick it up
+#  RDD project: push local code to S3, where instances pick it up
 # =============================================================================
 #  Code travels laptop -> S3 -> instance. The instance never needs credentials
 #  for your laptop, and a fresh instance always starts from the same artefact.
@@ -25,7 +25,7 @@ for f in "$ROOT"/infra/*.sh; do
   if grep -qU $'\r' "$f" 2>/dev/null; then BAD="$BAD $(basename "$f")"; fi
 done
 if [ -n "$BAD" ]; then
-  echo "REFUSING TO SYNC -- these scripts have CRLF line endings:" >&2
+  echo "REFUSING TO SYNC: these scripts have CRLF line endings:" >&2
   for b in $BAD; do echo "    infra/$b" >&2; done
   echo >&2
   echo "  Fix with:  sed -i 's/\\r\$//' infra/*.sh" >&2

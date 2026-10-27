@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- check the status of service quota requests
+#  RDD project: check the status of service quota requests
 # =============================================================================
 #  Read-only. Shows the current G/VT quotas and any pending increase requests.
 #  Quota increases are requested through the AWS console; ask the project

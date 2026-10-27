@@ -35,7 +35,7 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      # -- shell hygiene ----------------------------------------------------
+      #, shell hygiene ----------------------------------------------------
       - name: Shell scripts must use LF line endings
         run: |
           if grep -rlU $'\r' infra/ --include='*.sh'; then
@@ -50,7 +50,7 @@ jobs:
           for f in infra/*.sh; do bash -n "$f" || exit 1; done
           echo "all infra/*.sh parse"
 
-      # -- python -----------------------------------------------------------
+      #, python -----------------------------------------------------------
       - name: Install pipeline dependencies
         run: |
           grep -v '^ultralytics' requirements.txt > /tmp/requirements-ci.txt
@@ -63,7 +63,7 @@ jobs:
           sys.path.insert(0, "src")
           failed = []
           for m in pkgutil.walk_packages(["src/rdd"], prefix="rdd."):
-              if ".train" in m.name or ".eval" in m.name:
+              if any(s in m.name for s in (".train", ".eval", ".models")):
                   continue                      # these need torch
               try:
                   importlib.import_module(m.name)
@@ -82,7 +82,25 @@ jobs:
           test -s /tmp/fixture/out.json
           echo "converter produced non-empty output"
 
-      # -- project invariants ------------------------------------------------
+      # The tiling front end is pure geometry, so the fixture exercises all of
+      # it: grid, clipping and the cross-tile merge, plus the Norway-scale
+      # cases the fixture itself is too small to contain.
+      - name: Tiling front end, end to end on the fixture
+        run: |
+          PYTHONPATH=src python -m rdd.verify.tile_roundtrip --root /tmp/fixture
+
+      # The tiled evaluation path scores detections this project produced
+      # itself, so its average precision is a port of Ultralytics' own rather
+      # than a call into it (rdd.eval.apmetrics says why). Here that port is
+      # checked against hand-computable cases, against pycocotools, and end to
+      # end over the fixture with a stub detector in place of a checkpoint.
+      # The two checks that compare it against Ultralytics directly report
+      # themselves as skipped: torch is not installed in CI.
+      - name: Tiled evaluation path, on the fixture
+        run: |
+          PYTHONPATH=src python -m rdd.verify.tiled_eval --root /tmp/fixture
+
+      #, project invariants ------------------------------------------------
       - name: Class ids are frozen
         run: |
           python - <<'PY'
@@ -113,7 +131,7 @@ jobs:
               if not m:
                   sys.exit(f"{key} is no longer set explicitly in train_yolo.py")
               if float(m.group(1)) != 0.0:
-                  sys.exit(f"{key}={m.group(1)} -- must stay 0.0. Orientation is "
+                  sys.exit(f"{key}={m.group(1)}, must stay 0.0. Orientation is "
                            f"definitional for C1 vs C2: rotating an image relabels it.")
           print("flipud and degrees are both 0.0")
           PY

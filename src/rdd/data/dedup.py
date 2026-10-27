@@ -21,7 +21,7 @@ slow in Python. Instead we use banded LSH: split each 64-bit hash into four
 16-bit bands, bucket by (band index, band value), and only compare within
 buckets. Two hashes within Hamming distance 4 must agree exactly on at least one
 band (pigeonhole: 4 differing bits cannot touch all 4 bands), so this is exact
-for the default threshold — no near-duplicate is missed.
+for the default threshold, no near-duplicate is missed.
 
 Output
 ------
@@ -147,7 +147,7 @@ def group_duplicates(hashes: dict[int, int], threshold: int,
                     if ca != cb:
                         continue
                     # Only apply the temporal constraint where the numbering has
-                    # been shown to carry locality -- see the docstring.
+                    # been shown to carry locality, see the docstring.
                     if max_seq_gap > 0 and abs(sa - sb) > max_seq_gap:
                         continue
                 union(ids[i], ids[j])
@@ -209,7 +209,7 @@ def main(argv=None) -> int:
     for a in coco["annotations"]:
         ann_count[a["image_id"]] += 1
 
-    # Keep the representative with the most annotations -- discarding the richer
+    # Keep the representative with the most annotations, discarding the richer
     # label set would be the wrong way round.
     drop: list[int] = []
     detail = []
@@ -242,7 +242,7 @@ def main(argv=None) -> int:
         "groups": detail,
         # Every near-duplicate cluster, as image-id lists. splits.py uses these
         # as grouping units so that near-identical images cannot straddle the
-        # train/val boundary -- which is the actual requirement. Dropping them
+        # train/val boundary, which is the actual requirement. Dropping them
         # is optional; keeping them together is not.
         "clusters": [sorted(g) for g in groups],
     }
@@ -254,7 +254,7 @@ def main(argv=None) -> int:
     print(f"  images to drop       {len(drop):>8}  "
           f"({100 * len(drop) / max(len(images), 1):.2f}% of the set)")
     print(f"  cross-country groups {cross_country:>8}  "
-          f"{'(investigate -- should be 0)' if cross_country else '(as expected)'}")
+          f"{'(investigate, should be 0)' if cross_country else '(as expected)'}")
     print(f"\nwrote {args.out}")
     print("\nNOTHING WAS DELETED. Inspect a sample of groups by eye before")
     print("trusting the threshold; genuinely different damage photographed")

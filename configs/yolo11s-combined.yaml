@@ -1,0 +1,86 @@
+# US17 variant D: all three modifications together
+#
+# The three single-change variants answer "does this modification help". This
+# one answers a different question: whether the three are complementary or
+# whether they are all buying the same thing. They plausibly overlap, a
+# stride-4 head, orientation-aware gating and content-aware upsampling are all
+# ways of preserving thin structure, so if D lands near the best single
+# variant rather than above it, that overlap is the finding, and it is worth
+# as much to the write-up as an additive gain would be.
+#
+# Composition:
+#   * the P2/4 detection head from variant A, so Detect sees four levels
+#   * DySample in place of all three nn.Upsample layers (variant C extended to
+#     the extra top-down step the P2 head introduces)
+#   * StripAttention on each of the four features entering Detect (variant B
+#     extended to P2)
+#
+# Channel arguments are the SCALED values for the 's' width, as in variants B
+# and C, Ultralytics only width-scales arguments for modules it knows about,
+# so these are passed verbatim. At scale s the detection features are P2 64,
+# P3 128, P4 256, P5 512, and the three upsample inputs are 512, 256 and 128.
+# Both custom modules preserve channel count, so every Concat arithmetic here
+# is identical to variant A's.
+#
+# Train with --transfer-from yolo11s.pt AND --transfer-max-shift 12. This
+# config inserts ten layers ahead of Detect, so the positional retry has to
+# look back further than its default of 6; at 6 the deepest layers, the P4
+# and P5 blocks and the head itself, would quietly start from random
+# initialisation, which is the exact defect US17 already had to correct once.
+
+# Parameters
+nc: 80 # overridden from data.yaml at training time
+scales: # the 's' scale is selected from this file's name
+  n: [0.50, 0.25, 1024]
+  s: [0.50, 0.50, 1024]
+  m: [0.50, 1.00, 512]
+  l: [1.00, 1.00, 512]
+  x: [1.00, 1.50, 512]
+
+# Backbone: unchanged from yolo11.yaml
+backbone:
+  # [from, repeats, module, args]
+  - [-1, 1, Conv, [64, 3, 2]] # 0-P1/2
+  - [-1, 1, Conv, [128, 3, 2]] # 1-P2/4
+  - [-1, 2, C3k2, [256, False, 0.25]] # 2  <- P2/4 features, tapped by the P2 head
+  - [-1, 1, Conv, [256, 3, 2]] # 3-P3/8
+  - [-1, 2, C3k2, [512, False, 0.25]] # 4
+  - [-1, 1, Conv, [512, 3, 2]] # 5-P4/16
+  - [-1, 2, C3k2, [512, True]] # 6
+  - [-1, 1, Conv, [1024, 3, 2]] # 7-P5/32
+  - [-1, 2, C3k2, [1024, True]] # 8
+  - [-1, 1, SPPF, [1024, 5]] # 9
+  - [-1, 2, C2PSA, [1024]] # 10
+
+# Head: variant A's four-level structure, with DySample for every upsample
+# and StripAttention on every Detect input.
+head:
+  - [-1, 1, DySample, [512, 2]] # 11  (512 ch at scale s)
+  - [[-1, 6], 1, Concat, [1]] # cat backbone P4
+  - [-1, 2, C3k2, [512, False]] # 13  -> 256 ch
+
+  - [-1, 1, DySample, [256, 2]] # 14  (256 ch at scale s)
+  - [[-1, 4], 1, Concat, [1]] # cat backbone P3
+  - [-1, 2, C3k2, [256, False]] # 16  -> 128 ch (P3 top-down)
+
+  - [-1, 1, DySample, [128, 2]] # 17  (128 ch at scale s; the P2 head's extra step)
+  - [[-1, 2], 1, Concat, [1]] # cat backbone P2
+  - [-1, 2, C3k2, [128, False]] # 19  -> 64 ch (P2/4-xsmall)
+  - [-1, 1, StripAttention, [64, 7]] # 20  (64 ch at scale s)
+
+  - [-1, 1, Conv, [128, 3, 2]] # 21
+  - [[-1, 16], 1, Concat, [1]] # cat head P3
+  - [-1, 2, C3k2, [256, False]] # 23  -> 128 ch (P3/8-small)
+  - [-1, 1, StripAttention, [128, 7]] # 24  (128 ch at scale s)
+
+  - [-1, 1, Conv, [256, 3, 2]] # 25
+  - [[-1, 13], 1, Concat, [1]] # cat head P4
+  - [-1, 2, C3k2, [512, False]] # 27  -> 256 ch (P4/16-medium)
+  - [-1, 1, StripAttention, [256, 7]] # 28  (256 ch at scale s)
+
+  - [-1, 1, Conv, [512, 3, 2]] # 29
+  - [[-1, 10], 1, Concat, [1]] # cat head P5
+  - [-1, 2, C3k2, [1024, True]] # 31  -> 512 ch (P5/32-large)
+  - [-1, 1, StripAttention, [512, 7]] # 32  (512 ch at scale s)
+
+  - [[20, 24, 28, 32], 1, Detect, [nc]] # 33  Detect(P2, P3, P4, P5), strip-gated

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-#  RDD project -- Tier A progress and completion-time estimate
+#  RDD project: Tier A progress and completion-time estimate
 # =============================================================================
 #  Run this FROM YOUR LAPTOP at any time. Read-only; it cannot disturb training.
 #
@@ -73,12 +73,12 @@ EMPTY
 fi
 
 if [ "$WATCH" = "1" ]; then
-  echo "watching $IID every ${INTERVAL}s -- Ctrl-C to stop"
+  echo "watching $IID every ${INTERVAL}s, Ctrl-C to stop"
   while true; do
     clear 2>/dev/null || true
     snapshot "$IID"
     echo
-    echo "  (refreshing every ${INTERVAL}s -- Ctrl-C to stop)"
+    echo "  (refreshing every ${INTERVAL}s, Ctrl-C to stop)"
     sleep "$INTERVAL"
   done
 else

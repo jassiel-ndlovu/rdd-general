@@ -27,7 +27,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-# Tier A: 3 baseline seeds + 1 four-class control.
+# Tier A: 3 baseline seeds and 1 four-class control.
 EXPECTED_RUNS = ["tierA_base6_s0", "tierA_base6_s1", "tierA_base6_s2", "tierA_ctrl4_s0"]
 RATE_USD_PER_HOUR = 0.526          # g4dn.xlarge on-demand, us-east-1
 

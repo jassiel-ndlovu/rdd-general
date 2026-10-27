@@ -1,5 +1,5 @@
 # =============================================================================
-#  RDD project -- canonical class map  (objective O2)
+#  RDD project: canonical class map  (objective O2)
 # =============================================================================
 #  The single source of truth for how every source dataset's label vocabulary
 #  maps onto the project taxonomy. Nothing in the pipeline is allowed to invent
@@ -82,8 +82,16 @@ classes:
     definition: >
       Longitudinal depression confined to a wheel path, evidenced by a
       continuous change in texture or specularity over at least 3 m.
-    expected_instances: null           # 949 images, instance count unpublished
-    status: PROVISIONAL                # marginal data volume; may be descoped
+    expected_instances: 902            # measured 2026-10-26: 902 boxes and
+                                       # 780 polygons over 503 of 949 images
+                                       # (447 are negatives). Counted from
+                                       # doi:10.17632/v8mbnvx8pv.1, which the
+                                       # data-availability findings had
+                                       # recorded as "not located".
+    status: PROVISIONAL                # set located and prepared; trained as a
+                                       # SEPARATE single-category model, not
+                                       # part of the six-class core. Promote
+                                       # only once US21 reports a figure.
 
 # --- Source vocabulary -> project class --------------------------------------
 # RDD2020 merged D01 into D00 and D11 into D10. We reproduce that merge so that
@@ -94,17 +102,17 @@ sources:
     format: pascal_voc
     label_map:
       D00: C1_longitudinal_crack
-      D01: C1_longitudinal_crack     # 179 inst -- the RDD2020 merge, applied here
+      D01: C1_longitudinal_crack     # 179 inst, the RDD2020 merge, applied here
       D10: C2_transverse_crack
-      D11: C2_transverse_crack       # 45 inst  -- the RDD2020 merge, applied here
+      D11: C2_transverse_crack       # 45 inst, the RDD2020 merge, applied here
       D20: C3_alligator_crack
       D40: C4_pothole
       D43: C6_crosswalk_blur         # 793 inst
       D44: C5_white_line_blur        # 5,057 inst
-      D50: __IGNORE__                # 3,581 inst -- manhole / utility cover
-      Repair: __IGNORE__             # 1,046 inst -- patched road; ambiguous
-      "Block crack": __IGNORE__      # 3 inst     -- too few to learn
-      D0w0: __IGNORE__               # 1 inst     -- typo for D00; see note
+      D50: __IGNORE__                # 3,581 inst, manhole / utility cover
+      Repair: __IGNORE__             # 1,046 inst, patched road; ambiguous
+      "Block crack": __IGNORE__      # 3 inst, too few to learn
+      D0w0: __IGNORE__               # 1 inst, typo for D00; see note
     notes: >
       This map is derived from the label strings actually present in the
       released XML annotations, enumerated by running the converter in strict
@@ -113,7 +121,7 @@ sources:
       is not in your favour. The project's reasoning is recorded internally.
 
       D50 (manhole) and Repair are excluded from the taxonomy but are NOT
-      noise -- both are candidates for explicit distractor classes, since
+      noise, both are candidates for explicit distractor classes, since
       manholes are a documented false-positive trigger (Maeda et al. 2018).
       Revisit once the core classes are working.
 
@@ -137,6 +145,61 @@ sources:
       images, and it scores 2-3% recall in that paper. Mapping it wholesale to
       C4_pothole therefore imports known label noise. Objective O1 calls for a
       stratified re-label of a D40 sample before this mapping is trusted.
+
+  stellenbosch_potholes:
+    format: supervisely
+    label_map:
+      pothole: C4_pothole
+    notes: >
+      US22's zero-shot test set: Nienaber, Kroon and Booysen, released by
+      Stellenbosch University in 2018 under CC0, 11,497 images, as
+      redistributed by Dataset Ninja in Supervisely format.
+
+      Pothole is the ONLY annotated class here, so this source can validate C4
+      and nothing else. The absence of crack annotations is not evidence that
+      these images contain no cracks, since they are road photographs and
+      plainly do. Predictions for C1, C2, C3, C5 and C6 on this set are
+      reported as an observation and never scored as false positives. Average
+      precision
+      is per class, so C4's figure is unaffected by them.
+
+      About 74% of the images carry no annotation. In the original corpus these
+      are deliberate negatives rather than unlabelled positives, which is what
+      makes a false-positive rate computable; the converter records a sample of
+      them so that assumption can be checked by eye before the number is used.
+
+      Evaluation only. No South African image is trained on, which is the
+      premise US22 rests on and the reason the generated data.yaml has no train
+      key at all.
+
+  sekilab_rutting:
+    format: yolo_and_coco
+    label_map:
+      "0": C7_rutting
+    notes: >
+      US21's corpus: Saha, Arya, Kumar, Maeda and Sekimoto (2022),
+      RoadRuttingDatasetSekilab, Mendeley Data, CC BY 4.0,
+      doi:10.17632/v8mbnvx8pv.1. 949 images, verified against the publisher's
+      SHA-256. From the same laboratory as RDD2022, Arya, Maeda and Sekimoto
+      are RDD2022 authors, so the annotation lineage is shared rather than
+      merely compatible, which is what makes an eventual joint model defensible.
+
+      The source ships both an object-detection view in YOLO format and a
+      semantic-segmentation view as COCO polygons, all single-class. Its class
+      0 is remapped onto C7's frozen id of 6, and the prepared datasets keep
+      the project's full seven-name vocabulary with only C7 populated, so no
+      model's class 0 ever means something different from another's.
+
+      Trained as its own model. Adding a seventh class to the six-class core
+      would change nc and invalidate every checkpoint and results table the
+      project has produced, and the two corpora are only partially labelled
+      with respect to each other: rutting images carry no crack annotations and
+      RDD2022 images carry no rutting annotations. A joint model has to address
+      that partial labelling and is deliberately out of scope here.
+
+      Scale: these are small crops, masks around 259x194, so US21 trains at
+      imgsz 320. Figures from it are not comparable with the project's 640px
+      RDD2022 results and are not presented as if they were.
 
   # Community re-annotations add classes the official releases never had.
   # Listed so the converter can reject them explicitly rather than crash.
